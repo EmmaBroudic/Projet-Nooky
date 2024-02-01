@@ -14,6 +14,7 @@ CREATE TABLE "product" (
     Product_Name VARCHAR(50) NOT NULL,
     Product_Picture_URL VARCHAR(255),
     Product_Description VARCHAR(400),
+    Product_Transaction VARCHAR(50) CHECK (Transaction_Type IN ('sale', 'exchange', 'donate')) NOT NULL
     Product_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     User_Id UUID,
     Transaction_Id UUID,
@@ -54,11 +55,6 @@ CREATE TABLE "category" (
     Category_Name VARCHAR(50) NOT NULL,
     Category_Description VARCHAR(200),
     Category_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE "transaction" (
-    Transaction_Id UUID PRIMARY KEY UNIQUE,
-    Transaction_Type VARCHAR(50) CHECK (Transaction_Type IN ('sale', 'exchange', 'donate')) NOT NULL
 );
 
 CREATE TABLE "category_products" (
