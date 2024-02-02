@@ -2,9 +2,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     max-width: 1400px;
-    margin: auto;
+    margin: 30px;
+    align-items: center;
 }
 
 header {
@@ -31,7 +31,6 @@ header {
     height: 550px;
     border: 3px pink solid;
     border-radius: 20px;
-    margin: 30px;
 }
 
 .connect {
@@ -53,13 +52,14 @@ button, input {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     width: 100%;
 }
 
 .product {
     background-color: pink;
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     text-align: center;
     margin: 20px;
     border-radius: 10px;
@@ -91,3 +91,18 @@ button, input {
     margin: 30px;
     border-radius: 10px;
 }
+
+.menu-nav {
+    padding: 10px;
+}
+
+#barre {
+    right: 0px;
+}
+
+#menu-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
