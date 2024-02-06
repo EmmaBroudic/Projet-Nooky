@@ -8,6 +8,10 @@ a {
     text-decoration: none;
 }
 
+main {
+    margin-bottom: 50px;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -16,7 +20,7 @@ header {
 }
 
 #logo {
-    width: 20%;
+    width: 15%;
     height: auto;
     padding-right: 20px;
 }
@@ -31,6 +35,7 @@ header {
 .menu-nav {
     padding: 20px;
     margin-bottom: 10px;
+    font-size: 13px;
 }
 
 #container-row-bis {
@@ -87,6 +92,7 @@ header {
 #titre {
     text-align: center;
     font-family: Arial;
+    font-size: 14px;
 }
 
 #product-card {
@@ -136,4 +142,14 @@ h2 {
     margin-left: 50px;
     margin-bottom: 10px;
     font-family: Arial;
+}
+
+footer {
+    background-color: rgb(234, 227, 227);
+    font-family: Arial;
+    text-align: center;
+    margin: 0px;
+    padding-top: 60px;
+    width: 100%;
+    height: 70px;
 }
