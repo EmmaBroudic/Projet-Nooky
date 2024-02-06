@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Projet Nooky</title>
-    <link rel="stylesheet" href="css/community.css">
+    <link rel="stylesheet" href="css/myaccount.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Kit fontawesome-->
     <script src="https://kit.fontawesome.com/aaece9f3aa.js" crossorigin="anonymous"></script>
@@ -37,16 +37,31 @@
         </div>
     </header>
 
-    <main>
-        <div id="product-card">
-            <h2>Fiche communaute</h2>
-            <div class="fiche">
-                <p class="pic">Photo communaute</p>
-                <p class="description">Description communaute</p>
+    <div id="product-card">
+        <h2>Compte</h2>
+        <div class="fiche">
+            <p class="pic">Photo profil</p>
+            <div class="description">
+                <p>Description</p>
+                <p>Communautés</p>
+                <a href="mycommunity.html">Communauté 1</a>
+                <a href="mycommunity.html">Communauté 2</a>
             </div>
-            <button><a href="notificationcommunity.html">Gérer ma communauté</a></button>
         </div>
-    </main>
+        <button><a href="mycommunityadmin.html">Accepter la demande de ce membre</a></button>
+        <p><a id="refuse" href="mycommunityadmin.html">Refuser la demande de ce membre</a></p>
+    </div>
+    <div id="product-card">
+        <h2>Les produits du vestiaire</h2>
+        <div id="bloc-products">
+            <a href="myproduct.html"><p class="product">produit</p></a>
+            <a href="myproduct.html"><p class="product">produit</p></a>
+            <a href="myproduct.html"><p class="product">produit</p></a>
+            <a href="myproduct.html"><p class="product">produit</p></a>
+            <a href="myproduct.html"><p class="product">produit</p></a>
+            <a href="myproduct.html"><p class="product">produit</p></a>
+        </div>
+    </div>
 
     <footer>
         <p id="text-footer">@Nooky</p>
