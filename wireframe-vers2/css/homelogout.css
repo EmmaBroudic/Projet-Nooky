@@ -4,13 +4,6 @@ body {
     margin: auto;
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 50px;
-}
-
 a {
     text-decoration: none;
 }
@@ -19,100 +12,405 @@ main {
     margin-bottom: 50px;
 }
 
-#logo {
-    width: 15%;
-    height: auto;
-    padding-right: 20px;
-}
-
-.container-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-family: Arial;
-}
-
-.menu-nav {
-    padding: 20px;
+h2 {
     margin-bottom: 10px;
-    font-size: 13px;
-}
-
-#container-row-bis {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 60px;
     font-family: Arial;
-    margin: 0;
-    border-radius: 20px;
+    text-align: center;
 }
 
-#container-row-ter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 60px;
-    font-family: Arial;
-    margin: 0;
-    border: 3px pink solid;
-    border-radius: 20px;
-}
-
-.container-column {
+.connect {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    font-family: Arial;
+    align-items: center;
 }
 
-#search-bar {
-    width: 70%;
-    height: 50px;
-    border-radius: 18px 0px 0px 18px;
-    margin: 10px;
-    text-align: center;
-    border: none;
-}
-
-#loupe {
-    background-color: pink;
-    border-radius: 0px 16px 16px 0px;
-    color: white;
-    width: 30%;
-    height: 40px;
-    text-align: center;
-    padding-top: 20px;
-}
-
-#titre {
-    text-align: center;
-    font-family: Arial;
-    font-size: 14px;
-}
-
-main {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-#bloc-filtre-left {
+footer {
     background-color: rgb(234, 227, 227);
-    padding: 20px;
-    border-radius: 20px;
-    width: 22%;
-    margin: 10px;
-    height: 1350px;
+    font-family: Arial;
+    text-align: center;
+    margin: 0px;
+    padding-top: 60px;
+    width: 100%;
+    height: 70px;
 }
 
-#bloc-filtre-right {
-    padding: 20px;
-    width: 75%;
+@media screen and (min-width: 992px) and (max-width: 1430px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 70%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    button, input, select {
+        border: 3px pink solid;
+        width: 400px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    #bloc-filtre-left {
+        background-color: rgb(234, 227, 227);
+        padding: 20px;
+        border-radius: 20px;
+        width: 22%;
+        margin: 10px;
+        height: 1350px;
+    }
+
+    #bloc-filtre-right {
+        padding: 20px;
+        width: 75%;
+    }
+
+    #bloc-filtre-top-respons {
+        display: none;
+    }
+
+    .product {
+        width: 280px;
+        height: 280px;
+        border-radius: 20px;
+        background-color: pink;
+        padding: 10px;
+    }
 }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 70%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+    
+    button, input {
+        border: 3px pink solid;
+        width: 400px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    select {
+        border: solid 3px rgb(234, 227, 227);
+        background-color: rgb(234, 227, 227);
+        width: 300px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    #bloc-filtre-left {
+        display: none;
+    }
+
+    #bloc-filtre-top-respons {
+        width: 100%;
+    }
+
+    #bloc-filtre-right {
+        padding: 20px;
+        width: 100%;
+    }
+
+    
+    .product {
+        width: 280px;
+        height: 280px;
+        border-radius: 20px;
+        background-color: pink;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 90%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    button, input {
+        border: 3px pink solid;
+        width: 45%;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    select {
+        border: solid 3px rgb(234, 227, 227);
+        background-color: rgb(234, 227, 227);
+        width:90%;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    #bloc-filtre-left {
+        display: none;
+    }
+
+    #bloc-filtre-top-respons {
+        width: 100%;
+    }
+
+    #bloc-filtre-right {
+        padding: 20px;
+        width: 100%;
+    }
+
+    
+    .product {
+        width: 380px;
+        height: 280px;
+        border-radius: 20px;
+        background-color: pink;
+        padding: 10px;
+    }
+}
+
+
+
+
 
 #bloc-products {
     display: flex;
@@ -120,40 +418,4 @@ main {
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
-}
-
-.product {
-    width: 280px;
-    height: 280px;
-    border-radius: 20px;
-    background-color: pink;
-    padding: 10px;
-}
-
-footer {
-    background-color: rgb(234, 227, 227);
-    font-family: Arial;
-    text-align: center;
-    margin: 0px;
-    padding-top: 60px;
-    width: 100%;
-    height: 70px;
-}
-
-button {
-    border: 3px pink solid;
-    width: 210px;
-    height: 50px;
-    border-radius: 20px;
-    margin: 10px;
-}
-
-footer {
-    background-color: rgb(234, 227, 227);
-    font-family: Arial;
-    text-align: center;
-    margin: 0px;
-    padding-top: 60px;
-    width: 100%;
-    height: 70px;
 }

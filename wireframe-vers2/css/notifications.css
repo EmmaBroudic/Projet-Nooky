@@ -8,89 +8,6 @@ a {
     text-decoration: none;
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 50px;
-}
-
-#logo {
-    width: 15%;
-    height: auto;
-    padding-right: 20px;
-}
-
-.container-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-family: Arial;
-}
-
-.menu-nav {
-    padding: 20px;
-    margin-bottom: 10px;
-    font-size: 13px;
-}
-
-#container-row-bis {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 60px;
-    font-family: Arial;
-    margin: 0;
-    border-radius: 20px;
-}
-
-#container-row-ter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 60px;
-    font-family: Arial;
-    margin: 0;
-    border: 3px pink solid;
-    border-radius: 20px;
-}
-
-.container-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-family: Arial;
-}
-
-#search-bar {
-    width: 70%;
-    height: 50px;
-    border-radius: 18px 0px 0px 18px;
-    margin: 10px;
-    text-align: center;
-    border: none;
-}
-
-#loupe {
-    background-color: pink;
-    border-radius: 0px 16px 16px 0px;
-    color: white;
-    width: 30%;
-    height: 40px;
-    text-align: center;
-    padding-top: 20px;
-}
-
-#titre {
-    text-align: center;
-    font-family: Arial;
-    font-size: 14px;
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -100,20 +17,10 @@ main {
     font-family: Arial;
 }
 
-.log {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 600px;
-    height: auto;
-    border: 3px pink solid;
-    border-radius: 20px;
-    padding: 20px;
-}
-
-#bloc-notifs {
-    border-top: 3px solid pink;
+h2 {
+    margin-bottom: 10px;
+    font-family: Arial;
+    text-align: center;
 }
 
 footer {
@@ -125,3 +32,348 @@ footer {
     width: 100%;
     height: 70px;
 }
+
+@media screen and (min-width: 992px) and (max-width: 1430px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 70%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    .log {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 600px;
+        height: auto;
+        border: 3px pink solid;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px;
+    }
+    
+    .connect {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    button, input, select {
+        border: 3px pink solid;
+        width: 400px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 90%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    .log {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 600px;
+        height: auto;
+        border: 3px pink solid;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px;
+    }
+    
+    .connect {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    button, input, select {
+        border: 3px pink solid;
+        width: 400px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 70%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    .log {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+        height: auto;
+        border: 3px pink solid;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px;
+    }
+    
+    .connect {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    button, input, select {
+        border: 3px pink solid;
+        width: 300px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+}
+

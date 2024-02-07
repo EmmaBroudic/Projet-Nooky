@@ -4,13 +4,6 @@ body {
     margin: auto;
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 50px;
-}
-
 a {
     text-decoration: none;
 }
@@ -19,131 +12,428 @@ main {
     margin-bottom: 50px;
 }
 
-#logo {
-    width: 15%;
-    height: auto;
-    padding-right: 20px;
-}
-
-.container-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+footer {
+    background-color: rgb(234, 227, 227);
     font-family: Arial;
-}
-
-.menu-nav {
-    padding: 20px;
-    margin-bottom: 10px;
-    font-size: 13px;
-}
-
-#container-row-bis {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 60px;
-    font-family: Arial;
-    margin: 0;
-    border-radius: 20px;
-}
-
-#container-row-ter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 60px;
-    font-family: Arial;
-    margin: 0;
-    border: 3px pink solid;
-    border-radius: 20px;
-}
-
-.container-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-family: Arial;
-}
-
-#search-bar {
-    width: 70%;
-    height: 50px;
-    border-radius: 18px 0px 0px 18px;
-    margin: 10px;
     text-align: center;
-    border: none;
+    margin: 0px;
+    padding-top: 60px;
+    width: 100%;
+    height: 70px;
 }
 
-#loupe {
-    background-color: pink;
-    border-radius: 0px 16px 16px 0px;
-    color: white;
-    width: 30%;
-    height: 40px;
-    text-align: center;
-    padding-top: 20px;
+@media screen and (min-width: 992px) and (max-width: 1430px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 70%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    
+    h2 {
+        margin-left: 50px;
+        margin-bottom: 10px;
+        font-family: Arial;
+    }
+
+    .fiche {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    button, input {
+        border: 3px pink solid;
+        width: 300px;
+        height: 60px;
+        border-radius: 25px;
+        margin: 10px;
+        margin-left: 60%;
+        font-family: Arial;
+    }
+
+    #product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+    }
+
+    .pic {
+        width: 300px;
+        height: 400px;
+        background-color: pink;
+        margin: 30px;
+        border-radius: 10px;
+        font-family: Arial;
+        padding: 20px;
+    }
+    
+    .description {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(199, 191, 191);
+        width: 70%;
+        margin: 30px;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Arial;
+    }
 }
 
-#titre {
-    text-align: center;
-    font-family: Arial;
-    font-size: 14px;
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 90%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: Arial;
+    }
+
+    .fiche {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    button, input {
+        border: 3px pink solid;
+        width: 300px;
+        height: 60px;
+        border-radius: 25px;
+        margin: 10px;
+        margin-left: 50%;
+        font-family: Arial;
+    }
+
+    #product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+    }
+
+    .pic {
+        width: 300px;
+        height: 400px;
+        background-color: pink;
+        margin: 30px;
+        border-radius: 10px;
+        font-family: Arial;
+        padding: 20px;
+    }
+    
+    .description {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(199, 191, 191);
+        width: 70%;
+        margin: 30px;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Arial;
+    }
 }
 
-#product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin-bottom: 50px;
+@media screen and (max-width: 767px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 50px;
+    }
+
+    #logo {
+        width: 100px;
+        height: auto;
+        padding-right: 20px;
+    }
+
+    .container-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial;
+    }
+    
+    .menu-nav {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    #container-row-bis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    #container-row-ter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-family: Arial;
+        margin: 0;
+        border: 3px pink solid;
+        border-radius: 20px;
+    }
+    
+    .container-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-family: Arial;
+    }
+    
+    #search-bar {
+        width: 70%;
+        height: 50px;
+        border-radius: 18px 0px 0px 18px;
+        margin: 10px;
+        text-align: center;
+        border: none;
+    }
+    
+    #loupe {
+        background-color: pink;
+        border-radius: 0px 16px 16px 0px;
+        color: white;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    #titre {
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: Arial;
+    }
+
+    .fiche {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+
+    button, input {
+        border: 3px pink solid;
+        width: 300px;
+        height: 60px;
+        border-radius: 25px;
+        margin: 10px;
+        font-family: Arial;
+    }
+
+    #product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .pic {
+        width: 100%;
+        height: 400px;
+        background-color: pink;
+        margin: 30px;
+        border-radius: 10px;
+        font-family: Arial;
+        padding: 20px;
+    }
+    
+    .description {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(199, 191, 191);
+        width: 100%;
+        height: 400px;
+        margin: 30px;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Arial;
+    }
 }
 
-.pic {
-    width: 300px;
-    height: 400px;
-    background-color: pink;
-    margin: 30px;
-    border-radius: 10px;
-    font-family: Arial;
-    padding: 20px;
-}
 
-.fiche {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
-.description {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(199, 191, 191);
-    width: 70%;
-    margin: 30px;
-    border-radius: 10px;
-    padding: 20px;
-    font-family: Arial;
-}
 
-button, input {
-    border: 3px pink solid;
-    width: 300px;
-    height: 60px;
-    border-radius: 25px;
-    margin: 10px;
-    margin-left: 1000px;
-    font-family: Arial;
-}
-
-h2 {
-    margin-left: 50px;
-    margin-bottom: 10px;
-    font-family: Arial;
-}
 
 #bloc-products {
     display: flex;
@@ -161,25 +451,7 @@ h2 {
     padding: 10px;
 }
 
-footer {
-    background-color: rgb(234, 227, 227);
-    font-family: Arial;
-    text-align: center;
-    margin: 0px;
-    padding-top: 60px;
-    width: 100%;
-    height: 70px;
-}
 
-footer {
-    background-color: rgb(234, 227, 227);
-    font-family: Arial;
-    text-align: center;
-    margin: 0px;
-    padding-top: 60px;
-    width: 100%;
-    height: 70px;
-}
 
 #refuse {
     width: 300px;
