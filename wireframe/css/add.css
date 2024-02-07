@@ -9,13 +9,18 @@ a {
 }
 
 main {
-    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    font-family: Arial;
 }
 
 h2 {
-    margin-left: 50px;
     margin-bottom: 10px;
     font-family: Arial;
+    text-align: center;
 }
 
 footer {
@@ -112,47 +117,33 @@ footer {
         font-size: 14px;
     }
 
-    .fiche {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    button, input {
-        border: 3px pink solid;
-        width: 300px;
-        height: 60px;
-        border-radius: 25px;
-        margin: 10px;
-        margin-left: 60%;
-        font-family: Arial;
-    }
-
-    #product-card {
+    .log {
         display: flex;
         flex-direction: column;
-        align-items: left;
-    }
-
-    .pic {
-        width: 300px;
-        height: 400px;
-        background-color: pink;
+        justify-content: space-around;
+        align-items: center;
+        width: 600px;
+        height: auto;
+        border: 3px pink solid;
+        border-radius: 20px;
+        padding: 30px;
         margin: 30px;
-        border-radius: 10px;
-        font-family: Arial;
-        padding: 20px;
     }
     
-    .description {
+    .connect {
         display: flex;
         flex-direction: column;
-        background-color: rgb(199, 191, 191);
-        width: 70%;
-        margin: 30px;
-        border-radius: 10px;
-        padding: 20px;
-        font-family: Arial;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    button, input, select {
+        border: 3px pink solid;
+        width: 400px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
     }
 }
 
@@ -241,47 +232,33 @@ footer {
         font-size: 14px;
     }
 
-    .fiche {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    button, input {
-        border: 3px pink solid;
-        width: 300px;
-        height: 60px;
-        border-radius: 25px;
-        margin: 10px;
-        margin-left: 50%;
-        font-family: Arial;
-    }
-
-    #product-card {
+    .log {
         display: flex;
         flex-direction: column;
-        align-items: left;
-    }
-
-    .pic {
-        width: 300px;
-        height: 400px;
-        background-color: pink;
+        justify-content: space-around;
+        align-items: center;
+        width: 600px;
+        height: auto;
+        border: 3px pink solid;
+        border-radius: 20px;
+        padding: 30px;
         margin: 30px;
-        border-radius: 10px;
-        font-family: Arial;
-        padding: 20px;
     }
     
-    .description {
+    .connect {
         display: flex;
         flex-direction: column;
-        background-color: rgb(199, 191, 191);
-        width: 70%;
-        margin: 30px;
-        border-radius: 10px;
-        padding: 20px;
-        font-family: Arial;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    button, input, select {
+        border: 3px pink solid;
+        width: 400px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
     }
 }
 
@@ -370,50 +347,33 @@ footer {
         font-size: 14px;
     }
 
-    .fiche {
+    .log {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        width: 80%;
-    }
-
-    button, input {
+        width: 90%;
+        height: auto;
         border: 3px pink solid;
-        width: 300px;
-        height: 60px;
-        border-radius: 25px;
-        margin: 10px;
-        font-family: Arial;
-    }
-
-    #product-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .pic {
-        width: 100%;
-        height: 400px;
-        background-color: pink;
+        border-radius: 20px;
+        padding: 30px;
         margin: 30px;
-        border-radius: 10px;
-        font-family: Arial;
-        padding: 20px;
     }
     
-    .description {
+    .connect {
         display: flex;
         flex-direction: column;
-        background-color: rgb(199, 191, 191);
-        width: 100%;
-        height: 400px;
-        margin: 30px;
-        border-radius: 10px;
-        padding: 20px;
-        font-family: Arial;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    button, input, select {
+        border: 3px pink solid;
+        width: 300px;
+        height: 50px;
+        border-radius: 20px;
+        margin: 10px;
+        text-align: center;
     }
 }
 

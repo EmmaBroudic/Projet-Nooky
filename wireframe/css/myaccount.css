@@ -12,12 +12,6 @@ main {
     margin-bottom: 50px;
 }
 
-h2 {
-    margin-left: 50px;
-    margin-bottom: 10px;
-    font-family: Arial;
-}
-
 footer {
     background-color: rgb(234, 227, 227);
     font-family: Arial;
@@ -110,6 +104,13 @@ footer {
         text-align: center;
         font-family: Arial;
         font-size: 14px;
+    }
+
+    
+    h2 {
+        margin-left: 50px;
+        margin-bottom: 10px;
+        font-family: Arial;
     }
 
     .fiche {
@@ -241,6 +242,13 @@ footer {
         font-size: 14px;
     }
 
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: Arial;
+    }
+
     .fiche {
         display: flex;
         flex-direction: row;
@@ -370,6 +378,12 @@ footer {
         font-size: 14px;
     }
 
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: Arial;
+    }
+
     .fiche {
         display: flex;
         flex-direction: column;
@@ -417,3 +431,34 @@ footer {
     }
 }
 
+
+
+
+
+#bloc-products {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.product {
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    background-color: pink;
+    padding: 10px;
+}
+
+
+
+#refuse {
+    width: 300px;
+    height: 60px;
+    margin: 10px;
+    margin-left: 1050px;
+    font-family: Arial;
+    font-size: 12px;
+    color: red;
+}
