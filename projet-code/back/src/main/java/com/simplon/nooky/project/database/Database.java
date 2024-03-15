@@ -9,8 +9,8 @@ public class Database {
 	//private static HashMap<UUID, User> mapUser = new HashMap<>();
 	private static HashMap<UUID, Product> mapProduct = new HashMap<>();
 	private static HashMap<UUID, Membership>mapMembership = new HashMap<>();
-	private static HashMap<UUID, Category>mapCategory = new HashMap<>();
-	private static HashMap<UUID, Community>mapCommunity = new HashMap<>();
+	//private static HashMap<UUID, Category>mapCategory = new HashMap<>();
+	//private static HashMap<UUID, Community>mapCommunity = new HashMap<>();
 	
 	/*public static UUID addUser(User user) {
 		UUID newUserId = UUID.randomUUID();
@@ -55,7 +55,7 @@ public class Database {
 	public static Category getCategoryById(UUID id) {
 		return mapCategory.get(id);
 	}
-	*/
+	*//*
 	public static UUID addCommunity(Community community) {
 		UUID newCommunityId = UUID.randomUUID();
 		community.setId(newCommunityId);
@@ -65,5 +65,5 @@ public class Database {
 	
 	public static Community getCommunityById(UUID id) {
 		return mapCommunity.get(id);
-	}
+	}*/
 }
