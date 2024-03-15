@@ -6,13 +6,13 @@ import java.util.UUID;
 import com.simplon.nooky.project.entities.*;
 
 public class Database {
-	private static HashMap<UUID, User> mapUser = new HashMap<>();
+	//private static HashMap<UUID, User> mapUser = new HashMap<>();
 	private static HashMap<UUID, Product> mapProduct = new HashMap<>();
 	private static HashMap<UUID, Membership>mapMembership = new HashMap<>();
 	private static HashMap<UUID, Category>mapCategory = new HashMap<>();
 	private static HashMap<UUID, Community>mapCommunity = new HashMap<>();
 	
-	public static UUID addUser(User user) {
+	/*public static UUID addUser(User user) {
 		UUID newUserId = UUID.randomUUID();
 		user.setId(newUserId);
 		mapUser.put(user.getId(), user);
@@ -21,7 +21,7 @@ public class Database {
 	
 	public static User getUserById(UUID id) {
 		return mapUser.get(id);
-	}
+	}*/
 	
 	public static UUID addProduct(Product product) {
 		UUID newProductId = UUID.randomUUID();

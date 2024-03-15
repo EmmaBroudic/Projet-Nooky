@@ -26,12 +26,10 @@ public class User {
 	@Column(name = "picture")
 	private String picture;
 	
-	@NotBlank
 	@Size(max = 40)
 	@Column(name = "firstname")
 	private String firstname;
 	
-	@NotBlank
 	@Size(max = 40)
 	@Column(name = "lastname")
 	private String lastname;
@@ -50,6 +48,16 @@ public class User {
 	private LocalDateTime createdAt;
 	
 	public User() {
+	}
+	
+	public User(String username, String picture, String firstname, String lastname, String email, String password, LocalDateTime createdAt) {
+	    this.username = username;
+	    this.picture = picture;
+		this.firstname = firstname;
+	    this.lastname = lastname;
+	    this.email = email;
+	    this.password = password;
+	    this.createdAt = createdAt;
 	}
 	
 	public UUID getId() {
