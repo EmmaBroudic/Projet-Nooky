@@ -44,7 +44,7 @@ public class Database {
 	public static Membership getMembershipById(UUID id) {
 		return mapMembership.get(id);
 	}
-	
+	/*
 	public static UUID addCategory(Category category) {
 		UUID newCategoryId = UUID.randomUUID();
 		category.setId(newCategoryId);
@@ -55,7 +55,7 @@ public class Database {
 	public static Category getCategoryById(UUID id) {
 		return mapCategory.get(id);
 	}
-	
+	*/
 	public static UUID addCommunity(Community community) {
 		UUID newCommunityId = UUID.randomUUID();
 		community.setId(newCommunityId);

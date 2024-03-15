@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.simplon.nooky.project.entities.User;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
-		List<User> findByFirstnameContaining(String firstname);
+		List<User> findByUsernameContaining(String username);
 }

@@ -1,8 +1,12 @@
 package com.simplon.nooky.project.controllers;
 
+import java.util.Collection;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.entities.Category;
+import com.simplon.nooky.project.repository.CategoryRepository;
 import com.simplon.nooky.project.services.CategoryService;
 
 @RestController
@@ -22,15 +27,23 @@ public class CategoryController {
 	public CategoryController(CategoryService service) {
 		this.service = service;
 	}
+	
+	@Autowired
+	CategoryRepository categoryRepository;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public UUID create(@RequestBody Category category) {
-		return service.create(category);
+	public ResponseEntity<Category> createCategory(@RequestBody Category category) {
+		return service.createCategory(category);
+	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<Collection<Category>> getAllCategories() {
+		return service.getAllCategories();
 	}
 	
 	@GetMapping("/{id}")
-	public Category getCategoryById(@PathVariable UUID id) {
+	public ResponseEntity<Category> getCategoryById(@PathVariable @NonNull UUID id) {
 		return service.getCategoryById(id);
 	}
 }

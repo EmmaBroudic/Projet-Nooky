@@ -23,9 +23,8 @@ public class UserService {
         try {
             UUID newUserId = UUID.randomUUID();
             user.setId(newUserId);
-            System.out.println(newUserId);
             User savedUser = userRepository.save(user);
-            System.out.println(user);
+
             return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
