@@ -3,12 +3,38 @@ package com.simplon.nooky.project.entities;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+@Entity
+@Table(name="product")
 public class Product {
+	
+	@Id
+	@Column(name = "id")
 	private UUID id;
+	
+	@NotBlank
+	@Size(max = 40)
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "picture")
 	private String picture;
+	
+	@Size(max = 100)
+	@Column(name = "description")
 	private String description;
+	
+	@NotBlank
+	@Column(name = "transaction")
 	private String transaction;
+	
+	@Column(name = "createdAt")
 	private LocalDateTime createdAt;
 	
 	public Product() {
@@ -60,5 +86,10 @@ public class Product {
 	
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", picture=" + picture + ", description=" + description + ", transaction=" + transaction + ", createdAt=" + createdAt + "]";
 	}
 }
