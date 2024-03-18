@@ -1,28 +1,21 @@
 <script lang="ts">
     import Search from '../Searchbar/Searchbar.svelte';
     import logo from '../../assets/images/husky.jpg';
+    import '../../assets/css/index.css';
 </script>
 
 <style>
     @font-face {
-        font-family: 'MontserratLight';
-        src: url('../../assets/fonts/Montserrat-Light.ttf') format('truetype');
-    }
-
-    @font-face {
         font-family: 'Montserrat';
         src: url('../../assets/fonts/Montserrat-Medium.ttf') format('truetype');
-    }
-
-    @font-face {
-        font-family: 'MontserratBold';
-        src: url('../../assets/fonts/Montserrat-Bold.ttf') format('truetype');
     }
 
     header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding-bottom: 45px;
+        border-bottom: 3px solid pink;
         width: 100%;
         height: 180px;
     }
@@ -31,14 +24,11 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        /*align-items: center;  ajouté pour aligner verticalement */
     }
 
-    .header-right { /* correction du nom de la classe */
+    .header-right {
         display: flex;
         flex-direction: column;
-        /*justify-content: flex-end;
-        /* align-items: center; ajouté pour aligner verticalement */
     }
 
     .title {
@@ -46,16 +36,6 @@
         flex-direction: column;
         padding-top: 75px;
         padding-left: 30px;
-    }
-
-    h1 {
-        font-family: MontserratBold;
-        font-size: 20pt;
-    }
-
-    p {
-        font-family: Montserrat;
-        font-size: 10pt;
     }
 
     img {
@@ -69,14 +49,13 @@
         display: flex;
         flex-direction: row;
         justify-content: right;
-        /* aalign-items: center; jouté pour aligner verticalement */
         padding-top: 60px;
         padding-right: 30px;
     }
 
     .menu-left, .menu-right {
         font-family: Montserrat;
-        font-size: 10pt;
+        font-size: 14px;
         color: black;
         text-decoration: none;
         padding-right: 30px;
@@ -84,9 +63,10 @@
 
     .menu-left:hover, .menu-right:hover {
         font-family: Montserrat;
-        font-size: 10pt;
+        font-size: 14px;
         color: black;
         text-decoration: underline;
+        cursor: pointer;
     }
 
     .menu-left.active, .menu-right.active {
