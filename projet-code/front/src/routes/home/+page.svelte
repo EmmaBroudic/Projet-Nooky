@@ -40,9 +40,9 @@
     </div>
     <div class="bloc-right">
         <div class="filtres">
-            <button class="pink-border">Tous</button>
-            <button class="pink-border">Filtrer par taille</button>
-            <button class="pink-border">Filtrer par catégorie</button>
+            <button class="grey-border">Tous</button>
+            <button class="grey-border">Filtrer par taille</button>
+            <button class="grey-border">Filtrer par catégorie</button>
         </div>
         <ProductsBloc />
     </div>

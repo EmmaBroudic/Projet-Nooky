@@ -41,6 +41,7 @@ p {
 
 .add, .modify {
     border: 0px;
+    border: solid 3px grey;
     background-color: grey;
     width: 300px;
     height: 60px;
@@ -53,7 +54,7 @@ p {
     cursor: pointer;
 }
 
-.pink-border {
+.grey-border {
     border: solid 3px grey;
     background-color: white;
     width: 300px;
@@ -76,4 +77,12 @@ input {
     text-align: center;
     font-family: 'Montserrat';
     font-size: 14px;
+}
+
+.connect {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px;
 }

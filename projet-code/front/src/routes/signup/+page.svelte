@@ -1,27 +1,48 @@
 <script lang="ts">
+    import '../../assets/css/index.css';
     import { onMount } from 'svelte';
-    import Form from '../../components/Form/Form.svelte';
+    import { keepInputsSignUp } from '../../lib/keepInputsSignUp';
 
-    let showFirstBlock = true;
+    let inputOneUser: string;
+    let inputTwoUser: string;
+    let inputThreeUser: string;
+    let inputFourUser: string;
+    let inputFiveUser: string;
+    let inputSixUser: string;
+    let inputSevenUser: string;
+    let inputEightUser: number;
 
-    let inputs = [
-        "username", "Entrez votre nom d'utilisateur",
-        "email", "Entrez votre email",
-        "password", "Entrez votre mot de passe",
-        "firstname", "Entrez votre prénom",
-        "lastname", "Entrez votre nom de famille",
-        "road", "Entrez le numéro et le nom de votre rue",
-        "zipcode", "Entrez votre code postal",
-        "city", "Entrez votre ville"
-    ];
-
-    function toggleBlocks() {
-        showFirstBlock = !showFirstBlock;
+    function keepUserInputs() {
+        let data = {
+            id: 1,
+            username: inputOneUser,
+            email: inputTwoUser,
+            password: inputThreeUser,
+            firstname: inputFourUser,
+            lastname: inputFiveUser,
+            road: inputSixUser,
+            city: inputSevenUser,
+            zipcode: inputEightUser
+        };
+        keepInputsSignUp.update((prevData) => [...prevData, data]);
+        console.log(data);
     }
+
+    onMount(() => {
+        keepUserInputs(); // Appeler la fonction lors du rendu initial
+    });
 </script>
 
-{#if showFirstBlock}
-    <Form inputOneData={inputs[0]} inputOne={inputs[1]} inputTwoData={inputs[2]} inputTwo={inputs[3]} inputThreeData={inputs[4]} inputThree={inputs[5]} inputFourData={inputs[6]} inputFour={inputs[7]} buttonClass="" buttonAction="Suivant" {/*myFunction={toggleBlocks}*/}/>
-{:else}
-    <Form inputOneData={inputs[8]} inputOne={inputs[9]} inputTwoData={inputs[10]} inputTwo={inputs[11]} inputThreeData={inputs[12]} inputThree={inputs[13]} inputFourData={inputs[14]} inputFour={inputs[15]} buttonClass="pink-border" buttonAction="Valider" {/*myFunction={toggleBlocks}*/}/>
-{/if}
+<form class="connect" on:submit|preventDefault={keepUserInputs}>
+    <h2>Sign up</h2>
+    <input bind:value={inputOneUser} type="username" placeholder="Entrez votre nom d'utilisateur">
+    <input bind:value={inputTwoUser} type="email" placeholder="Entrez votre email">
+    <input bind:value={inputThreeUser} type="password" placeholder="Entrez votre mot de passe">
+    <input bind:value={inputFourUser} type="firstname" placeholder="Entrez votre prénom">
+    <input bind:value={inputFiveUser} type="lastname" placeholder="Entrez votre nom de famille">
+    <input bind:value={inputSixUser} type="road" placeholder="Entrez votre numéro et rue">
+    <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville">
+    <input bind:value={inputEightUser} type="zipcode" placeholder="Entrez votre code postal">
+    <a href="/home"><button class="add" type="submit">Valider</button></a>
+    <p><a href="/">Retour</a></p>
+</form>

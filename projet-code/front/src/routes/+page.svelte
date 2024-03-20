@@ -1,18 +1,15 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    import '../assets/css/index.css';
+</script>
 
-<div>
-    <p>Test des routes</p>
-    <a href="/home">
-        <button>home</button>
-    </a>
+<div class="connect">
+    <h2>Bienvenue sur l'application Nooky</h2>
+    <p>Vous souhaitez vous inscrire ?</p>
     <a href="/signup">
-        <button>signup</button>
+        <button class="grey-border">Sign up</button>
     </a>
+    <p>Déjà inscrit ? Vous souhaitez vous connecter ?</p>
     <a href="/signin">
-        <button>signin</button>
-    </a>
-    <a href="/login">
-        <button>login</button>
+        <button class="grey-border">signin</button>
     </a>
 </div>
