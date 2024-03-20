@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'MontserratLight';
-    src: url('./assets/fonts/Montserrat-Light.ttf') format('truetype');
+    src: url('../fonts/Montserrat-Light.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('./assets/fonts/Montserrat-Medium.ttf') format('truetype');
+    src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'MontserratBold';
-    src: url('./assets/fonts/Montserrat-Bold.ttf') format('truetype');
+    src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
 body {
@@ -20,27 +20,26 @@ body {
 }
 
 h1 {
-    font-family: MontserratBold;
+    font-family: 'MontserratBold';
     font-size: 25px;
 }
 
 h2 {
-    font-family: MontserratBold;
+    font-family: 'MontserratBold';
     font-size: 20px;
 }
 
 h3 {
-    font-family: MontserratBold;
-    font-size: 17px;
+    font-family: 'Montserrat';
+    font-size: 16px;
 }
 
 p {
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 14px;
 }
 
-button, input {
-    /*border: solid 3px pink;*/
+.add, .modify {
     border: 0px;
     background-color: grey;
     width: 300px;
@@ -48,8 +47,33 @@ button, input {
     border-radius: 25px;
     margin-top: 30px;
     margin: 20px;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 14px;
     color: white;
     cursor: pointer;
+}
+
+.pink-border {
+    border: solid 3px grey;
+    background-color: white;
+    width: 300px;
+    height: 60px;
+    border-radius: 25px;
+    margin-top: 30px;
+    margin: 20px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+input {
+    border: 3px pink solid;
+    width: 300px;
+    height: 60px;
+    border-radius: 25px;
+    margin: 10px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 14px;
 }

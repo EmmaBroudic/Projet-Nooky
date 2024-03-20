@@ -28,7 +28,7 @@
         width: 800px;
         margin-left: 30px;
         margin-right: 30px;
-        maegin-bottom: 30px;
+        margin-bottom: 30px;
         background-color: #f6f6f6;
         height: 240px;
         border-radius: 30px;
@@ -54,12 +54,12 @@
 
 <h2>{blocTitle}</h2>
 <div class="bloc">
-    <img src={imgUrl} alt="photo profil" />
+    <img src={imgUrl} alt="portrait profil" />
     <div class="bloc-right">
         <div class="description">
             <h3>{descriptionTitle}</h3>
             <p>{descriptionText}</p>
         </div>
-        <button>{buttonText}</button>
+        <button class="modify">{buttonText}</button>
     </div>
 </div>

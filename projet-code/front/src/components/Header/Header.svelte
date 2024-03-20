@@ -68,10 +68,6 @@
         text-decoration: underline;
         cursor: pointer;
     }
-
-    .menu-left.active, .menu-right.active {
-        text-decoration: underline;
-    }
 </style>
 
 <header>
@@ -79,15 +75,15 @@
         <img src={logo} class="header-logo" alt="logo funky" />
         <div class="title">
             <h1>Nooky</h1>
-            <p>Échange de la seconde main avec ta communauté</p>
+            <p>Échange des vêtements, chaussures et accessoires de seconde main</p>
         </div>
     </div>
     <div class="header-right">
         <nav>
-            <a href="/home" class:menu-left={true} class:active={true}>Home</a>
-            <a href="/account" class:menu-left={true} class:active={true}>Mon compte</a>
-            <a href="/notifications" class:menu-left={true} class:active={true}>Notifications</a>
-            <a href="/login" class:menu-right={true} class:active={true}>Log out</a>
+            <a href="/home" class:menu-left={true}>Home</a>
+            <a href="/account" class:menu-left={true}>Mon compte</a>
+            <a href="/notifications" class:menu-left={true}>Notifications</a>
+            <a href="/signin" class:menu-right={true}>Log out</a>
         </nav>
         <Search />
     </div>

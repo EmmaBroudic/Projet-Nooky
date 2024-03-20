@@ -21,37 +21,6 @@
         margin-left: auto;
         margin-right: 30px;
     }
-
-   /* .bloc-top, .bloc-bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .bloc-bottom {
-        flex-wrap: wrap;
-    }
-
-    img {
-        width: 300px;
-        height: 300px;
-        border-radius: 30px;
-        object-fit: cover;
-        margin: 30px;
-    }
-
-    .description {
-        width: 70%;
-        margin: 30px;
-        background-color: #f6f6f6;
-        height: 240px;
-        border-radius: 30px;
-        padding: 30px;
-    }
-
-    h2 {
-        margin-left: 50px;
-    }*/
 </style>
 
 <Header />
@@ -59,6 +28,6 @@
 <h2>Mes produits</h2>
 <div class="bloc-products">
     <ProductsBloc />
-    <button>ajouter un produit</button>
+    <button class="add">ajouter un produit</button>
 </div>
 <Footer />
