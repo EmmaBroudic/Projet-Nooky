@@ -83,7 +83,7 @@
             <a href="/home" class:menu-left={true}>Home</a>
             <a href="/account" class:menu-left={true}>Mon compte</a>
             <a href="/notifications" class:menu-left={true}>Notifications</a>
-            <a href="/signin" class:menu-right={true}>Log out</a>
+            <a href="/" class:menu-right={true}>Log out</a>
         </nav>
         <Search />
     </div>

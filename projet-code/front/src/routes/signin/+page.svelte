@@ -8,4 +8,5 @@
     <input type="email" placeholder="Entrez votre email">
     <a href="/home"><button class="add">Valider</button></a>
     <p><a href="/">Retour</a></p>
+    <p><a href="/test">Test</a></p>
 </form>

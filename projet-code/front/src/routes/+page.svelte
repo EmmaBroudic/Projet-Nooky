@@ -10,6 +10,6 @@
     </a>
     <p>Déjà inscrit ? Vous souhaitez vous connecter ?</p>
     <a href="/signin">
-        <button class="grey-border">signin</button>
+        <button class="grey-border">Sign in</button>
     </a>
 </div>
