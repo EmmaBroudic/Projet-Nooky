@@ -28,6 +28,6 @@
 <h2>Mes produits</h2>
 <div class="bloc-products">
     <ProductsBloc />
-    <button class="add">ajouter un produit</button>
+    <button class="add"><a href="/addproduct">ajouter un produit</a></button>
 </div>
 <Footer />

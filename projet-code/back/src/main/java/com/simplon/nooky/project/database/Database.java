@@ -8,7 +8,6 @@ import com.simplon.nooky.project.entities.*;
 public class Database {
 	//private static HashMap<UUID, User> mapUser = new HashMap<>();
 	private static HashMap<UUID, Product> mapProduct = new HashMap<>();
-	private static HashMap<UUID, Membership>mapMembership = new HashMap<>();
 	//private static HashMap<UUID, Category>mapCategory = new HashMap<>();
 	//private static HashMap<UUID, Community>mapCommunity = new HashMap<>();
 	
@@ -34,16 +33,6 @@ public class Database {
 		return mapProduct.get(id);
 	}
 	
-	public static UUID addMembership(Membership membership) {
-		UUID newMembershipId = UUID.randomUUID();
-		membership.setId(newMembershipId);
-		mapMembership.put(membership.getId(), membership);
-		return newMembershipId;
-	}
-	
-	public static Membership getMembershipById(UUID id) {
-		return mapMembership.get(id);
-	}
 	/*
 	public static UUID addCategory(Category category) {
 		UUID newCategoryId = UUID.randomUUID();

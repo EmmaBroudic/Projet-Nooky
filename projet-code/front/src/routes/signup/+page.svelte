@@ -1,7 +1,8 @@
 <script lang="ts">
     import '../../assets/css/index.css';
     import { onMount } from 'svelte';
-    import { keepInputsSignUp } from '../../lib/keepInputsSignUp';
+    import { keepInputsSignUp } from '../../lib/keepInputs';
+    import { goto } from '$app/navigation';
 
     let inputOneUser: string;
     let inputTwoUser: string;
@@ -28,12 +29,18 @@
         console.log(data);
     }
 
+    function handleSubmit(event: any) {
+        event.preventDefault();
+        keepUserInputs();
+        goto('/home');
+    }
+
     onMount(() => {
-        keepUserInputs(); // Appeler la fonction lors du rendu initial
+        keepUserInputs();
     });
 </script>
 
-<form class="connect" on:submit|preventDefault={keepUserInputs}>
+<form class="connect" on:submit|preventDefault={handleSubmit}>
     <h2>Sign up</h2>
     <input bind:value={inputOneUser} type="username" placeholder="Entrez votre nom d'utilisateur">
     <input bind:value={inputTwoUser} type="email" placeholder="Entrez votre email">
@@ -43,6 +50,7 @@
     <input bind:value={inputSixUser} type="road" placeholder="Entrez votre numéro et rue">
     <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville">
     <input bind:value={inputEightUser} type="zipcode" placeholder="Entrez votre code postal">
-    <a href="/home"><button class="add" type="submit">Valider</button></a>
+    <!--<button class="add" type="submit"><a href="/home">Valider</a></button>-->
+    <button class="add" type="submit">Valider</button>
     <p><a href="/">Retour</a></p>
 </form>

@@ -1,6 +1,5 @@
 package com.simplon.nooky.project.entities;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
@@ -11,7 +10,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name="category")
+@Table(name="categories")
 public class Category {
 	
 	@Id
@@ -26,9 +25,6 @@ public class Category {
 	@Size(max = 100)
 	@Column(name = "description")
     private String description;
-	
-	@Column(name = "createdAt")
-    private LocalDateTime createdAt;
     
     public Category() {
     }
@@ -57,16 +53,8 @@ public class Category {
     	this.description = description;
     }
 	
-	public LocalDateTime getCreatedAt() {
-		return this.createdAt;
-	}
-	
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-	
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", createdAt=" + createdAt + "]";
+		return "Category [id=" + id + ", name=" + name + ", description=" + description  + "]";
 	}
 }

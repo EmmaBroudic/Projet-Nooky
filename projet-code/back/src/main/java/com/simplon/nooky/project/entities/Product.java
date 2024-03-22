@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name="product")
+@Table(name="products")
 public class Product {
 	
 	@Id
@@ -23,19 +23,15 @@ public class Product {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "picture")
-	private String picture;
-	
 	@Size(max = 100)
 	@Column(name = "description")
 	private String description;
 	
-	@NotBlank
-	@Column(name = "transaction")
-	private String transaction;
+	@Column(name = "picture")
+	private String picture;
 	
-	@Column(name = "createdAt")
-	private LocalDateTime createdAt;
+	@Column(name = "addedAt")
+	private LocalDateTime addedAt;
 	
 	public Product() {
 	}
@@ -56,14 +52,6 @@ public class Product {
 		this.name = name;
 	}
 	
-    public String getPicture() {
-    	return this.picture;
-    }
-
-    public void setPicture(String picture) {
-    	this.picture = picture;
-    }
-    
     public String getDescription() {
     	return this.description;
     }
@@ -72,24 +60,24 @@ public class Product {
     	this.description = description;
     }
     
-    public String getTransaction() {
-    	return this.transaction;
+    public String getPicture() {
+    	return this.picture;
     }
 
-    public void setTransaction(String transaction) {
-    	this.transaction = transaction;
+    public void setPicture(String picture) {
+    	this.picture = picture;
     }
 	
-	public LocalDateTime getCreatedAt() {
-		return this.createdAt;
+	public LocalDateTime getAddedAt() {
+		return this.addedAt;
 	}
 	
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
+	public void setAddedAt(LocalDateTime addedAt) {
+		this.addedAt = addedAt;
 	}
 	
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", picture=" + picture + ", description=" + description + ", transaction=" + transaction + ", createdAt=" + createdAt + "]";
+		return "Product [id=" + id + ", name=" + name + ", picture=" + picture + ", description=" + description + ", addedAt=" + addedAt + "]";
 	}
 }

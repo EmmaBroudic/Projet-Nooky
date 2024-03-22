@@ -11,12 +11,17 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name="user_account")
+@Table(name="users")
 public class User {
 	
 	@Id
 	@Column(name = "id")
 	private UUID id;
+	
+	@NotBlank
+	@Size(max = 40)
+	@Column(name = "email")
+	private String email;
 	
 	@NotBlank
 	@Size(max = 40)
@@ -36,11 +41,6 @@ public class User {
 	
 	@NotBlank
 	@Size(max = 40)
-	@Column(name = "email")
-	private String email;
-	
-	@NotBlank
-	@Size(max = 40)
 	@Column(name = "password")
 	private String password;
 	
@@ -50,12 +50,12 @@ public class User {
 	public User() {
 	}
 	
-	public User(String username, String picture, String firstname, String lastname, String email, String password, LocalDateTime createdAt) {
-	    this.username = username;
+	public User(String email, String username, String picture, String firstname, String lastname, String password, LocalDateTime createdAt) {
+	    this.email = email;
+		this.username = username;
 	    this.picture = picture;
 		this.firstname = firstname;
 	    this.lastname = lastname;
-	    this.email = email;
 	    this.password = password;
 	    this.createdAt = createdAt;
 	}
@@ -67,6 +67,14 @@ public class User {
     public void setId(UUID id) {
     	this.id = id;
     }
+    
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
     public String getUsername() {
     	return this.username;
@@ -98,14 +106,6 @@ public class User {
 	
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}
-	
-	public String getEmail() {
-		return this.email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	
 	public String getPassword() {
