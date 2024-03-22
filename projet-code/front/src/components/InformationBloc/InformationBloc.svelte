@@ -4,6 +4,7 @@
     export let descriptionTitle: string;
     export let buttonText: string;
     export let descriptionText: string;
+    export let pageDirection: string;
 </script>
 
 <style>
@@ -60,6 +61,6 @@
             <h3>{descriptionTitle}</h3>
             <p>{descriptionText}</p>
         </div>
-        <button class="modify">{buttonText}</button>
+        <button class="modify"><a href={pageDirection}>{buttonText}</a></button>
     </div>
 </div>

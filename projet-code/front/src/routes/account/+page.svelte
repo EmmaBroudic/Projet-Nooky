@@ -24,7 +24,7 @@
 </style>
 
 <Header />
-<InformationBloc blocTitle="Mon compte" imgUrl="https://img.freepik.com/photos-gratuite/femme-son-chien-husky-dans-parc_1303-23169.jpg" descriptionTitle="Mes informations" descriptionText="bla bla bla" buttonText="modifier"/>
+<InformationBloc blocTitle="Mon compte" imgUrl="https://img.freepik.com/photos-gratuite/femme-son-chien-husky-dans-parc_1303-23169.jpg" descriptionTitle="Mes informations" descriptionText="bla bla bla" pageDirection="/signup" buttonText="modifier"/>
 <h2>Mes produits</h2>
 <div class="bloc-products">
     <ProductsBloc />
