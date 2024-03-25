@@ -29,7 +29,7 @@ CREATE TABLE "users" (
     id SERIAL PRIMARY KEY,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
-    username VARCHAR(100) UNIQUE,
+    username VARCHAR(100) UNIQUE NOT NULL,
     firstname VARCHAR(100),
     lastname VARCHAR(100),
     picture VARCHAR(250),
