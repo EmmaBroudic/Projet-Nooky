@@ -1,7 +1,6 @@
 package com.simplon.nooky.project.controllers;
 
 import java.util.Collection;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,7 +42,7 @@ public class CategoryController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Category> getCategoryById(@PathVariable @NonNull UUID id) {
+	public ResponseEntity<Category> getCategoryById(@PathVariable @NonNull Long id) {
 		return service.getCategoryById(id);
 	}
 }

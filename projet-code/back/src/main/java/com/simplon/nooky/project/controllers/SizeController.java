@@ -14,35 +14,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.entities.User;
-import com.simplon.nooky.project.repository.UserRepository;
-import com.simplon.nooky.project.services.UserService;
+import com.simplon.nooky.project.entities.Size;
+import com.simplon.nooky.project.repository.SizeRepository;
+import com.simplon.nooky.project.services.SizeService;
+
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
-	private final UserService service;
+@RequestMapping("size")
+public class SizeController {
 	
-	public UserController(UserService service) {
+	private final SizeService service;
+	
+	public SizeController(SizeService service) {
 		this.service = service;
 	}
 	
 	@Autowired
-	UserRepository userRepository;
-	
+	SizeRepository sizeRepository;
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-		return service.createUser(user);
+	public ResponseEntity<Size> createSize(@RequestBody Size size) {
+		return service.createSize(size);
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<Collection<User>> getAllUsers() {
-		return service.getAllUsers();
+	public ResponseEntity<Collection<Size>> getAllSizes() {
+		return service.getAllSizes();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable @NonNull Long id) {
-		return service.getUserById(id);
+	public ResponseEntity<Size> getSizeById(@PathVariable @NonNull Long id) {
+		return service.getSizeById(id);
 	}
 }

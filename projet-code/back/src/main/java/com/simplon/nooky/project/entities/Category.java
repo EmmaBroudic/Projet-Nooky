@@ -1,48 +1,61 @@
 package com.simplon.nooky.project.entities;
 
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="categories")
 public class Category {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private UUID id;
+	private Long id;
 	
-	@NotBlank
-	@Size(max = 40)
-	@Column(name = "name")
-    private String name;
+	@Column(name = "category_reference")
+    private String reference;
 	
-	@Size(max = 100)
+	@Column(name = "category")
+    private String category;
+	
 	@Column(name = "description")
     private String description;
     
     public Category() {
     }
     
-	public UUID getId() {
+    public Category(Long id, String reference, String description) {
+    	this.id = id;
+    	this.reference = reference;
+    	this.description = description;
+    }
+    
+	public Long getId() {
 		return this.id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getName() {
-		return this.name;
+    
+	public String getReference() {
+		return this.reference;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+	
+	public String getCategory() {
+		return this.category;
+	}
+	
+	public void setCategory(String category) {
+		this.category = category;
 	}
     
     public String getDescription() {
@@ -55,6 +68,6 @@ public class Category {
 	
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description  + "]";
+		return "Category [id=" + id + ", reference=" + reference + ", category=" + category + ", description=" + description  + "]";
 	}
 }

@@ -9,31 +9,31 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.entities.Category;
-import com.simplon.nooky.project.repository.CategoryRepository;
+import com.simplon.nooky.project.entities.Size;
+import com.simplon.nooky.project.repository.SizeRepository;
 
 @Service
-public class CategoryService {
+public class SizeService {
 	
 	@Autowired
-    private CategoryRepository categoryRepository;
+    private SizeRepository sizeRepository;
 
-	public ResponseEntity<Category> createCategory(Category category) {
+	public ResponseEntity<Size> createSize(Size size) {
 	    try {
-	        Category savedCategory = categoryRepository.save(category);
+	        Size savedSize = sizeRepository.save(size);
 
-	        return new ResponseEntity<>(savedCategory, HttpStatus.CREATED);
+	        return new ResponseEntity<>(savedSize, HttpStatus.CREATED);
 	    } catch (Exception e) {
 	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	}
 
-    public ResponseEntity<Category> getCategoryById(@NonNull Long id) {
+    public ResponseEntity<Size> getSizeById(@NonNull Long id) {
     	try {
-    		Optional<Category> categoryData = categoryRepository.findById(id);
+    		Optional<Size> sizeData = sizeRepository.findById(id);
 
-    		if (categoryData.isPresent()) {
-    			return new ResponseEntity<>(categoryData.get(), HttpStatus.OK);
+    		if (sizeData.isPresent()) {
+    			return new ResponseEntity<>(sizeData.get(), HttpStatus.OK);
     		} else {
     			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     		}
@@ -42,14 +42,14 @@ public class CategoryService {
     	}
     }
 
-	public ResponseEntity<Collection<Category>> getAllCategories() {
+	public ResponseEntity<Collection<Size>> getAllSizes() {
         try {
-            Collection<Category> categories = categoryRepository.findAll();
+            Collection<Size> sizes = sizeRepository.findAll();
             
-            if (categories.isEmpty()) {
+            if (sizes.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(categories, HttpStatus.OK);
+            return new ResponseEntity<>(sizes, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

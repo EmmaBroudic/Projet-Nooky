@@ -1,20 +1,20 @@
 CREATE TABLE "categories" (
     id SERIAL PRIMARY KEY,
-    category_reference VARCHAR(100) NOT NULL,
-    category VARCHAR(100) NOT NULL,
+    category_reference VARCHAR(10) UNIQUE NOT NULL,
+    category VARCHAR(100) UNIQUE NOT NULL,
     description VARCHAR(400)
 );
 
 CREATE TABLE "sizes" (
     id SERIAL PRIMARY KEY,
-    size_reference VARCHAR(100) NOT NULL,
-    size VARCHAR(6) NOT NULL
+    size_reference VARCHAR(10) UNIQUE NOT NULL,
+    size VARCHAR(6) UNIQUE NOT NULL
 );
 
 CREATE TABLE "types" (
     id SERIAL PRIMARY KEY,
-    type_reference VARCHAR(100) NOT NULL,
-    type VARCHAR(100) NOT NULL
+    type_reference VARCHAR(10) UNIQUE NOT NULL,
+    type VARCHAR(100) UNIQUE NOT NULL
 );
 
 CREATE TABLE "addresses" (
@@ -33,20 +33,20 @@ CREATE TABLE "users" (
     firstname VARCHAR(100),
     lastname VARCHAR(100),
     picture VARCHAR(250),
-    created_at CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     road VARCHAR(100),
     zip_code INT,
     city VARCHAR(100),
     FOREIGN KEY (road, zip_code, city) REFERENCES addresses
 );
 
-
 CREATE TABLE "products" (
     id SERIAL PRIMARY KEY,
+    product_reference VARCHAR(20) UNIQUE NOT NULL,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(400),
     picture VARCHAR(250),
-    added_at CURRENT_TIMESTAMP,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     available BOOLEAN NOT NULL,
     category_id INT,
     size_id INT,
@@ -55,15 +55,15 @@ CREATE TABLE "products" (
     FOREIGN KEY (category_id) REFERENCES categories(id),
     FOREIGN KEY (size_id) REFERENCES sizes(id),
     FOREIGN KEY (type_id) REFERENCES types(id),
-    FOREIGN KEY (userid) REFERENCES user(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-CREATE TABLE "wished_product" (
+CREATE TABLE "wished_products" (
     email VARCHAR(100),
-    wished_product VARCHAR(100),
-    proposed_product VARCHAR(100),
+    wished_product INT,
+    proposed_product INT,
+    PRIMARY KEY (email, wished_product, proposed_product),
     FOREIGN KEY (email) REFERENCES users(email),
     FOREIGN KEY(wished_product) REFERENCES products(id),
-    FOREIGN KEY(proposed_product) REFERENCES products(id),
-    PRIMARY KEY (email, wished_product, proposed_product)
+    FOREIGN KEY(proposed_product) REFERENCES products(id)
 );

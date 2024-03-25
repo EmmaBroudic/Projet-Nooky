@@ -1,47 +1,68 @@
 package com.simplon.nooky.project.entities;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="products")
 public class Product {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private UUID id;
+	private Long id;
 	
-	@NotBlank
-	@Size(max = 40)
+	@Column(name = "product_reference")
+	private String reference;
+	
 	@Column(name = "name")
 	private String name;
 	
-	@Size(max = 100)
 	@Column(name = "description")
 	private String description;
 	
 	@Column(name = "picture")
 	private String picture;
 	
-	@Column(name = "addedAt")
+	@Column(name = "added_at")
 	private LocalDateTime addedAt;
+	
+	@Column(name = "available")
+	private boolean available;
 	
 	public Product() {
 	}
 	
-	public UUID getId() {
+	public Product(Long id, String reference, String name, String description, String picture, LocalDateTime addedAt, boolean available) {
+		this.id = id;
+		this.reference = reference;
+		this.name = name;
+		this.description = description;
+		this.picture = picture;
+		this.addedAt = addedAt;
+		this.available = available;
+	}
+	
+	public Long getId() {
 		return this.id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getReference() {
+		return this.reference;
+	}
+	
+	public void setReference(String reference) {
+		this.reference = reference;
 	}
 	
 	public String getName() {
@@ -76,8 +97,16 @@ public class Product {
 		this.addedAt = addedAt;
 	}
 	
+	public boolean getAvailable() {
+		return this.available;
+	}
+	
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", picture=" + picture + ", description=" + description + ", addedAt=" + addedAt + "]";
+		return "Product [id=" + id + ", reference=" + reference + ", name=" + name + ", picture=" + picture + ", description=" + description + ", addedAt=" + addedAt + ", available=" + available + "]";
 	}
 }

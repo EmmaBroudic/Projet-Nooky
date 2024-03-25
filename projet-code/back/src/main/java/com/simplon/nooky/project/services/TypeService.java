@@ -9,31 +9,31 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.entities.User;
-import com.simplon.nooky.project.repository.UserRepository;
+import com.simplon.nooky.project.entities.Type;
+import com.simplon.nooky.project.repository.TypeRepository;
 
 @Service
-public class UserService {
+public class TypeService {
 	
 	@Autowired
-    private UserRepository userRepository;
+    private TypeRepository typeRepository;
 
-    public ResponseEntity<User> createUser(User user) {
+    public ResponseEntity<Type> createType(Type type) {
         try {
-            User savedUser = userRepository.save(user);
+            Type savedType = typeRepository.save(type);
 
-            return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+            return new ResponseEntity<>(savedType, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    public ResponseEntity<User> getUserById(@NonNull Long id) {
+    public ResponseEntity<Type> getTypeById(@NonNull Long id) {
     	try {
-    		Optional<User> userData = userRepository.findById(id);
+    		Optional<Type> typeData = typeRepository.findById(id);
 
-    		if (userData.isPresent()) {
-    			return new ResponseEntity<>(userData.get(), HttpStatus.OK);
+    		if (typeData.isPresent()) {
+    			return new ResponseEntity<>(typeData.get(), HttpStatus.OK);
     		} else {
     			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     		}
@@ -42,14 +42,14 @@ public class UserService {
     	}
     }
 
-	public ResponseEntity<Collection<User>> getAllUsers() {
+	public ResponseEntity<Collection<Type>> getAllTypes() {
         try {
-            Collection<User> users = userRepository.findAll();
+            Collection<Type> types = typeRepository.findAll();
             
-            if (users.isEmpty()) {
+            if (types.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(users, HttpStatus.OK);
+            return new ResponseEntity<>(types, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -14,35 +14,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.entities.User;
-import com.simplon.nooky.project.repository.UserRepository;
-import com.simplon.nooky.project.services.UserService;
+import com.simplon.nooky.project.entities.Address;
+import com.simplon.nooky.project.repository.AddressRepository;
+import com.simplon.nooky.project.services.AddressService;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
-	private final UserService service;
+@RequestMapping("/address")
+public class AddressController {
+	private final AddressService service;
 	
-	public UserController(UserService service) {
+	public AddressController(AddressService service) {
 		this.service = service;
 	}
 	
 	@Autowired
-	UserRepository userRepository;
+	AddressRepository addressRepository;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-		return service.createUser(user);
+	public ResponseEntity<Address> createAddress(@RequestBody Address address) {
+		return service.createAddress(address);
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<Collection<User>> getAllUsers() {
-		return service.getAllUsers();
+	public ResponseEntity<Collection<Address>> getAllAddresses() {
+		return service.getAllAddresses();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable @NonNull Long id) {
-		return service.getUserById(id);
+	public ResponseEntity<Address> getAddressesById(@PathVariable @NonNull Long id) {
+		return service.getAddressesById(id);
 	}
 }

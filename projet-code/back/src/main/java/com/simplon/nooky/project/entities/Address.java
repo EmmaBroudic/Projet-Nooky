@@ -1,9 +1,9 @@
 package com.simplon.nooky.project.entities;
 
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,8 +12,9 @@ import jakarta.persistence.Table;
 public class Address {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private UUID id;
+	private Long id;
 	
 	@Column(name = "road")
 	private String road;
@@ -27,11 +28,19 @@ public class Address {
 	public Address() {
 	}
 	
-	public Address(UUID id, String road, String city, int zipCode) {
+	public Address(Long id, String road, String city, int zipCode) {
 		this.id = id;
 		this.road = road;
 		this.city = city;
 		this.zipCode = zipCode;
+	}
+	
+	public Long getId() {
+		return this.id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	public String getRoad() {

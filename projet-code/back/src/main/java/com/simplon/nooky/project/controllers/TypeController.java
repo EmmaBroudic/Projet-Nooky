@@ -14,35 +14,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.entities.User;
-import com.simplon.nooky.project.repository.UserRepository;
-import com.simplon.nooky.project.services.UserService;
+import com.simplon.nooky.project.entities.Type;
+import com.simplon.nooky.project.repository.TypeRepository;
+import com.simplon.nooky.project.services.TypeService;
+
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
-	private final UserService service;
+@RequestMapping("/type")
+public class TypeController {
 	
-	public UserController(UserService service) {
+	private final TypeService service;
+	
+	public TypeController(TypeService service) {
 		this.service = service;
 	}
 	
 	@Autowired
-	UserRepository userRepository;
+	TypeRepository typeRepository;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-		return service.createUser(user);
+	public ResponseEntity<Type> createType(@RequestBody Type type) {
+		return service.createType(type);
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<Collection<User>> getAllUsers() {
-		return service.getAllUsers();
+	public ResponseEntity<Collection<Type>> getAllTypes() {
+		return service.getAllTypes();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable @NonNull Long id) {
-		return service.getUserById(id);
+	public ResponseEntity<Type> getTypeById(@PathVariable @NonNull Long id) {
+		return service.getTypeById(id);
 	}
 }

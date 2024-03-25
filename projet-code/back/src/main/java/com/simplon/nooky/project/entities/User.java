@@ -1,46 +1,38 @@
 package com.simplon.nooky.project.entities;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
 public class User {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private UUID id;
-	
-	@NotBlank
-	@Size(max = 40)
+	private Long id;
+
 	@Column(name = "email")
 	private String email;
 	
-	@NotBlank
-	@Size(max = 40)
 	@Column(name = "username")
 	private String username;
 	
 	@Column(name = "picture")
 	private String picture;
 	
-	@Size(max = 40)
 	@Column(name = "firstname")
 	private String firstname;
 	
-	@Size(max = 40)
 	@Column(name = "lastname")
 	private String lastname;
 	
-	@NotBlank
-	@Size(max = 40)
 	@Column(name = "password")
 	private String password;
 	
@@ -50,8 +42,9 @@ public class User {
 	public User() {
 	}
 	
-	public User(String email, String username, String picture, String firstname, String lastname, String password, LocalDateTime createdAt) {
-	    this.email = email;
+	public User(Long id, String email, String username, String picture, String firstname, String lastname, String password, LocalDateTime createdAt) {
+	    this.id = id;
+		this.email = email;
 		this.username = username;
 	    this.picture = picture;
 		this.firstname = firstname;
@@ -60,14 +53,14 @@ public class User {
 	    this.createdAt = createdAt;
 	}
 	
-	public UUID getId() {
-  		return this.id;
-    }
+	public Long getId() {
+		return this.id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setId(UUID id) {
-    	this.id = id;
-    }
-    
 	public String getEmail() {
 		return this.email;
 	}
