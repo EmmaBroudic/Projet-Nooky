@@ -35,7 +35,7 @@ CREATE TABLE "users" (
     picture VARCHAR(1000),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     road VARCHAR(100),
-    zip_code INT,
+    zip_code CHAR(5),
     city VARCHAR(100),
     FOREIGN KEY (road, zip_code, city) REFERENCES addresses
 );

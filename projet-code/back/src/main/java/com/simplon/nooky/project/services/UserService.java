@@ -41,6 +41,20 @@ public class UserService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     	}
     }
+    
+    public ResponseEntity<User> getUserByEmail(@NonNull String email) {
+    	try {
+    		Optional<User> userData = userRepository.findByEmail(email);
+
+    		if (userData.isPresent()) {
+    			return new ResponseEntity<>(userData.get(), HttpStatus.OK);
+    		} else {
+    			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		}
+    	} catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    	}
+    }
 
 	public ResponseEntity<Collection<User>> getAllUsers() {
         try {

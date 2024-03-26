@@ -2,6 +2,7 @@
     import '../../assets/css/index.css';
     import { onMount } from 'svelte';
     import { keepInputsSignUp } from '../../lib/keepInputs';
+    import { postInputsSignUp } from '$lib/postInputs';
     import { goto } from '$app/navigation';
 
     let inputOneUser: string;
@@ -32,6 +33,7 @@
     function handleSubmit(event: any) {
         event.preventDefault();
         keepUserInputs();
+        postInputsSignUp();
         goto('/home');
     }
 

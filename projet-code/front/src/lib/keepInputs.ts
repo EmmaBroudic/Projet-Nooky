@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-interface InputsSignUp {
+export interface InputsSignUp {
     id: number;
     username: string;
     email: string;
@@ -14,7 +14,7 @@ interface InputsSignUp {
 
 export const keepInputsSignUp = writable<InputsSignUp[]>([]);
 
-interface InputsSignIn {
+export interface InputsSignIn {
     id: number;
     email: string;
     password: string;

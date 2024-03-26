@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,19 +31,28 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
+	@CrossOrigin(origins = "http://localhost:8080")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		return service.createUser(user);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/all")
 	public ResponseEntity<Collection<User>> getAllUsers() {
 		return service.getAllUsers();
 	}
 	
-	@GetMapping("/{id}")
+	@CrossOrigin(origins = "http://localhost:8080")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable @NonNull Long id) {
 		return service.getUserById(id);
+	}
+	
+	@CrossOrigin(origins = "http://localhost:8080")
+	@GetMapping("/email/{email}")
+	public ResponseEntity<User> getUserByEmail(@PathVariable @NonNull String email) {
+		return service.getUserByEmail(email);
 	}
 }

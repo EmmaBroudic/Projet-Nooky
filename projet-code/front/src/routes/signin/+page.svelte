@@ -3,6 +3,7 @@
     import { onMount } from 'svelte';
     import { keepInputsSignIn } from '../../lib/keepInputs';
     import { goto } from '$app/navigation';
+    import { postInputsSignIn } from '$lib/postInputs';
 
     let inputOneUser: string;
     let inputTwoUser: string;
@@ -15,6 +16,7 @@
         };
         keepInputsSignIn.update((prevData) => [...prevData, data]);
         console.log(data);
+        postInputsSignIn(data.email, data.password);
     }
 
     function handleSubmit(event: any) {
