@@ -28,9 +28,10 @@ public class Category {
     public Category() {
     }
     
-    public Category(Long id, String reference, String description) {
+    public Category(Long id, String reference, String category, String description) {
     	this.id = id;
     	this.reference = reference;
+    	this.category = category;
     	this.description = description;
     }
     

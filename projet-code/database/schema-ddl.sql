@@ -20,7 +20,7 @@ CREATE TABLE "types" (
 CREATE TABLE "addresses" (
     id SERIAL,
     road VARCHAR(100) NOT NULL,
-    zip_code INT NOT NULL,
+    zip_code CHAR(5) NOT NULL,
     city VARCHAR(100) NOT NULL,
     PRIMARY KEY (road, zip_code, city)
 );
@@ -32,7 +32,7 @@ CREATE TABLE "users" (
     username VARCHAR(100) UNIQUE NOT NULL,
     firstname VARCHAR(100),
     lastname VARCHAR(100),
-    picture VARCHAR(250),
+    picture VARCHAR(1000),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     road VARCHAR(100),
     zip_code INT,
@@ -45,7 +45,7 @@ CREATE TABLE "products" (
     product_reference VARCHAR(20) UNIQUE NOT NULL,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(400),
-    picture VARCHAR(250),
+    picture VARCHAR(1000),
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     available BOOLEAN NOT NULL,
     category_id INT,

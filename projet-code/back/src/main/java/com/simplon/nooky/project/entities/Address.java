@@ -23,12 +23,12 @@ public class Address {
 	private String city;
 	
 	@Column(name = "zip_code")
-	private int zipCode;
+	private String zipCode;
 	
 	public Address() {
 	}
 	
-	public Address(Long id, String road, String city, int zipCode) {
+	public Address(Long id, String road, String city, String zipCode) {
 		this.id = id;
 		this.road = road;
 		this.city = city;
@@ -59,11 +59,11 @@ public class Address {
 		this.city = city;
 	}
 	
-	public int getZipCode() {
+	public String getZipCode() {
 		return this.zipCode;
 	}
 	
-	public void setZipCode(int zipCode) {
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 	
