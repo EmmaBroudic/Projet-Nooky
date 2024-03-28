@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.entities;
+package com.simplon.nooky.project.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

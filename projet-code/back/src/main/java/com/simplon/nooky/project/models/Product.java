@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.entities;
+package com.simplon.nooky.project.models;
 
 import java.time.LocalDateTime;
 

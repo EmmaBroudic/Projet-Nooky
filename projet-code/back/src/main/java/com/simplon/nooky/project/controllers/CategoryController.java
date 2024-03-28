@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.entities.Category;
+import com.simplon.nooky.project.models.Category;
 import com.simplon.nooky.project.repository.CategoryRepository;
 import com.simplon.nooky.project.services.CategoryService;
 

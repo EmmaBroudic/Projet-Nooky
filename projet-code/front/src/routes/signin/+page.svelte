@@ -1,39 +1,51 @@
 <script lang="ts">
-    import '../../assets/css/index.css';
     import { onMount } from 'svelte';
-    import { keepInputsSignIn } from '../../lib/keepInputs';
+    import '../../assets/css/index.css';
     import { goto } from '$app/navigation';
-    import { postInputsSignIn } from '$lib/postInputs';
+    import { verifyInputsSignIn } from '$lib/getData';
 
     let inputOneUser: string;
     let inputTwoUser: string;
+    let errorMessageVisible = false;
 
-    function keepUserInputs() {
-        let data = {
-            id: 1,
-            email: inputOneUser,
-            password: inputTwoUser
-        };
-        keepInputsSignIn.update((prevData) => [...prevData, data]);
-        console.log(data);
-        postInputsSignIn(data.email, data.password);
-    }
-
-    function handleSubmit(event: any) {
+    async function handleSubmit(event: any) {
         event.preventDefault();
-        keepUserInputs();
-        goto('/home');
+        
+        const result = await verifyInputsSignIn(inputOneUser, inputTwoUser);
+            
+        if (result === false) {
+            errorMessageVisible = true;
+        } /*else if (!inputOneUser) {
+            console.log("l'identifiant n'est pas bon");
+            errorMessageVisible = true;
+        } */else {
+            goto('/home');
+        }
     }
-
+/*
     onMount(() => {
-        keepUserInputs();
-    });
+        // Au moment du montage, on cache le message d'erreur
+        errorMessageVisible = false;
+    });*/
 </script>
+
+<style>
+    .error-message {
+        color: red;
+        font-size: 12px;
+        display: flex;
+    }
+</style>
 
 <form class="connect" on:submit|preventDefault={handleSubmit}>
     <h2>Sign in</h2>
     <input bind:value={inputOneUser} type="email" placeholder="Entrez votre email">
     <input bind:value={inputTwoUser} type="password" placeholder="Entrez votre mot de passe">
+    {#if errorMessageVisible === true}
+        <p class="error-message">Identifiant et mot de passe erronés</p>
+    {:else}
+        <p>TestS</p>
+    {/if}
     <button class="add" type="submit">Valider</button>
     <p><a href="/">Retour</a></p>
 </form>

@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.entities;
+package com.simplon.nooky.project.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,27 +8,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "sizes")
-public class Size {
+@Table(name = "types")
+public class Type {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "size_reference")
+	@Column(name = "type_reference")
 	private String reference;
 	
-	@Column(name = "size")
-	private String size;
+	@Column(name = "type")
+	private String type;
 	
-	public Size() {
+	public Type() {
 	}
 	
-	public Size(Long id, String reference, String size) {
+	public Type(Long id, String reference, String type) {
 		this.id = id;
 		this.reference = reference;
-		this.size = size;
+		this.type = type;
 	}
 	
 	public Long getId() {
@@ -47,16 +47,16 @@ public class Size {
     	this.reference = reference;
     }
     
-    public String getSize() {
-    	return this.size;
+    public String getType() {
+    	return this.type;
     }
     
-    public void setSize(String size) {
-    	this.size = size;
+    public void setType(String type) {
+    	this.type = type;
     }
     
 	@Override
 	public String toString() {
-		return "Size [id=" + id + ", reference=" + reference + ", size=" + size + "]";
+		return "Type [id=" + id + ", reference=" + reference + ", type=" + type + "]";
 	}
 }

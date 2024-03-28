@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.entities.User;
+import com.simplon.nooky.project.models.User;
 import com.simplon.nooky.project.repository.UserRepository;
 
 @Service
