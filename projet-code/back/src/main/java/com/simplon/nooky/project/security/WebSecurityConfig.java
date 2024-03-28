@@ -24,7 +24,7 @@ import com.nimbusds.jose.jwk.source.ImmutableSecret;
 @Configuration
 public class WebSecurityConfig {
 	
-	private String jwtKey = "";
+	private String jwtKey = "3671f3e6-f4d4-4747-9f4d-735d2ab2babd";
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {		
