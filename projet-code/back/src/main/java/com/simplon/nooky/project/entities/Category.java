@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.models;
+package com.simplon.nooky.project.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,13 +26,6 @@ public class Category {
     private String description;
     
     public Category() {
-    }
-    
-    public Category(Long id, String reference, String category, String description) {
-    	this.id = id;
-    	this.reference = reference;
-    	this.category = category;
-    	this.description = description;
     }
     
 	public Long getId() {

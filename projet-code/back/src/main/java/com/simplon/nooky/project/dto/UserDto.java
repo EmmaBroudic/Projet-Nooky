@@ -1,48 +1,25 @@
-package com.simplon.nooky.project.models;
+package com.simplon.nooky.project.dto;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
-@Entity
-@Table(name="users")
-public class User {
+public class UserDto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private Long id;
-
-	@Column(name = "email")
 	private String email;
-	
-	@Column(name = "username")
 	private String username;
-	
-	@Column(name = "picture")
 	private String picture;
-	
-	@Column(name = "firstname")
 	private String firstname;
-	
-	@Column(name = "lastname")
 	private String lastname;
-	
-	@Column(name = "password")
 	private String password;
-	
-	@Column(name = "created_at")
 	private LocalDateTime createdAt;
 	
-	public User() {
+	public UserDto() {
 	}
 	
-	public User(Long id, String email, String username, String picture, String firstname, String lastname, String password, LocalDateTime createdAt) {
+	public UserDto(Long id, String email, String username, String picture, String firstname, String lastname, String password, LocalDateTime createdAt) {
 	    this.id = id;
 		this.email = email;
 		this.username = username;
@@ -65,6 +42,8 @@ public class User {
 		return this.email;
 	}
 	
+	@NotNull
+	@Size(max=100)
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -73,6 +52,8 @@ public class User {
     	return this.username;
     }
 
+    @NotNull
+    @Size(max=100)
     public void setUsername(String username) {
     	this.username = username;
     }
@@ -81,6 +62,7 @@ public class User {
     	return this.picture;
     }
 
+    @Size(max=1000)
     public void setPicture(String picture) {
     	this.picture = picture;
     }
@@ -89,6 +71,7 @@ public class User {
 		return this.firstname;
 	}
 	
+	@Size(max=100)
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
@@ -97,6 +80,7 @@ public class User {
 		return this.lastname;
 	}
 	
+	@Size(max=100)
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
@@ -105,6 +89,8 @@ public class User {
 		return this.password;
 	}
 	
+	@NotNull
+	@Size(max=100)
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -115,10 +101,5 @@ public class User {
 	
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
-	}
-	
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", picture=" + picture + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", password=" + password + ", createdAt=" + createdAt + "]";
 	}
 }

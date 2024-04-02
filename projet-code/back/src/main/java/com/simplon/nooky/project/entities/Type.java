@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.models;
+package com.simplon.nooky.project.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,12 +23,6 @@ public class Type {
 	private String type;
 	
 	public Type() {
-	}
-	
-	public Type(Long id, String reference, String type) {
-		this.id = id;
-		this.reference = reference;
-		this.type = type;
 	}
 	
 	public Long getId() {

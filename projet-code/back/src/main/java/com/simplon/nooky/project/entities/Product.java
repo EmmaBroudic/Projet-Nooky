@@ -1,31 +1,42 @@
-package com.simplon.nooky.project.dto;
+package com.simplon.nooky.project.entities;
 
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-public class CreateProduct {
+@Entity
+@Table(name="products")
+public class Product {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+	
+	@Column(name = "product_reference")
 	private String reference;
+	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "picture")
 	private String picture;
+	
+	@Column(name = "added_at")
 	private LocalDateTime addedAt;
+	
+	@Column(name = "available")
 	private boolean available;
 	
-	public CreateProduct() {
-	}
-	
-	public CreateProduct(Long id, String reference, String name, String description, String picture, LocalDateTime addedAt, boolean available) {
-		this.id = id;
-		this.reference = reference;
-		this.name = name;
-		this.description = description;
-		this.picture = picture;
-		this.addedAt = addedAt;
-		this.available = available;
+	public Product() {
 	}
 	
 	public Long getId() {
@@ -40,8 +51,6 @@ public class CreateProduct {
 		return this.reference;
 	}
 	
-	@NotNull
-	@Size(max=20)
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
@@ -50,8 +59,6 @@ public class CreateProduct {
 		return this.name;
 	}
 	
-	@NotNull
-	@Size(max=100)
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -60,7 +67,6 @@ public class CreateProduct {
     	return this.description;
     }
 
-	@Size(max=400)
     public void setDescription(String description) {
     	this.description = description;
     }
@@ -69,7 +75,6 @@ public class CreateProduct {
     	return this.picture;
     }
 
-	@Size(max=1000)
     public void setPicture(String picture) {
     	this.picture = picture;
     }
@@ -86,8 +91,12 @@ public class CreateProduct {
 		return this.available;
 	}
 	
-	@NotNull
 	public void setAvailable(boolean available) {
 		this.available = available;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", reference=" + reference + ", name=" + name + ", picture=" + picture + ", description=" + description + ", addedAt=" + addedAt + ", available=" + available + "]";
 	}
 }

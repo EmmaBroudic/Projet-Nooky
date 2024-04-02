@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.simplon.nooky.project.models.User;
+import com.simplon.nooky.project.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 		List<User> findByEmailContaining(String email);

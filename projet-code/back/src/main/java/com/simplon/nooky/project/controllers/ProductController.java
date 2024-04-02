@@ -1,10 +1,10 @@
 package com.simplon.nooky.project.controllers;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.models.Product;
+import com.simplon.nooky.project.entities.Product;
 import com.simplon.nooky.project.repository.ProductRepository;
 import com.simplon.nooky.project.services.ProductService;
 
@@ -32,17 +32,17 @@ public class ProductController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+	public Product createProduct(@RequestBody Product product) {
 		return service.createProduct(product);
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<Collection<Product>> getAllProducts() {
+	public Collection<Product> getAllProducts() {
 		return service.getAllProducts();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Product> getProductById(@PathVariable @NonNull Long id) {
+	public Optional<Product> getProductById(@PathVariable @NonNull Long id) {
 		return service.getProductById(id);
 	}
 }

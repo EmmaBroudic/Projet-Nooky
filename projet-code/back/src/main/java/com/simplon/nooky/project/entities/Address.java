@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.models;
+package com.simplon.nooky.project.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,13 +26,6 @@ public class Address {
 	private String zipCode;
 	
 	public Address() {
-	}
-	
-	public Address(Long id, String road, String city, String zipCode) {
-		this.id = id;
-		this.road = road;
-		this.city = city;
-		this.zipCode = zipCode;
 	}
 	
 	public Long getId() {
