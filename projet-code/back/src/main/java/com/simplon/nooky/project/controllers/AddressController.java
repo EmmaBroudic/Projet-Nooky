@@ -1,7 +1,5 @@
 package com.simplon.nooky.project.controllers;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.models.Address;
+//import com.simplon.nooky.project.models.Address;
 import com.simplon.nooky.project.repository.AddressRepository;
 import com.simplon.nooky.project.services.AddressService;
 
@@ -34,11 +33,6 @@ public class AddressController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Address> createAddress(@RequestBody Address address) {
 		return service.createAddress(address);
-	}
-	
-	@GetMapping("/all")
-	public ResponseEntity<Collection<Address>> getAllAddresses() {
-		return service.getAllAddresses();
 	}
 	
 	@GetMapping("/{id}")

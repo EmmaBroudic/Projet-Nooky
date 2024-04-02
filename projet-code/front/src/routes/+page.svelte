@@ -12,4 +12,8 @@
     <a href="/signin">
         <button class="grey-border">Sign in</button>
     </a>
+    <p>Test token</p>
+    <a href="/test">
+        <button class="grey-border">Test</button>
+    </a>
 </div>
