@@ -16,7 +16,7 @@ public class TypeService {
 	@Autowired
     private TypeRepository typeRepository;
 
-    public Optional<Type> getTypeById(@NonNull Long id) {
+    public Optional<Type> getTypeById(@NonNull int id) {
     	return typeRepository.findById(id);
     }
 

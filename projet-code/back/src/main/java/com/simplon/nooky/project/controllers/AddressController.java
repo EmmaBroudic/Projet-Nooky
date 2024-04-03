@@ -36,7 +36,7 @@ public class AddressController {
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Address> getAddressesById(@PathVariable @NonNull Long id) {
+	public Optional<Address> getAddressesById(@PathVariable @NonNull int id) {
 		return service.getAddressesById(id);
 	}
 }

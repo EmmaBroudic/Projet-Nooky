@@ -4,21 +4,13 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="products")
-public class Product {
+public class Product extends EntityAbstract {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
-	
-	@Column(name = "product_reference")
+	@Column(name = "reference")
 	private String reference;
 	
 	@Column(name = "name")
@@ -37,14 +29,6 @@ public class Product {
 	private boolean available;
 	
 	public Product() {
-	}
-	
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public String getReference() {
@@ -93,10 +77,5 @@ public class Product {
 	
 	public void setAvailable(boolean available) {
 		this.available = available;
-	}
-	
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", reference=" + reference + ", name=" + name + ", picture=" + picture + ", description=" + description + ", addedAt=" + addedAt + ", available=" + available + "]";
 	}
 }

@@ -20,7 +20,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public Optional<User> getUserById(@NonNull Long id) {
+    public Optional<User> getUserById(@NonNull int id) {
     	return userRepository.findById(id);
     }
     

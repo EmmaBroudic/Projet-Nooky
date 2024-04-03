@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.simplon.nooky.project.entities.Product;
 
-public interface ProductRepository extends JpaRepository<Product, Long>{
+public interface ProductRepository extends JpaRepository<Product, Integer>{
 	List<Product> findByNameContaining(String name);
 }

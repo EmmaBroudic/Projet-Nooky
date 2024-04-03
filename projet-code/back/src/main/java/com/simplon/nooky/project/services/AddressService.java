@@ -19,7 +19,7 @@ public class AddressService {
 	    return addressRepository.save(address);
 	}
 
-    public Optional<Address> getAddressesById(@NonNull Long id) {
+    public Optional<Address> getAddressesById(@NonNull int id) {
     	return addressRepository.findById(id);
     }
 }

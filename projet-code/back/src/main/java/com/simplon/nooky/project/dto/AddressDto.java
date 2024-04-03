@@ -1,8 +1,5 @@
 package com.simplon.nooky.project.dto;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
 public class AddressDto {
 	private String road;
 	private String city;
@@ -30,8 +27,6 @@ public class AddressDto {
 		return this.city;
 	}
 	
-	@NotNull
-	@Size(max=100)
 	public void setCity(String city) {
 		this.city = city;
 	}
@@ -40,8 +35,6 @@ public class AddressDto {
 		return this.zipCode;
 	}
 	
-	@NotNull
-	@Size(max=5)
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}

@@ -2,35 +2,19 @@ package com.simplon.nooky.project.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "sizes")
-public class Size {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+public class Size extends EntityAbstract {
 
-	@Column(name = "size_reference")
+	@Column(name = "reference")
 	private String reference;
 	
-	@Column(name = "size")
-	private String size;
+	@Column(name = "description")
+	private String description;
 	
 	public Size() {
-	}
-	
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public String getReference() {
@@ -41,16 +25,11 @@ public class Size {
     	this.reference = reference;
     }
     
-    public String getSize() {
-    	return this.size;
-    }
-    
-    public void setSize(String size) {
-    	this.size = size;
-    }
-    
-	@Override
-	public String toString() {
-		return "Size [id=" + id + ", reference=" + reference + ", size=" + size + "]";
+	public String getDescription() {
+		return this.description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

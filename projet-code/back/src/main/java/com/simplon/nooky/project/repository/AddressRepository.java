@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //import com.simplon.nooky.project.dto.AddressDto;
 import com.simplon.nooky.project.entities.Address;
 
-public interface AddressRepository extends JpaRepository<Address, Long> {
+public interface AddressRepository extends JpaRepository<Address, Integer> {
 	List<Address> findByCityContaining(String city);
-	
-	//List<AddressDto> findByCityContainingProjected(String city);
 }

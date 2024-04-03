@@ -16,7 +16,7 @@ public class SizeService {
 	@Autowired
     private SizeRepository sizeRepository;
 
-    public Optional<Size> getSizeById(@NonNull Long id) {
+    public Optional<Size> getSizeById(@NonNull int id) {
     	return sizeRepository.findById(id);
     }
 

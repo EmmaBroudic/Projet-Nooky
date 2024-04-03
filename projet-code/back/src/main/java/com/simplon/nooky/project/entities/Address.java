@@ -2,19 +2,11 @@ package com.simplon.nooky.project.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "addresses")
-public class Address {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+public class Address extends EntityAbstract {
 	
 	@Column(name = "road")
 	private String road;
@@ -26,14 +18,6 @@ public class Address {
 	private String zipCode;
 	
 	public Address() {
-	}
-	
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public String getRoad() {
@@ -58,10 +42,5 @@ public class Address {
 	
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
-	}
-	
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", road=" + road + ", city=" + city + ", zipCode=" + zipCode + "]";
 	}
 }

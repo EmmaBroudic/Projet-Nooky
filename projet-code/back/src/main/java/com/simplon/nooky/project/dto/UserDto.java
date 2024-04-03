@@ -2,9 +2,6 @@ package com.simplon.nooky.project.dto;
 
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
 public class UserDto {
 	
 	private Long id;
@@ -41,9 +38,7 @@ public class UserDto {
 	public String getEmail() {
 		return this.email;
 	}
-	
-	@NotNull
-	@Size(max=100)
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -52,8 +47,6 @@ public class UserDto {
     	return this.username;
     }
 
-    @NotNull
-    @Size(max=100)
     public void setUsername(String username) {
     	this.username = username;
     }
@@ -62,7 +55,6 @@ public class UserDto {
     	return this.picture;
     }
 
-    @Size(max=1000)
     public void setPicture(String picture) {
     	this.picture = picture;
     }
@@ -71,7 +63,6 @@ public class UserDto {
 		return this.firstname;
 	}
 	
-	@Size(max=100)
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
@@ -80,7 +71,6 @@ public class UserDto {
 		return this.lastname;
 	}
 	
-	@Size(max=100)
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
@@ -89,8 +79,6 @@ public class UserDto {
 		return this.password;
 	}
 	
-	@NotNull
-	@Size(max=100)
 	public void setPassword(String password) {
 		this.password = password;
 	}

@@ -34,7 +34,7 @@ public class SizeController {
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Size> getSizeById(@PathVariable @NonNull Long id) {
+	public Optional<Size> getSizeById(@PathVariable @NonNull int id) {
 		return service.getSizeById(id);
 	}
 }

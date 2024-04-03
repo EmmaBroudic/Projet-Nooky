@@ -20,7 +20,7 @@ public class ProductService {
 		return productRepository.save(product);
 	}
 
-    public Optional<Product> getProductById(@NonNull Long id) {
+    public Optional<Product> getProductById(@NonNull int id) {
     	return productRepository.findById(id);
     }
 

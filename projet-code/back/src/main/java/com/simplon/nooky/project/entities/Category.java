@@ -2,40 +2,21 @@ package com.simplon.nooky.project.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="categories")
-public class Category {
+public class Category extends EntityAbstract {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
-	
-	@Column(name = "category_reference")
+	@Column(name = "reference")
     private String reference;
-	
-	@Column(name = "category")
-    private String category;
 	
 	@Column(name = "description")
     private String description;
-    
+	
     public Category() {
     }
-    
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-    
+ 
 	public String getReference() {
 		return this.reference;
 	}
@@ -44,24 +25,11 @@ public class Category {
 		this.reference = reference;
 	}
 	
-	public String getCategory() {
-		return this.category;
+	public String getDescription() {
+		return this.description;
 	}
 	
-	public void setCategory(String category) {
-		this.category = category;
-	}
-    
-    public String getDescription() {
-    	return this.description;
-    }
-
-    public void setDescription(String description) {
-    	this.description = description;
-    }
-	
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", reference=" + reference + ", category=" + category + ", description=" + description  + "]";
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

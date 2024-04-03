@@ -2,35 +2,19 @@ package com.simplon.nooky.project.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "types")
-public class Type {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+public class Type extends EntityAbstract {
 
-	@Column(name = "type_reference")
+	@Column(name = "reference")
 	private String reference;
 	
-	@Column(name = "type")
-	private String type;
+	@Column(name = "description")
+	private String description;
 	
 	public Type() {
-	}
-	
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public String getReference() {
@@ -41,16 +25,11 @@ public class Type {
     	this.reference = reference;
     }
     
-    public String getType() {
-    	return this.type;
-    }
-    
-    public void setType(String type) {
-    	this.type = type;
-    }
-    
-	@Override
-	public String toString() {
-		return "Type [id=" + id + ", reference=" + reference + ", type=" + type + "]";
+	public String getDescription() {
+		return this.description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

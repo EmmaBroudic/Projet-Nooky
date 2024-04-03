@@ -46,7 +46,7 @@ public class UserController {
 	
 	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/id/{id}")
-	public Optional<User> getUserById(@PathVariable @NonNull Long id) {
+	public Optional<User> getUserById(@PathVariable @NonNull int id) {
 		return service.getUserById(id);
 	}
 	

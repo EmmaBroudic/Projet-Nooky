@@ -34,7 +34,7 @@ public class TypeController {
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Type> getTypeById(@PathVariable @NonNull Long id) {
+	public Optional<Type> getTypeById(@PathVariable @NonNull int id) {
 		return service.getTypeById(id);
 	}
 }

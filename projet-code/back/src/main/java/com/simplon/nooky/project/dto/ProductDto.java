@@ -2,12 +2,9 @@ package com.simplon.nooky.project.dto;
 
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
 public class ProductDto {
 	
-	private Long id;
+	//private Long id;
 	private String reference;
 	private String name;
 	private String description;
@@ -18,8 +15,8 @@ public class ProductDto {
 	public ProductDto() {
 	}
 	
-	public ProductDto(Long id, String reference, String name, String description, String picture, LocalDateTime addedAt, boolean available) {
-		this.id = id;
+	public ProductDto(/*Long id,*/ String reference, String name, String description, String picture, LocalDateTime addedAt, boolean available) {
+		//this.id = id;
 		this.reference = reference;
 		this.name = name;
 		this.description = description;
@@ -27,21 +24,19 @@ public class ProductDto {
 		this.addedAt = addedAt;
 		this.available = available;
 	}
-	
+	/*
 	public Long getId() {
 		return this.id;
 	}
 	
 	public void setId(Long id) {
 		this.id = id;
-	}
+	}*/
 	
 	public String getReference() {
 		return this.reference;
 	}
 	
-	@NotNull
-	@Size(max=20)
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
@@ -50,8 +45,6 @@ public class ProductDto {
 		return this.name;
 	}
 	
-	@NotNull
-	@Size(max=100)
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -60,7 +53,6 @@ public class ProductDto {
     	return this.description;
     }
 
-	@Size(max=400)
     public void setDescription(String description) {
     	this.description = description;
     }
@@ -69,7 +61,6 @@ public class ProductDto {
     	return this.picture;
     }
 
-	@Size(max=1000)
     public void setPicture(String picture) {
     	this.picture = picture;
     }
@@ -86,7 +77,6 @@ public class ProductDto {
 		return this.available;
 	}
 	
-	@NotNull
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
