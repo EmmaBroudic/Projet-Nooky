@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.simplon.nooky.project.entities.Size;
 
 public interface SizeRepository extends JpaRepository<Size, Integer> {
-	List<Size> findByDescriptionContaining(String description);
+	List<Size> findByLabelContaining(String label);
 }

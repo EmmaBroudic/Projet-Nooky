@@ -1,11 +1,11 @@
 -- Seeds pour la table "categories"
-INSERT INTO categories (reference, description) VALUES
+INSERT INTO categories (reference, label) VALUES
 ('CAT001', 'Kids'),
 ('CAT002', 'Women'),
 ('CAT003', 'Men');
 
 -- Seeds pour la table "sizes" (considérant uniquement des tailles de vêtements et de chaussures)
-INSERT INTO sizes (reference, description) VALUES
+INSERT INTO sizes (reference, label) VALUES
 ('SIZ001', 'XS'),
 ('SIZ002', 'S'),
 ('SIZ003', 'M'),
@@ -19,12 +19,17 @@ INSERT INTO sizes (reference, description) VALUES
 ('SIZ011', '44');
 
 -- Seeds pour la table "types"
-INSERT INTO types (reference, description) VALUES
+INSERT INTO types (reference, label) VALUES
 ('TYP001', 'T-Shirt'),
 ('TYP002', 'Pantalon'),
 ('TYP003', 'Escarpins'),
 ('TYP004', 'Montre'),
 ('TYP005', 'Sac à dos');
+
+INSERT INTO notifications (reference, content) VALUES
+('REF1', 'Livrer le produit à !'),
+('REF2', 'Proposition échange de'),
+('REF3', 'Refus échange de');
 
 -- Seeds pour la table "addresses" (adresses fictives en France)
 INSERT INTO addresses (road, zip_code, city) VALUES

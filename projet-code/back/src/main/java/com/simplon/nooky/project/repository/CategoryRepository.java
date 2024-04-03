@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.simplon.nooky.project.entities.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
-		List<Category> findByDescriptionContaining(String description);
+		List<Category> findByLabelContaining(String label);
 }

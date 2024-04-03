@@ -11,8 +11,8 @@ public class Type extends EntityAbstract {
 	@Column(name = "reference")
 	private String reference;
 	
-	@Column(name = "description")
-	private String description;
+	@Column(name = "label")
+	private String label;
 	
 	public Type() {
 	}
@@ -25,11 +25,11 @@ public class Type extends EntityAbstract {
     	this.reference = reference;
     }
     
-	public String getDescription() {
-		return this.description;
+	public String getLabel() {
+		return this.label;
 	}
 	
-	public void setDescription(String description) {
-		this.description = description;
+	public void setLabel(String label) {
+		this.label = label;
 	}
 }

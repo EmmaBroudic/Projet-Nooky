@@ -1,19 +1,25 @@
 CREATE TABLE "categories" (
     id SERIAL PRIMARY KEY,
     reference VARCHAR(10) UNIQUE NOT NULL,
-    description VARCHAR(50) NOT NULL
+    label VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE "sizes" (
     id SERIAL PRIMARY KEY,
     reference VARCHAR(10) UNIQUE NOT NULL,
-    description VARCHAR(6) NOT NULL
+    label VARCHAR(6) NOT NULL
 );
 
 CREATE TABLE "types" (
     id SERIAL PRIMARY KEY,
     reference VARCHAR(10) UNIQUE NOT NULL,
-    description VARCHAR(50) NOT NULL
+    label VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE "notifications" (
+    id SERIAL PRIMARY KEY,
+    reference VARCHAR(10) UNIQUE NOT NULL,
+    content VARCHAR(300)
 );
 
 CREATE TABLE "addresses" (
@@ -64,4 +70,17 @@ CREATE TABLE "wished_products" (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY(wished_product_id) REFERENCES products(id),
     FOREIGN KEY(proposed_product_id) REFERENCES products(id)
+);
+
+CREATE TABLE "user_gets_notifs" (
+    id SERIAL PRIMARY KEY,
+    user_id INT,
+    from_another_user_id INT,
+    notification_id INT,
+    product_id INT,
+    CONSTRAINT user_gets_notifs_ukey UNIQUE (from_another_user_id, user_id, notification_id, product_id),
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(from_another_user_id) REFERENCES users(id),
+    FOREIGN KEY(notification_id) REFERENCES notifications(id),
+    FOREIGN KEY(product_id) REFERENCES products(id)
 );
