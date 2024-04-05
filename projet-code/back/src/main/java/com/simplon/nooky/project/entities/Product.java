@@ -25,8 +25,8 @@ public class Product extends EntityAbstract {
 	@Column(name = "added_at")
 	private LocalDateTime addedAt;
 	
-	@Column(name = "available")
-	private boolean available;
+	@Column(name = "wishlist")
+	private String wishlist;
 	
 	public Product() {
 	}
@@ -71,11 +71,11 @@ public class Product extends EntityAbstract {
 		this.addedAt = addedAt;
 	}
 	
-	public boolean getAvailable() {
-		return this.available;
+	public String getWishlist() {
+		return this.wishlist;
 	}
 	
-	public void setAvailable(boolean available) {
-		this.available = available;
+	public void setWishlist(String wishlist) {
+		this.wishlist = wishlist;
 	}
 }

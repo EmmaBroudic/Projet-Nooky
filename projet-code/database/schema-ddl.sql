@@ -34,12 +34,12 @@ CREATE TABLE "users" (
     id SERIAL PRIMARY KEY,
     email VARCHAR(254) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
-    username VARCHAR(50) UNIQUE NOT NULL,
+    username VARCHAR(50) NOT NULL,
     firstname VARCHAR(50),
     lastname VARCHAR(50),
     picture VARCHAR(1000),
     created_at TIMESTAMP,
-    address_id INT NOT NULL,
+    address_id INT,
     FOREIGN KEY (address_id) REFERENCES addresses(id)
 );
 
@@ -54,7 +54,7 @@ CREATE TABLE "products" (
     category_id INT,
     size_id INT,
     type_id INT,
-    user_id INT NOT NULL,
+    user_id INT,
     FOREIGN KEY (category_id) REFERENCES categories(id),
     FOREIGN KEY (size_id) REFERENCES sizes(id),
     FOREIGN KEY (type_id) REFERENCES types(id),

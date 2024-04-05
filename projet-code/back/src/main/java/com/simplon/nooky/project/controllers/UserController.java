@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,26 +30,22 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
-	@CrossOrigin(origins = "http://localhost:8080")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public User createUser(@RequestBody User user) {
 		return service.createUser(user);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/all")
 	public Collection<User> getAllUsers() {
 		return service.getAllUsers();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/id/{id}")
 	public Optional<User> getUserById(@PathVariable @NonNull int id) {
 		return service.getUserById(id);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/email/{email}")
 	public Optional<User> getUserByEmail(@PathVariable @NonNull String email) {
 		return service.getUserByEmail(email);
