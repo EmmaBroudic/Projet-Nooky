@@ -3,7 +3,6 @@ package com.simplon.nooky.project.controllers;
 import java.util.Collection;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simplon.nooky.project.dto.CreateUser;
 import com.simplon.nooky.project.entities.User;
-import com.simplon.nooky.project.repository.UserRepository;
 import com.simplon.nooky.project.services.UserService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 	private final UserService service;
 	
@@ -27,13 +26,10 @@ public class UserController {
 		this.service = service;
 	}
 	
-	@Autowired
-	UserRepository userRepository;
-	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public User createUser(@RequestBody User user) {
-		return service.createUser(user);
+	public void createUser(@RequestBody CreateUser user) {
+		service.createUser(user);
 	}
 	
 	@GetMapping("/all")
@@ -42,7 +38,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/id/{id}")
-	public Optional<User> getUserById(@PathVariable @NonNull int id) {
+	public Optional<User> getUserById(@PathVariable @NonNull Long id) {
 		return service.getUserById(id);
 	}
 	

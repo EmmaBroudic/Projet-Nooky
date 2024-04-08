@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +32,10 @@ public class User extends EntityAbstract {
 	
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
+	
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	Address address;
 	
 	public User() {
 	}
@@ -89,4 +95,12 @@ public class User extends EntityAbstract {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
+	
+	public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }

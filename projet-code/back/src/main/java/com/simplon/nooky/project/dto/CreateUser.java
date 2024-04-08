@@ -1,40 +1,38 @@
 package com.simplon.nooky.project.dto;
 
-import java.time.LocalDateTime;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
-public class UserDto {
+public class CreateUser {
 	
-	private Long id;
+	@NotNull
+	@Email
+	@Size(max= 254)
 	private String email;
+	
+	@NotNull
+	@Size(max= 50)
 	private String username;
+	
+	@Size(max= 1000)
 	private String picture;
+	
+	@Size(max= 50)
 	private String firstname;
+	
+	@Size(max= 50)
 	private String lastname;
+	
+	@NotNull
+	@Size(max= 100)
 	private String password;
-	private LocalDateTime createdAt;
 	
-	public UserDto() {
+	private Long addressId;
+	
+	public CreateUser() {
 	}
 	
-	public UserDto(Long id, String email, String username, String picture, String firstname, String lastname, String password, LocalDateTime createdAt) {
-	    this.id = id;
-		this.email = email;
-		this.username = username;
-	    this.picture = picture;
-		this.firstname = firstname;
-	    this.lastname = lastname;
-	    this.password = password;
-	    this.createdAt = createdAt;
-	}
-	
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getEmail() {
 		return this.email;
 	}
@@ -42,7 +40,7 @@ public class UserDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
     public String getUsername() {
     	return this.username;
     }
@@ -54,7 +52,7 @@ public class UserDto {
     public String getPicture() {
     	return this.picture;
     }
-
+    
     public void setPicture(String picture) {
     	this.picture = picture;
     }
@@ -83,11 +81,11 @@ public class UserDto {
 		this.password = password;
 	}
 	
-	public LocalDateTime getCreatedAt() {
-		return this.createdAt;
+	public Long getAddressId() {
+		return this.addressId;
 	}
 	
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
+	public void setAddressId(Long addressId) {
+		this.addressId = addressId;
 	}
 }

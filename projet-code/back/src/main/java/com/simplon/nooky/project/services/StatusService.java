@@ -16,7 +16,7 @@ public class StatusService {
 	@Autowired
 	private StatusRepository statusRepository;
 	
-    public Optional<Status> getStatusById(@NonNull int id) {
+    public Optional<Status> getStatusById(@NonNull Long id) {
     	return statusRepository.findById(id);
     }
 	

@@ -1,23 +1,28 @@
 package com.simplon.nooky.project.dto;
 
-public class AddressDto {
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+public class CreateAddress {
+	
+	@NotNull
+	@Size(max= 150)
 	private String road;
+	
+	@NotNull
+	@Size(max= 50)
 	private String city;
+	
+	@NotNull
+	@Size(min= 5, max= 5)
 	private String zipCode;
 	
-	public AddressDto() {
-	}
-	
-	public AddressDto(String road, String city, String zipCode) {
-		this.road = road;
-		this.city = city;
-		this.zipCode = zipCode;
+	public CreateAddress() {
 	}
 	
 	public String getRoad() {
 		return this.road;
 	}
-	
 	
 	public void setRoad(String road) {
 		this.road = road;

@@ -1,27 +1,72 @@
 package com.simplon.nooky.project.services;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
+import com.simplon.nooky.project.dto.CreateProduct;
+import com.simplon.nooky.project.dto.ProductView;
 import com.simplon.nooky.project.entities.Product;
+import com.simplon.nooky.project.repository.CategoryRepository;
 import com.simplon.nooky.project.repository.ProductRepository;
+import com.simplon.nooky.project.repository.SizeRepository;
+import com.simplon.nooky.project.repository.TypeRepository;
+import com.simplon.nooky.project.repository.UserRepository;
 
 @Service
 public class ProductService {
 	
 	@Autowired
     private ProductRepository productRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
+	@Autowired
+	private SizeRepository sizeRepository;
+	
+	@Autowired
+	private TypeRepository typeRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 
-	public Product createProduct(Product product) {
-		return productRepository.save(product);
+	public void createProduct(CreateProduct productCreation) {
+		
+		Product product = new Product();
+		
+		product.setName(productCreation.getName());
+		product.setReference(productCreation.getReference());
+		product.setDescription(productCreation.getDescription());
+		product.setPicture(productCreation.getPicture());
+		product.setWishlist(productCreation.getWishlist());
+        
+        product.setCategory(categoryRepository.getReferenceById(productCreation.getCategoryId()));
+        product.setSize(sizeRepository.getReferenceById(productCreation.getSizeId()));
+        product.setType(typeRepository.getReferenceById(productCreation.getTypeId()));
+        product.setUser(userRepository.getReferenceById(productCreation.getUserId()));
+        
+		productRepository.save(product);
+		System.out.println(product);
 	}
 
-    public Optional<Product> getProductById(@NonNull int id) {
-    	return productRepository.findById(id);
+    public ProductView getProductById(Long id) {
+    	//GetProductDto productDto = new GetProductDto();
+    	
+    	// notfound code http
+    	// Product product = productRepository.findById(id).orElse(null);;
+//
+//		if (product != null) {
+//			productDto.setName(product.getName());
+//			productDto.setDescription(product.getDescription());
+//			productDto.setPicture(product.getPicture());
+//			productDto.setWishlist(product.getWishlist());
+//		}
+    	
+    	//Optional.ofNullable(productDto);
+    	
+    	return productRepository.findProjectedById(id).get();
     }
 
 	public Collection<Product> getAllProducts() {

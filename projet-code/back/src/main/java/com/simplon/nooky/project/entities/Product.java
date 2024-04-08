@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,6 +29,22 @@ public class Product extends EntityAbstract {
 	
 	@Column(name = "wishlist")
 	private String wishlist;
+	
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	Category category;
+	
+	@ManyToOne
+	@JoinColumn(name = "size_id")
+	Size size;
+	
+	@ManyToOne
+	@JoinColumn(name = "type_id")
+	Type type;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	User user;
 	
 	public Product() {
 	}
@@ -78,4 +96,36 @@ public class Product extends EntityAbstract {
 	public void setWishlist(String wishlist) {
 		this.wishlist = wishlist;
 	}
+	
+	public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+    
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+    
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+    
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

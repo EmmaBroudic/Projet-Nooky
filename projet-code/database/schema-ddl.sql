@@ -34,10 +34,10 @@ CREATE TABLE "users" (
     id SERIAL PRIMARY KEY,
     email VARCHAR(254) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
-    username VARCHAR(50) NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    picture VARCHAR(1000),
     firstname VARCHAR(50),
     lastname VARCHAR(50),
-    picture VARCHAR(1000),
     created_at TIMESTAMP,
     address_id INT,
     FOREIGN KEY (address_id) REFERENCES addresses(id)

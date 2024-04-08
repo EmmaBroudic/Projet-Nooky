@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.simplon.nooky.project.entities.Type;
 
-public interface TypeRepository extends JpaRepository<Type, Integer> {
+public interface TypeRepository extends JpaRepository<Type, Long> {
 	List<Type> findByLabelContaining(String label);
 }

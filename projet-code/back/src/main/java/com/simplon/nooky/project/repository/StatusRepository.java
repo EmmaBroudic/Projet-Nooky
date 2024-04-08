@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.simplon.nooky.project.entities.Status;
 
-public interface StatusRepository extends JpaRepository<Status, Integer> {
+public interface StatusRepository extends JpaRepository<Status, Long> {
 	List<Status> findByDescriptionContaining(String description);
 }

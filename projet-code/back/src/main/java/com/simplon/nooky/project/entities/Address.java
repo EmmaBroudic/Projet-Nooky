@@ -1,8 +1,18 @@
 package com.simplon.nooky.project.entities;
 
+//import java.util.ArrayList;
+//import java.util.List;
+
+//import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+//import jakarta.persistence.FetchType;
+//import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+//import com.simplon.nooky.project.entities.User;
 
 @Entity
 @Table(name = "addresses")
@@ -16,6 +26,14 @@ public class Address extends EntityAbstract {
 	
 	@Column(name = "zip_code")
 	private String zipCode;
+	
+	/*@OneToMany(
+			mappedBy = "address",
+			cascade = CascadeType.ALL, 
+			orphanRemoval = true, 
+			fetch = FetchType.EAGER)
+	@JoinColumn(name = "address_id")
+	private List<User> users = new ArrayList<>();*/
 	
 	public Address() {
 	}
