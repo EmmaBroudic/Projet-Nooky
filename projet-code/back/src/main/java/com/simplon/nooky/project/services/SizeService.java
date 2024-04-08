@@ -1,14 +1,14 @@
 package com.simplon.nooky.project.services;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
+import com.simplon.nooky.project.dto.views.SizeView;
 import com.simplon.nooky.project.entities.Size;
-import com.simplon.nooky.project.repository.SizeRepository;
+import com.simplon.nooky.project.repositories.SizeRepository;
 
 @Service
 public class SizeService {
@@ -16,8 +16,8 @@ public class SizeService {
 	@Autowired
     private SizeRepository sizeRepository;
 
-    public Optional<Size> getSizeById(@NonNull Long id) {
-    	return sizeRepository.findById(id);
+    public SizeView getSizeById(@NonNull Long id) {
+    	return sizeRepository.findProjectedById(id).get();
     }
 
 	public Collection<Size> getAllSizes() {

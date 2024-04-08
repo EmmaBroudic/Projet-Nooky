@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.dto;
+package com.simplon.nooky.project.dto.views;
 
 import java.time.LocalDateTime;
 

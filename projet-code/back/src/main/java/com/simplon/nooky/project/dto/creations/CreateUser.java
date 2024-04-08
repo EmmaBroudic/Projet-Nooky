@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.dto;
+package com.simplon.nooky.project.dto.creations;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

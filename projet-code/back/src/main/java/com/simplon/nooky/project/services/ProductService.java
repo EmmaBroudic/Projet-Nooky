@@ -5,14 +5,14 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.CreateProduct;
-import com.simplon.nooky.project.dto.ProductView;
+import com.simplon.nooky.project.dto.creations.CreateProduct;
+import com.simplon.nooky.project.dto.views.ProductView;
 import com.simplon.nooky.project.entities.Product;
-import com.simplon.nooky.project.repository.CategoryRepository;
-import com.simplon.nooky.project.repository.ProductRepository;
-import com.simplon.nooky.project.repository.SizeRepository;
-import com.simplon.nooky.project.repository.TypeRepository;
-import com.simplon.nooky.project.repository.UserRepository;
+import com.simplon.nooky.project.repositories.CategoryRepository;
+import com.simplon.nooky.project.repositories.ProductRepository;
+import com.simplon.nooky.project.repositories.SizeRepository;
+import com.simplon.nooky.project.repositories.TypeRepository;
+import com.simplon.nooky.project.repositories.UserRepository;
 
 @Service
 public class ProductService {

@@ -1,7 +1,6 @@
 package com.simplon.nooky.project.controllers;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
@@ -13,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.CreateUser;
+import com.simplon.nooky.project.dto.creations.CreateUser;
+import com.simplon.nooky.project.dto.views.UserView;
 import com.simplon.nooky.project.entities.User;
 import com.simplon.nooky.project.services.UserService;
 
@@ -38,12 +38,12 @@ public class UserController {
 	}
 	
 	@GetMapping("/id/{id}")
-	public Optional<User> getUserById(@PathVariable @NonNull Long id) {
+	public UserView getUserById(@PathVariable @NonNull Long id) {
 		return service.getUserById(id);
 	}
-	
+	/*
 	@GetMapping("/email/{email}")
-	public Optional<User> getUserByEmail(@PathVariable @NonNull String email) {
+	public UserView getUserByEmail(@PathVariable @NonNull String email) {
 		return service.getUserByEmail(email);
-	}
+	}*/
 }

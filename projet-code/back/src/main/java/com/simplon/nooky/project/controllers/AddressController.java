@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.AddressView;
-import com.simplon.nooky.project.dto.CreateAddress;
+import com.simplon.nooky.project.dto.creations.CreateAddress;
+import com.simplon.nooky.project.dto.views.AddressView;
 import com.simplon.nooky.project.services.AddressService;
 
 @RestController

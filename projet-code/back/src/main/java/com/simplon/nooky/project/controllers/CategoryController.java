@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.CategoryView;
+import com.simplon.nooky.project.dto.views.CategoryView;
 import com.simplon.nooky.project.services.CategoryService;
 
 @RestController

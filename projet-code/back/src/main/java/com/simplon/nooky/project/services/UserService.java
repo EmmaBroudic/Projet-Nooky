@@ -1,16 +1,16 @@
 package com.simplon.nooky.project.services;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.CreateUser;
+import com.simplon.nooky.project.dto.creations.CreateUser;
+import com.simplon.nooky.project.dto.views.UserView;
 import com.simplon.nooky.project.entities.User;
-import com.simplon.nooky.project.repository.AddressRepository;
-import com.simplon.nooky.project.repository.UserRepository;
+import com.simplon.nooky.project.repositories.AddressRepository;
+import com.simplon.nooky.project.repositories.UserRepository;
 
 @Service
 public class UserService {
@@ -36,13 +36,13 @@ public class UserService {
         System.out.println(user);
     }
 
-    public Optional<User> getUserById(@NonNull Long id) {
-    	return userRepository.findById(id);
+    public UserView getUserById(@NonNull Long id) {
+    	return userRepository.findProjectedById(id).get();
     }
     
-    public Optional<User> getUserByEmail(@NonNull String email) {
-    	return userRepository.findByEmail(email);
-    }
+/*    public UserView getUserByEmail(@NonNull String email) {
+    	return userRepository.findProjectedByEmail(email).get();
+    }*/
 
 	public Collection<User> getAllUsers() {
         return userRepository.findAll();

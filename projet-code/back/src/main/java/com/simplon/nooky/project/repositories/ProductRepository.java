@@ -1,11 +1,11 @@
-package com.simplon.nooky.project.repository;
+package com.simplon.nooky.project.repositories;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.simplon.nooky.project.dto.ProductView;
+import com.simplon.nooky.project.dto.views.ProductView;
 import com.simplon.nooky.project.entities.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long>{

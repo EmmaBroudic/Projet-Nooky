@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.CreateProduct;
-import com.simplon.nooky.project.dto.ProductView;
+import com.simplon.nooky.project.dto.creations.CreateProduct;
+import com.simplon.nooky.project.dto.views.ProductView;
 import com.simplon.nooky.project.entities.Product;
 import com.simplon.nooky.project.services.ProductService;
 
