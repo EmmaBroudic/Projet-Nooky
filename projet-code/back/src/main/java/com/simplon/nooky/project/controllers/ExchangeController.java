@@ -17,6 +17,8 @@ import com.simplon.nooky.project.dto.creations.CreateExchange;
 import com.simplon.nooky.project.dto.views.ExchangeView;
 import com.simplon.nooky.project.services.ExchangeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/exchanges")
 public class ExchangeController {
@@ -38,7 +40,7 @@ public class ExchangeController {
 	}
 	
 	@PatchMapping("/{id}")
-	public void patchtExchangesById(@PathVariable @NonNull Long id) {
-		return patchExchangesById(id);
+	public void updateExchange(@PathVariable @NonNull Long id, @RequestBody @Valid CreateExchange exchange) {
+		service.updateExchange(id, exchange);
 	}
 }

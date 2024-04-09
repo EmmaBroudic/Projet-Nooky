@@ -43,8 +43,15 @@ public class ExchangeService {
 		return exchangeRepository.findProjectedById(id);
 	}
 	
-	public void patchExchangesById(CreateExchange exchangePatched) {
-		CreateExchange exchange = new CreateExchange();
-		// modifier
+	public void updateExchange(Long id, CreateExchange exchangePatched) {
+
+		Exchange exchange = exchangeRepository.findById(id).get();
+		
+		System.out.println(exchange.getStatus());
+
+		exchange.setStatus(statusRepository.getReferenceById(exchangePatched.getStatusId()));
+
+		exchangeRepository.save(exchange);
+		System.out.println(exchange.getStatus());
 	}
 }
