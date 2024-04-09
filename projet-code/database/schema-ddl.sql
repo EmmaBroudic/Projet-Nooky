@@ -65,14 +65,14 @@ CREATE TABLE "exchanges" (
     id SERIAL PRIMARY KEY,
     product_offered_id INT NOT NULL,
     product_exchanged_id INT NOT NULL,
-    from_a_user_id INT NOT NULL,
-    to_another_user_id INT NOT NULL,
+    owner_id INT NOT NULL,
+    exchanger_id INT NOT NULL,
     status_id INT NOT NULL,
-    CONSTRAINT exchanges_ukey UNIQUE (product_offered_id, product_exchanged_id, from_a_user_id, to_another_user_id),
+    CONSTRAINT exchanges_ukey UNIQUE (product_offered_id, product_exchanged_id, owner_id, exchanger_id),
     FOREIGN KEY(product_offered_id) REFERENCES products(id),
     FOREIGN KEY(product_exchanged_id) REFERENCES products(id),
-    FOREIGN KEY(from_a_user_id) REFERENCES users(id),
-    FOREIGN KEY(to_another_user_id) REFERENCES users(id),
+    FOREIGN KEY(owner_id) REFERENCES users(id),
+    FOREIGN KEY(exchanger_id) REFERENCES users(id),
     FOREIGN KEY(status_id) REFERENCES status(id)
 );
 
@@ -81,7 +81,7 @@ INSERT INTO categories (reference, label) VALUES
 ('CAT002', 'Women'),
 ('CAT003', 'Men');
 
-INSERT INTO sizes (reference, label) VALUES
+ INSERT INTO sizes (reference, label) VALUES
 ('SIZ001', 'XS'),
 ('SIZ002', 'S'),
 ('SIZ003', 'M'),
@@ -92,24 +92,47 @@ INSERT INTO sizes (reference, label) VALUES
 ('SIZ008', '41'),
 ('SIZ009', '42'),
 ('SIZ010', '43'),
-('SIZ011', '44');
+('SIZ011', '44'),
+('SIZ012', '46'),
+('SIZ013', '38'),
+('SIZ014', '37'),
+('SIZ015', '36'),
+('SIZ016', '35'),
+('SIZ017', '34'),
+('SIZ018', '33'),
+('SIZ019', '32'),
+('SIZ020', '31');
 
 INSERT INTO types (reference, label) VALUES
 ('TYP001', 'T-Shirt'),
 ('TYP002', 'Pantalon'),
 ('TYP003', 'Escarpins'),
 ('TYP004', 'Montre'),
-('TYP005', 'Sac à dos');
+('TYP005', 'Sac à dos'),
+('TYP006', 'Robe'),
+('TYP007', 'Veste'),
+('TYP008', 'Mocassins'),
+('TYP009', 'Bagages'),
+('TYP010', 'Bijoux');
 
 INSERT INTO status (code, description) VALUES
 ('COD1', 'Livrer le produit à !'),
 ('COD2', 'Proposition échange de'),
-('COD3', 'Refus échange de');
+('COD3', 'Echange accepté'),
+('COD4', 'Echange annulé'),
+('COD5', 'Proposition échange refusée');
 
 INSERT INTO addresses (road, zip_code, city) VALUES
 ('1 Rue de la Mode', '75001', 'Paris'),
 ('5 Avenue du Style', '69001', 'Lyon'),
-('10 Rue de la Chaussure', '33000', 'Bordeaux');
+('10 Rue de la Chaussure', '33000', 'Bordeaux'),
+('15 Avenue de la Mode', '75002', 'Paris'),
+('20 Rue du Chic', '44000', 'Nantes'),
+('25 Boulevard de la Tendance', '13001', 'Marseille'),
+('30 Avenue du Style', '69002', 'Lyon'),
+('35 Rue de la Mode', '59000', 'Lille'),
+('40 Boulevard du Fashion', '75002', 'Paris'),
+('45 Rue de la Chaussure', '33001', 'Bordeaux');
 
 INSERT INTO users (email, password, username, firstname, lastname, picture, created_at, address_id) VALUES
 ('user1@example.com', '$2a$12$WKxz27iChcbPj8uJUeFXpeh7alLYMrXMRUErQkgHlwZEb3rEQC5Xa', 'utilisateur1', 'Jean', 'Dupont', 'https://example.com/user1.jpg', CURRENT_TIMESTAMP,
@@ -118,32 +141,94 @@ INSERT INTO users (email, password, username, firstname, lastname, picture, crea
     (SELECT id FROM addresses WHERE road = '5 Avenue du Style' AND zip_code = '69001' AND city = 'Lyon')),
 ('user3@example.com', '$2a$12$PjCkYMnJwewts1F3pC365ODrmjRQcJtEUCEQWUPJIOqZJJGqdiUJe', 'utilisateur3', 'Pierre', 'Durand', 'https://example.com/user3.jpg', CURRENT_TIMESTAMP,
     (SELECT id FROM addresses WHERE road = '10 Rue de la Chaussure' AND zip_code = '33000' AND city = 'Bordeaux')),
-('user4@example.com', '$2a$12$kt/QTiRrqo1uSPBQ0.F4Be2w2QuBC180JTAW/cZEThJK1x9HJfCTa', 'utilisateur4', 'Nathalie', 'Durand', 'https://example.com/user4.jpg', CURRENT_TIMESTAMP,
-    (SELECT id FROM addresses WHERE road = '10 Rue de la Chaussure' AND zip_code = '33000' AND city = 'Bordeaux'));
+('user4@example.com', '$2a$12$l.nNuzWJyqpWjnueiO29NuJDB/dT0BHdWYAFUYasM3SK9DIZ53bEu', 'utilisateur4', 'Nathalie', 'Durand', 'https://example.com/user4.jpg', CURRENT_TIMESTAMP,
+    (SELECT id FROM addresses WHERE road = '10 Rue de la Chaussure' AND zip_code = '33000' AND city = 'Bordeaux')),
+('user5@example.com', '$2a$12$rqP2GuEN9fxclv5ayU99I.6YVAXd8SVWzgE0a.Fp2q/n5Z2/luUSq', 'utilisateur5', 'Thomas', 'Martin', 'https://example.com/user5.jpg', CURRENT_TIMESTAMP,
+    (SELECT id FROM addresses WHERE road = '15 Avenue de la Mode' AND zip_code = '75001' AND city = 'Paris')),
+('user6@example.com', '$2a$12$ocEgAyyJGXR5Y2oO8D67VOnXOQ4MZtO5qf2YiPJSY7HQUcpKnk4UW', 'utilisateur6', 'Sophie', 'Lefèvre', 'https://example.com/user6.jpg', CURRENT_TIMESTAMP,
+    (SELECT id FROM addresses WHERE road = '20 Rue du Chic' AND zip_code = '44000' AND city = 'Nantes')),
+('user7@example.com', '$2a$12$sdy63CFVnbLWuISDjAkIEOTmFE1tOChbkHRNdMCnabkqlB0KO.XKG', 'utilisateur7', 'Antoine', 'Leroy', 'https://example.com/user7.jpg', CURRENT_TIMESTAMP,
+    (SELECT id FROM addresses WHERE road = '25 Boulevard de la Tendance' AND zip_code = '13001' AND city = 'Marseille')),
+('user8@example.com', '$2a$12$Bp8exdU1ZMPJABAq4Tl6k.MEGcH.eCp7FKw7H44J0O9YM7nOEoXa.', 'utilisateur8', 'Émilie', 'Roux', 'https://example.com/user8.jpg', CURRENT_TIMESTAMP,
+    (SELECT id FROM addresses WHERE road = '30 Avenue du Style' AND zip_code = '69002' AND city = 'Lyon')),
+('user9@example.com', '$2a$12$nNT0RZnDbblTySC2P6EcruCddVa2EtEtwpuqlDQ/GVhE3NEqfDMN6', 'utilisateur9', 'Lucas', 'Garcia', 'https://example.com/user9.jpg', CURRENT_TIMESTAMP,
+    (SELECT id FROM addresses WHERE road = '35 Rue de la Mode' AND zip_code = '59000' AND city = 'Lille')),
+('user10@example.com', '$2a$12$bEt9b6iPMkGud7dp6Z.q/eMDjhode/67Dkz/jzxu0zcXGVwtOiGmC', 'utilisateur10', 'Manon', 'Moreau', 'https://example.com/user10.jpg', CURRENT_TIMESTAMP,
+    (SELECT id FROM addresses WHERE road = '40 Boulevard du Fashion' AND zip_code = '75002' AND city = 'Paris'));
 
 INSERT INTO products (reference, name, description, picture, added_at, wishlist, category_id, size_id, type_id, user_id) VALUES
-('PROD001', 'T-Shirt Noir', 'T-Shirt noir basique', 'https://example.com/tshirt_noir.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : jean bleu en taille 36 ou vêtements enfants à partir de 6 ans',
+('PROD001', 'T-Shirt Noir', 'T-Shirt noir basique', 'https://vision-naire.com/cdn/shop/products/2-Tshirt-visionnaire-TCPR-noir_2500x.jpg?v=1658161284', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : jean bleu en taille 36 ou vêtements enfants à partir de 6 ans',
     (SELECT id FROM categories WHERE reference = 'CAT001'),
     (SELECT id FROM sizes WHERE reference = 'SIZ001'),
     (SELECT id FROM types WHERE reference = 'TYP001'),
     (SELECT id FROM users WHERE email = 'user1@example.com')),
-('PROD002', 'Chemise à carreaux', 'Chemise à carreaux rouge et bleue', 'https://example.com/chemise_carreaux.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : veste noire en taille 40, pantalon noir en taille 40 ou chemises hommes en taille L',
+('PROD002', 'Chemise à carreaux', 'Chemise à carreaux rouge et bleue', 'https://www.cottonsociety.com/173158-thickbox_default/chemise-homme-gratte-carreaux-rouge-et-bleu.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : veste noire en taille 40, pantalon noir en taille 40 ou chemises hommes en taille L',
     (SELECT id FROM categories WHERE reference = 'CAT001'),
     (SELECT id FROM sizes WHERE reference = 'SIZ001'),
     (SELECT id FROM types WHERE reference = 'TYP001'),
     (SELECT id FROM users WHERE email = 'user2@example.com')),
-('PROD003', 'Baskets Blanches', 'Baskets blanches à lacets', 'https://example.com/baskets_blanches.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : chapeaux de tous types',
+('PROD003', 'Baskets Blanches', 'Baskets blanches à lacets', 'https://www.pasdegeant.fr/media/catalog/product/cache/e3613eb285f3e2ba1ac505df7b0eeec2/b/a/baskets-blanche-5_1.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : chapeaux de tous types',
     (SELECT id FROM categories WHERE reference = 'CAT003'),
     (SELECT id FROM sizes WHERE reference = 'SIZ001'),
     (SELECT id FROM types WHERE reference = 'TYP001'),
     (SELECT id FROM users WHERE email = 'user3@example.com')),
-('PROD004', 'Montre en cuir', 'Montre-bracelet en cuir marron', 'https://example.com/montre_cuir.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : chaussures en taille 38',
+('PROD004', 'Montre en cuir', 'Montre-bracelet en cuir marron', 'https://charlie-paris.com/cdn/shop/products/bracelet-cuir-mick-terracotta-bracelet-charlie-watch-acier-5.jpg?v=1687263999&width=950', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : chaussures en taille 38',
     (SELECT id FROM categories WHERE reference = 'CAT002'),
     (SELECT id FROM sizes WHERE reference = 'SIZ001'),
     (SELECT id FROM types WHERE reference = 'TYP005'),
-    (SELECT id FROM users WHERE email = 'user4@example.com'));
+    (SELECT id FROM users WHERE email = 'user4@example.com')),
+('PROD005', 'Robe été à fleurs', 'Robe légère avec motif floral pour été', 'https://www.esprit.fr/dw/image/v2/BDSS_PRD/on/demandware.static/-/Sites-esprit-master/default/dw77514240/images/20/043/043EE1E323_873_20.jpg?sfrm=jpg&sw=700&sh=1050&sm=fit', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : sandales en taille 39',
+    (SELECT id FROM categories WHERE reference = 'CAT004'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ002'),
+    (SELECT id FROM types WHERE reference = 'TYP002'),
+    (SELECT id FROM users WHERE email = 'user5@example.com')),
+('PROD006', 'Sac à dos vintage', 'Sac à dos en toile avec un style vintage', 'https://eziclic.com/cdn/shop/products/sac-a-dos-vintage-everest-7_600x600.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : jupes en taille M',
+    (SELECT id FROM categories WHERE reference = 'CAT005'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ003'),
+    (SELECT id FROM types WHERE reference = 'TYP003'),
+    (SELECT id FROM users WHERE email = 'user6@example.com')),
+('PROD007', 'Lunettes de soleil aviateur', 'Lunettes de soleil aviateur classiques', 'https://lumeos.fr/wp-content/uploads/2022/02/0-eac8de.jpeg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : pulls en laine en taille S',
+    (SELECT id FROM categories WHERE reference = 'CAT006'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ004'),
+    (SELECT id FROM types WHERE reference = 'TYP004'),
+    (SELECT id FROM users WHERE email = 'user7@example.com')),
+('PROD008', 'Blouson en cuir noir', 'Blouson en cuir noir style motard', 'https://www.cuiravenue.com/1795-large_default/blouson-cuir-homme-noir-best-one.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : chemises à carreaux en taille XL',
+    (SELECT id FROM categories WHERE reference = 'CAT007'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ005'),
+    (SELECT id FROM types WHERE reference = 'TYP005'),
+    (SELECT id FROM users WHERE email = 'user8@example.com')),
+('PROD009', 'Parapluie transparent', 'Parapluie transparent avec une poignée en forme de canard', 'https://www.parapluie-de-france.com/images/articles/1894/538441018128.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : bottes de pluie en taille 37',
+    (SELECT id FROM categories WHERE reference = 'CAT008'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ006'),
+    (SELECT id FROM types WHERE reference = 'TYP006'),
+    (SELECT id FROM users WHERE email = 'user3@example.com')),
+('PROD010', 'Boucles pendantes', 'Boucles pendantes avec des perles', 'https://static.wixstatic.com/media/c5e788_0fc4b32eb94e4b029bca0f906da81af4~mv2.jpg/v1/fill/w_560,h_996,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c5e788_0fc4b32eb94e4b029bca0f906da81af4~mv2.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : vestes en cuir en taille L',
+    (SELECT id FROM categories WHERE reference = 'CAT009'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ007'),
+    (SELECT id FROM types WHERE reference = 'TYP007'),
+    (SELECT id FROM users WHERE email = 'user10@example.com')),
+('PROD011', 'Mocassins en daim', 'Mocassins en daim beige', 'https://www.elorell.com/17635-large_default/mocassins-homme-en-daim.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : pantalons en velours en taille 38',
+    (SELECT id FROM categories WHERE reference = 'CAT010'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ008'),
+    (SELECT id FROM types WHERE reference = 'TYP008'),
+    (SELECT id FROM users WHERE email = 'user9@example.com')),
+('PROD012', 'Ensemble de bagages', 'Ensemble de bagages en polycarbonate', 'https://m.media-amazon.com/images/I/71G0Lr5LQOL._AC_UY1000_.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : manteaux en laine en taille M',
+    (SELECT id FROM categories WHERE reference = 'CAT011'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ009'),
+    (SELECT id FROM types WHERE reference = 'TYP009'),
+    (SELECT id FROM users WHERE email = 'user2@example.com')),
+('PROD013', 'Bague en argent', 'Bague en argent avec une pierre turquoise', 'https://www.amazonia-bijoux.fr/85-large_default/bague-amazonia-xpuchina-turquoise-310ct-et-argent-massif.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : foulards en soie',
+    (SELECT id FROM categories WHERE reference = 'CAT012'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ010'),
+    (SELECT id FROM types WHERE reference = 'TYP010'),
+    (SELECT id FROM users WHERE email = 'user1@example.com')),
+('PROD014', 'Sweat à capuche', 'Sweat à capuche gris chiné', 'https://www.boysdiffusion.com/28385-large/sweat-capuche-carhartt-ochredark-navy.jpg', CURRENT_TIMESTAMP, 'Ma liste de souhaits est la suivante : baskets de sport en taille 42',
+    (SELECT id FROM categories WHERE reference = 'CAT013'),
+    (SELECT id FROM sizes WHERE reference = 'SIZ011'),
+    (SELECT id FROM types WHERE reference = 'TYP011'),
+    (SELECT id FROM users WHERE email = 'user10@example.com'));
 
-INSERT INTO exchanges (product_offered_id, product_exchanged_id, from_a_user_id, to_another_user_id, status_id) VALUES
+INSERT INTO exchanges (product_offered_id, product_exchanged_id, owner_id, exchanger_id, status_id) VALUES
     ((SELECT id FROM products WHERE reference = 'PROD001'), (SELECT id FROM products WHERE reference = 'PROD002'), (SELECT id FROM users WHERE email = 'user1@example.com'), (SELECT id FROM users WHERE email = 'user2@example.com'), (SELECT id FROM status WHERE code = 'COD1')),
     ((SELECT id FROM products WHERE reference = 'PROD001'), (SELECT id FROM products WHERE reference = 'PROD004'), (SELECT id FROM users WHERE email = 'user1@example.com'), (SELECT id FROM users WHERE email = 'user3@example.com'), (SELECT id FROM status WHERE code = 'COD3')),
     ((SELECT id FROM products WHERE reference = 'PROD003'), (SELECT id FROM products WHERE reference = 'PROD004'), (SELECT id FROM users WHERE email = 'user2@example.com'), (SELECT id FROM users WHERE email = 'user3@example.com'), (SELECT id FROM status WHERE code = 'COD2'));

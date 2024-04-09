@@ -1,7 +1,5 @@
 package com.simplon.nooky.project.controllers;
 
-import java.util.Collection;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.dto.creations.CreateUser;
 import com.simplon.nooky.project.dto.views.UserView;
-import com.simplon.nooky.project.entities.User;
 import com.simplon.nooky.project.services.UserService;
 
 @RestController
@@ -30,11 +27,6 @@ public class UserController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createUser(@RequestBody CreateUser user) {
 		service.createUser(user);
-	}
-	
-	@GetMapping("/all")
-	public Collection<User> getAllUsers() {
-		return service.getAllUsers();
 	}
 	
 	@GetMapping("/id/{id}")

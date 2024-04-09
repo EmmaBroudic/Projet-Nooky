@@ -1,13 +1,12 @@
 package com.simplon.nooky.project.services;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.simplon.nooky.project.dto.views.TypeView;
-import com.simplon.nooky.project.entities.Type;
 import com.simplon.nooky.project.repositories.TypeRepository;
 
 @Service
@@ -20,7 +19,7 @@ public class TypeService {
     	return typeRepository.findProjectedById(id).get();
     }
 
-	public Collection<Type> getAllTypes() {
-        return typeRepository.findAll();
+	public List<TypeView> getAllTypes() {
+        return typeRepository.findAllProjectedBy();
     }
 }

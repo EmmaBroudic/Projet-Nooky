@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.controllers;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.dto.views.TypeView;
-import com.simplon.nooky.project.entities.Type;
 import com.simplon.nooky.project.services.TypeService;
 
 
@@ -24,7 +23,7 @@ public class TypeController {
 	}
 	
 	@GetMapping("/all")
-	public Collection<Type> getAllTypes() {
+	public List<TypeView> getAllTypes() {
 		return service.getAllTypes();
 	}
 	

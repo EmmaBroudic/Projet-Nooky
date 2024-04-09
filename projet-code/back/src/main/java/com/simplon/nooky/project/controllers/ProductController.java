@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.controllers;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.dto.creations.CreateProduct;
 import com.simplon.nooky.project.dto.views.ProductView;
-import com.simplon.nooky.project.entities.Product;
 import com.simplon.nooky.project.services.ProductService;
 
 @RestController
@@ -33,7 +32,7 @@ public class ProductController {
 	}
 	
 	@GetMapping("/all")
-	public Collection<Product> getAllProducts() {
+	public List<ProductView> getAllProducts() {
 		return service.getAllProducts();
 	}
 	

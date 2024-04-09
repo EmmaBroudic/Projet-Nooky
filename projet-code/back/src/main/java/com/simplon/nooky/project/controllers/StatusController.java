@@ -1,7 +1,5 @@
 package com.simplon.nooky.project.controllers;
 
-import java.util.Collection;
-
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.dto.views.StatusView;
-import com.simplon.nooky.project.entities.Status;
 import com.simplon.nooky.project.services.StatusService;
 
 @RestController
@@ -19,11 +16,6 @@ public class StatusController {
 	
 	public StatusController(StatusService service) {
 		this.service = service;
-	}
-	
-	@GetMapping("/all")
-	public Collection<Status> getAllStatus() {
-		return service.getAllStatus();
 	}
 	
 	@GetMapping("/{id}")

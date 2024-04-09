@@ -12,4 +12,6 @@ public interface SizeRepository extends JpaRepository<Size,Long> {
 	List<Size> findByLabelContaining(String label);
 	
 	Optional<SizeView> findProjectedById(Long id);
+	
+	List<SizeView> findAllProjectedBy();
 }

@@ -12,4 +12,6 @@ public interface TypeRepository extends JpaRepository<Type, Long> {
 	List<Type> findByLabelContaining(String label);
 	
 	Optional<TypeView> findProjectedById(Long id);
+	
+	List<TypeView> findAllProjectedBy();
 }

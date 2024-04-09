@@ -17,14 +17,6 @@ public class Address extends EntityAbstract {
 	@Column(name = "zip_code")
 	private String zipCode;
 	
-	/*@OneToMany(
-			mappedBy = "address",
-			cascade = CascadeType.ALL, 
-			orphanRemoval = true, 
-			fetch = FetchType.EAGER)
-	@JoinColumn(name = "address_id")
-	private List<User> users = new ArrayList<>();*/
-	
 	public Address() {
 	}
 	

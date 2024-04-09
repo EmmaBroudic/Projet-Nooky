@@ -2,6 +2,8 @@ package com.simplon.nooky.project.services;
 
 import java.util.List;
 
+//import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,6 @@ public class CategoryService {
     }
     
     public List<CategoryView> getAllCategories() {
-        return categoryRepository.findAllProjected();
+        return categoryRepository.findAllProjectedBy();
     }
 }

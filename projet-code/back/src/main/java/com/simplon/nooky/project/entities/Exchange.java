@@ -1,62 +1,74 @@
 package com.simplon.nooky.project.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "exchanges")
 public class Exchange extends EntityAbstract {
-
-	@ManyToOne
-	@JoinColumn(name = "from_a_user_id")
-	private Long fromUserId;
 	
 	@ManyToOne
-	@JoinColumn(name = "to_another_user_id")
-	private Long toUserId;
+	@JoinColumn(name = "owner_id")
+	User owner;
+	
+	@ManyToOne
+	@JoinColumn(name = "exchanger_id")
+	User exchanger;
 	
 	@ManyToOne
 	@JoinColumn(name = "product_offered_id")
-	private Long productOfferedId;
+	Product productOffered;
 	
 	@ManyToOne
 	@JoinColumn(name = "product_exchanged_id")
-	private Long productExchangedId;
+	Product productExchanged;
 	
 	@ManyToOne
 	@JoinColumn(name = "status_id")
-	private Long statusId;
+	Status status;
 	
 	public Exchange() {
 	}
 	
-	public Long getFromUserId() {
-		return this.fromUserId;
-	}
-	
-	public void setFromUserId(Long fromUserId) {
-		this.fromUserId = fromUserId;
-	}
-	
-	public Long getToUserId() {
-		return this.toUserId;
-	}
-	
-	public void setToUserId(Long toUserId) {
-		this.toUserId = toUserId;
-	}
-	
-	public Long getProductOfferedId() {
-		return this.productOfferedId;
-	}
-	
-	public void setProductOfferedId(Long productOfferedId) {
-		this.productOfferedId = productOfferedId;
-	}
-	
-	public Long getProductExchangedId() {
-		return this.productExchangedId;
-	}
-	
-	public void setProductExchangedId(Long productExchangedId) {
-		this.productExchangedId = productExchangedId;
-	}
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+    
+    public User getExchanger() {
+        return exchanger;
+    }
+
+    public void setExchanger(User exchanger) {
+        this.exchanger = exchanger;
+    }
+    
+    public Product getProductOffered() {
+        return productOffered;
+    }
+
+    public void setProductOffered(Product productOffered) {
+        this.productOffered = productOffered;
+    }
+    
+    public Product getProductExchanged() {
+        return productExchanged;
+    }
+
+    public void setProductExchanged(Product productExchanged) {
+        this.productExchanged = productExchanged;
+    }
+    
+    public Status getStatus() {
+    	return status;
+    }
+    
+    public void setStatus(Status status) {
+    	this.status = status;
+    }
 }

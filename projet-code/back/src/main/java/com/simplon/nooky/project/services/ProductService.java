@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.services;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,7 +69,7 @@ public class ProductService {
     	return productRepository.findProjectedById(id).get();
     }
 
-	public Collection<Product> getAllProducts() {
-        return productRepository.findAll();
+	public List<ProductView> getAllProducts() {
+        return productRepository.findAllProjectedBy();
     }
 }

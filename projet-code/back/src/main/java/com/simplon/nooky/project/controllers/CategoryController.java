@@ -1,5 +1,7 @@
  package com.simplon.nooky.project.controllers;
 
+import java.util.List;
+
 //import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +21,11 @@ public class CategoryController {
 		this.service = service;
 	}
 	
-	/*
+	
 	@GetMapping("/all")
 	public List<CategoryView> getAllCategories() {
 		return service.getAllCategories();
-	}*/
+	}
 	
 	@GetMapping("/{id}")
 	public CategoryView getCategoryById(@PathVariable Long id) {

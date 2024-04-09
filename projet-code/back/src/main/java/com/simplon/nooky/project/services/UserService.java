@@ -1,7 +1,5 @@
 package com.simplon.nooky.project.services;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -43,8 +41,4 @@ public class UserService {
 /*    public UserView getUserByEmail(@NonNull String email) {
     	return userRepository.findProjectedByEmail(email).get();
     }*/
-
-	public Collection<User> getAllUsers() {
-        return userRepository.findAll();
-    }
 }

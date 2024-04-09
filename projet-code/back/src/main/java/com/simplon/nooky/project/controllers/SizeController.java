@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.controllers;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.dto.views.SizeView;
-import com.simplon.nooky.project.entities.Size;
 import com.simplon.nooky.project.services.SizeService;
 
 
@@ -24,7 +23,7 @@ public class SizeController {
 	}
 	
 	@GetMapping("/all")
-	public Collection<Size> getAllSizes() {
+	public List<SizeView> getAllSizes() {
 		return service.getAllSizes();
 	}
 	
