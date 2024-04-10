@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.services;
 
-import java.util.Optional;
+//import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +39,8 @@ public class ExchangeService {
 		exchangeRepository.save(exchange);
 	}
 	
-	public Optional<ExchangeView> getExchangesById(Long id) {
-		return exchangeRepository.findProjectedById(id);
+	public ExchangeView getExchangesById(Long id) {
+		return exchangeRepository.findProjectedById(id).get();
 	}
 	
 	public void updateExchange(Long id, CreateExchange exchangePatched) {

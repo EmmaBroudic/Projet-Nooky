@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.controllers;
 
-import java.util.Optional;
+//import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
@@ -35,7 +35,7 @@ public class ExchangeController {
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<ExchangeView> getExchangesById(@PathVariable @NonNull Long id) {
+	public ExchangeView getExchangesById(@PathVariable @NonNull Long id) {
 		return service.getExchangesById(id);
 	}
 	
