@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.entities;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,7 +31,7 @@ public class User extends EntityAbstract {
 	private String password;
 	
 	@Column(name = "created_at")
-	private LocalDateTime createdAt;
+	private Timestamp createdAt;
 	
 	@ManyToOne
 	@JoinColumn(name = "address_id")
@@ -88,11 +88,11 @@ public class User extends EntityAbstract {
 		this.password = password;
 	}
 	
-	public LocalDateTime getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return this.createdAt;
 	}
 	
-	public void setCreatedAt(LocalDateTime createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 	

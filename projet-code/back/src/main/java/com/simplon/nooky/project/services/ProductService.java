@@ -1,5 +1,6 @@
 package com.simplon.nooky.project.services;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +37,22 @@ public class ProductService {
 		
 		Product product = new Product();
 		
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		
+		String productRef = "PROD" + String.valueOf(timestamp);
+		
 		product.setName(productCreation.getName());
 		
 		// changer ligne ci-dessous -> création d'une référence
-		product.setReference(productCreation.getReference());
-
+		//product.setReference(productCreation.getReference());
+		//même chose pour la date
+		// ajouter un uuid
+		product.setReference(productRef);
+		
 		product.setDescription(productCreation.getDescription());
 		product.setPicture(productCreation.getPicture());
 		product.setWishlist(productCreation.getWishlist());
+		product.setAddedAt(timestamp);
         
         product.setCategory(categoryRepository.getReferenceById(productCreation.getCategoryId()));
         product.setSize(sizeRepository.getReferenceById(productCreation.getSizeId()));

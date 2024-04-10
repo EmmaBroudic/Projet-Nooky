@@ -45,7 +45,7 @@ CREATE TABLE "users" (
 
 CREATE TABLE "products" (
     id SERIAL PRIMARY KEY,
-    reference VARCHAR(20) UNIQUE NOT NULL,
+    reference VARCHAR(1000) UNIQUE NOT NULL,
     name VARCHAR(50) NOT NULL,
     description VARCHAR(400),
     picture VARCHAR(1000),

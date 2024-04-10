@@ -1,11 +1,15 @@
 package com.simplon.nooky.project.dto.views;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public interface ProductView {
 	String getName();
 	String getDescription();
+	String getCategoryLabel();
+	String getSizeLabel();
+	String getTypeLabel();
 	String getPicture();
-	LocalDateTime getAddedAt();
+	Timestamp getAddedAt();
 	String getWishlist();
+	String getUserUsername();
 }

@@ -1,5 +1,7 @@
 package com.simplon.nooky.project.services;
 
+import java.sql.Timestamp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -21,12 +23,16 @@ public class UserService {
 
     public void createUser(CreateUser userCreation) {
     	User user = new User();
+    	
+    	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    	
         user.setEmail(userCreation.getEmail());
     	user.setUsername(userCreation.getUsername());
     	user.setPicture(userCreation.getPicture());
     	user.setFirstname(userCreation.getFirstname());
     	user.setLastname(userCreation.getLastname());
         user.setPassword(userCreation.getPassword());
+        user.setCreatedAt(timestamp);
 
         user.setAddress(addressRepository.getReferenceById(userCreation.getAddressId()));
     	

@@ -1,6 +1,6 @@
 package com.simplon.nooky.project.entities;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ public class Product extends EntityAbstract {
 	private String picture;
 	
 	@Column(name = "added_at")
-	private LocalDateTime addedAt;
+	private Timestamp addedAt;
 	
 	@Column(name = "wishlist")
 	private String wishlist;
@@ -81,11 +81,11 @@ public class Product extends EntityAbstract {
     	this.picture = picture;
     }
 	
-	public LocalDateTime getAddedAt() {
+	public Timestamp getAddedAt() {
 		return this.addedAt;
 	}
 	
-	public void setAddedAt(LocalDateTime addedAt) {
+	public void setAddedAt(Timestamp addedAt) {
 		this.addedAt = addedAt;
 	}
 	
