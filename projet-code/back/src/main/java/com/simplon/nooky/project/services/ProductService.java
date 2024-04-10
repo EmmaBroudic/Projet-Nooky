@@ -37,7 +37,10 @@ public class ProductService {
 		Product product = new Product();
 		
 		product.setName(productCreation.getName());
+		
+		// changer ligne ci-dessous -> création d'une référence
 		product.setReference(productCreation.getReference());
+
 		product.setDescription(productCreation.getDescription());
 		product.setPicture(productCreation.getPicture());
 		product.setWishlist(productCreation.getWishlist());

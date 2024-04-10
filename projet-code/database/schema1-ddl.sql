@@ -18,7 +18,7 @@ CREATE TABLE "types" (
 
 CREATE TABLE "status" (
     id SERIAL PRIMARY KEY,
-    code VARCHAR(10),
+    code VARCHAR(10) UNIQUE NOT NULL,
     description VARCHAR(200) NOT NULL
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE "users" (
     firstname VARCHAR(50),
     lastname VARCHAR(50),
     created_at TIMESTAMP,
-    address_id INT,
+    address_id INT NOT NULL,
     FOREIGN KEY (address_id) REFERENCES addresses(id)
 );
 
@@ -51,10 +51,10 @@ CREATE TABLE "products" (
     picture VARCHAR(1000),
     added_at TIMESTAMP,
     wishlist VARCHAR(200),
-    category_id INT,
+    category_id INT NOT NULL,
     size_id INT,
-    type_id INT,
-    user_id INT,
+    type_id INT NOT NULL,
+    user_id INT NOT NULL,
     FOREIGN KEY (category_id) REFERENCES categories(id),
     FOREIGN KEY (size_id) REFERENCES sizes(id),
     FOREIGN KEY (type_id) REFERENCES types(id),

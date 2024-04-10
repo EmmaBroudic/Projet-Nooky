@@ -1,7 +1,8 @@
 INSERT INTO categories (reference, label) VALUES
 ('CAT001', 'Kids'),
 ('CAT002', 'Women'),
-('CAT003', 'Men');
+('CAT003', 'Men'),
+('CAT004', 'Unisex');
 
  INSERT INTO sizes (reference, label) VALUES
 ('SIZ001', 'XS'),
