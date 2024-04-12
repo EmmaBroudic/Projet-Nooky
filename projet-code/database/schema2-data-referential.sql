@@ -39,8 +39,9 @@ INSERT INTO types (reference, label) VALUES
 ('TYP010', 'Bijoux');
 
 INSERT INTO status (code, description) VALUES
-('COD1', 'Livrer le produit à !'),
-('COD2', 'Proposition échange de'),
-('COD3', 'Echange accepté'),
-('COD4', 'Echange annulé'),
-('COD5', 'Proposition échange refusée');
+('COD1', 'Proposition échange effectuée par'),
+('COD2', 'Echange annulé'),
+('COD3', 'Proposition échange refusée'),
+('COD4', 'Le produit va être livrer'),
+('COD5', 'Le produit est en cours de livraison'),
+('COD6', 'Le produit a été reçu');

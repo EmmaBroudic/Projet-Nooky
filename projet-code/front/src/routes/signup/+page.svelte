@@ -50,7 +50,6 @@
     <input bind:value={inputSixUser} type="road" placeholder="Entrez votre numéro et rue">
     <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville">
     <input bind:value={inputEightUser} type="zipcode" placeholder="Entrez votre code postal">
-    <!--<button class="add" type="submit"><a href="/home">Valider</a></button>-->
     <button class="add" type="submit">Valider</button>
     <p><a href="/">Retour</a></p>
 </form>

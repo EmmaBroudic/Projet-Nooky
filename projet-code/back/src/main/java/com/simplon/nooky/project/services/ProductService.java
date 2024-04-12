@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.simplon.nooky.project.dto.creations.CreateProduct;
@@ -42,13 +43,7 @@ public class ProductService {
 		String productRef = "PROD" + String.valueOf(timestamp);
 		
 		product.setName(productCreation.getName());
-		
-		// changer ligne ci-dessous -> création d'une référence
-		//product.setReference(productCreation.getReference());
-		//même chose pour la date
-		// ajouter un uuid
 		product.setReference(productRef);
-		
 		product.setDescription(productCreation.getDescription());
 		product.setPicture(productCreation.getPicture());
 		product.setWishlist(productCreation.getWishlist());
@@ -64,24 +59,15 @@ public class ProductService {
 	}
 
     public ProductView getProductById(Long id) {
-    	//GetProductDto productDto = new GetProductDto();
-    	
-    	// notfound code http
-    	// Product product = productRepository.findById(id).orElse(null);;
-//
-//		if (product != null) {
-//			productDto.setName(product.getName());
-//			productDto.setDescription(product.getDescription());
-//			productDto.setPicture(product.getPicture());
-//			productDto.setWishlist(product.getWishlist());
-//		}
-    	
-    	//Optional.ofNullable(productDto);
-    	
     	return productRepository.findProjectedById(id).get();
     }
 
 	public List<ProductView> getAllProducts() {
         return productRepository.findAllProjectedBy();
     }
+	
+	/*@Query
+	public List<ProductView> getAllProductsAvailable() {
+		// implémenter
+	}*/
 }
