@@ -61,7 +61,7 @@ public class ProductService {
     	return productRepository.findProjectedById(id).get();
     }
 
-    //public List<Product> getAllProducts(/*List<Long> ids*/) {
-       // return productRepository.findAllProductsFiltered(/*ids*/);
-    //}
+    public List<ProductView> getAllProducts(Long id) {
+       return productRepository.findAllProductsFiltered(id);
+    }
 }

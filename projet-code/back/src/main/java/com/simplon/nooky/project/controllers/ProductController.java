@@ -33,8 +33,8 @@ public class ProductController {
 	}
 	
 	@GetMapping("/all")
-	public List<Product> getAllProducts(/*List<Long> ids*/) {
-		return service.getAllProducts(/*ids*/);
+	public List<ProductView> getAllProducts(Long id) {
+		return service.getAllProducts(id);
 	}
 	
 	@GetMapping("/{id}")
