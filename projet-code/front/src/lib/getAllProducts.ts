@@ -15,10 +15,15 @@ export async function getAllProducts(): Promise<Product[]> {
             type: dataProduct.type,
             size: dataProduct.size,
             picture: dataProduct.picture,
-            createdAt: dataProduct.createdAt,
+            addedAt: dataProduct.addedAt,
             wishlist: dataProduct.wishlist,
             usernameOwner: dataProduct.usernameOwner
         };
+
+        if (dataProduct.picture === null) {
+            product.picture = "https://www.apyart.com/1263-large_default/peinture-pour-artiste-gris-clair.jpg";
+        }
+
         productList.push(product);
     });
 

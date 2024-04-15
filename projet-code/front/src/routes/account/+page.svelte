@@ -1,6 +1,6 @@
 <script lang="ts">
     import Header from '../../components/Header/Header.svelte';
-    import InformationBloc from '../../components/InformationBloc/InformationBloc.svelte';
+    //import InformationBloc from '../../components/InformationBloc/InformationBloc.svelte';
     import ProductsBloc from '../../components/ProductsBloc/ProductsBloc.svelte';
     import Footer from '../../components/Footer/Footer.svelte';
 </script>
@@ -24,7 +24,17 @@
 </style>
 
 <Header />
-<InformationBloc blocTitle="Mon compte" imgUrl="https://img.freepik.com/photos-gratuite/femme-son-chien-husky-dans-parc_1303-23169.jpg" descriptionTitle="Mes informations" descriptionText="bla bla bla" pageDirection="/signup" buttonText="modifier"/>
+<!--<InformationBloc
+blocTitle="Mon compte"
+imgUrl="https://img.freepik.com/photos-gratuite/femme-son-chien-husky-dans-parc_1303-23169.jpg"
+descriptionTitle="Mes informations"
+infoOne="bla bla bla"
+infoTwo=""
+infoThree=""
+infoFour=""
+infoFive=""
+pageDirection= "/signup"
+buttonText="Modifier"/>-->
 <h2>Mes produits</h2>
 <div class="bloc-products">
     <ProductsBloc />

@@ -8,13 +8,36 @@ export async function getProductById(id: any): Promise<Product> {
         id: data.id,
         name: data.name,
         description: data.description,
-        category: data.category,
-        type: data.type,
-        size: data.size,
+        category: data.categoryLabel,
+        type: data.typeLabel,
+        size: data.sizeLabel,
         picture: data.picture,
-        createdAt: data.createdAt,
+        addedAt: data.addedAt,
         wishlist: data.wishlist,
-        usernameOwner: data.usernameOwner
+        usernameOwner: data.userUsername
+    }
+
+    if (data.description === null) {
+        product.description = "";
+    }
+
+    if (data.picture === null) {
+        product.picture = "https://www.apyart.com/1263-large_default/peinture-pour-artiste-gris-clair.jpg";
+    }
+
+   if (data.addedAt !== null) {
+        const day = data.addedAt.toString().substr(8, 2);
+        const month = data.addedAt.toString().substr(5, 2);
+        const year = data.addedAt.toString().substr(0, 4);
+        const date = data.addedAt.toString().substr(0, 10);
+        console.log(date);
+        product.addedAt = day + " " + month + " " + year;
+    } else {
+        product.addedAt = "";
+    }
+
+    if (data.wishlist === null) {
+        product.wishlist = "";
     }
 
     return product;

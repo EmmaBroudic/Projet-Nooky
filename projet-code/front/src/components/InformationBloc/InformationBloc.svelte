@@ -1,10 +1,16 @@
 <script lang="ts">
+    import '../../assets/css/index.css';
+
     export let blocTitle: string;
     export let imgUrl: string;
     export let descriptionTitle: string;
-    export let buttonText: string;
-    export let descriptionText: string;
+    export let infoOne: string;
+    export let infoTwo: string;
+    export let infoThree: string;
+    export let infoFour: string;
+    export let infoFive: string;
     export let pageDirection: string;
+    export let buttonText: string;
 </script>
 
 <style>
@@ -25,6 +31,12 @@
         margin-bottom: 30px;
     }
 
+    .bloc-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
     .description {
         width: 800px;
         margin-left: 30px;
@@ -41,12 +53,6 @@
         margin-left: 70px;
     }
 
-    .bloc-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-
     button {
         margin-left: auto;
         margin-right: 30px;
@@ -55,11 +61,15 @@
 
 <h2>{blocTitle}</h2>
 <div class="bloc">
-    <img src={imgUrl} alt="portrait profil" />
+    <img src={imgUrl} alt={"photographie de " + descriptionTitle} />
     <div class="bloc-right">
         <div class="description">
             <h3>{descriptionTitle}</h3>
-            <p>{descriptionText}</p>
+            <p>{infoOne}</p>
+            <p>{infoTwo}</p>
+            <p>{infoThree}</p>
+            <p>{infoFour}</p>
+            <p>{infoFive}</p>
         </div>
         <button class="modify"><a href={pageDirection}>{buttonText}</a></button>
     </div>

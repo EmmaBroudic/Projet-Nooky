@@ -1,0 +1,6 @@
+SELECT p.id, p.name, p.picture FROM products p
+EXCEPT
+SELECT p.id, p.name, p.picture FROM products p
+INNER JOIN exchanges e ON e.product_offered_id = p.id
+	OR e.product_exchanged_id = p.id
+	WHERE e.status_id != 3 AND e.status_id != 4;

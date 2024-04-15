@@ -6,7 +6,7 @@ export interface Product {
     type: string;
 	size: string;
 	picture: string;
-	createdAt: Date;
+	addedAt: any;
 	wishlist: string;
 	usernameOwner: string;
 }

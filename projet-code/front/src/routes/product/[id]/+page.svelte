@@ -20,25 +20,34 @@
 </script>
 
 <style>
-    /*h2 {
-        margin-top: 50px;
-        margin-left: 70px;
-    }
-
-    .bloc-products {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-
-    button {
-        margin-left: auto;
+    #wishlist {
+        width: 90%;
+        margin-left: 30px;
         margin-right: 30px;
-    }*/
+        margin-bottom: 30px;
+        background-color: #f6f6f6;
+        height: auto;
+        border-radius: 30px;
+        padding: 30px;
+        text-align: center;
+    }
 </style>
 
 <Header />
-{#if (product !=null)}
-    <InformationBloc blocTitle={product.name} imgUrl={product.picture} descriptionTitle={product.name} descriptionText={product.description} pageDirection="/home" buttonText="faire une proposition d'échange"/>
+{#if product}
+    <InformationBloc
+    blocTitle={product.name}
+    imgUrl={product.picture}
+    descriptionTitle={product.description}
+    infoOne={"Catégorie : " + product.category}
+    infoTwo= {"Type : " + product.type}
+    infoThree= {"Taille : " + product.size}
+    infoFour= {"Proposé par : " + product.usernameOwner}
+    infoFive= {"Produit ajouté au vestiaire le : " + product.addedAt}
+    pageDirection= "/home"
+    buttonText="faire une proposition d'échange"/>
+{/if}
+{#if product}
+    <p id="wishlist">Idéalement, j'aimerais échanger ce produit contre : {product.wishlist}</p>
 {/if}
 <Footer />

@@ -55,19 +55,13 @@ public class ProductService {
         product.setUser(userRepository.getReferenceById(productCreation.getUserId()));
         
 		productRepository.save(product);
-		System.out.println(product);
 	}
 
     public ProductView getProductById(Long id) {
     	return productRepository.findProjectedById(id).get();
     }
 
-	public List<ProductView> getAllProducts() {
-        return productRepository.findAllProjectedBy();
-    }
-	
-	/*@Query
-	public List<ProductView> getAllProductsAvailable() {
-		// implémenter
-	}*/
+    //public List<Product> getAllProducts(/*List<Long> ids*/) {
+       // return productRepository.findAllProductsFiltered(/*ids*/);
+    //}
 }

@@ -7,7 +7,7 @@ CREATE TABLE "categories" (
 CREATE TABLE "sizes" (
     id SERIAL PRIMARY KEY,
     reference VARCHAR(10) UNIQUE NOT NULL,
-    label VARCHAR(6) NOT NULL
+    label VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE "types" (
@@ -52,7 +52,7 @@ CREATE TABLE "products" (
     added_at TIMESTAMP,
     wishlist VARCHAR(200),
     category_id INT NOT NULL,
-    size_id INT,
+    size_id INT NOT NULL,
     type_id INT NOT NULL,
     user_id INT NOT NULL,
     FOREIGN KEY (category_id) REFERENCES categories(id),
