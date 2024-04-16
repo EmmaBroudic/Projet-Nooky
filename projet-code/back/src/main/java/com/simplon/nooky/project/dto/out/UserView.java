@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.dto.views;
+package com.simplon.nooky.project.dto.out;
 
 import java.sql.Timestamp;
 
@@ -7,6 +7,8 @@ public interface UserView {
 	String getUsername();
 	String getFirstname();
 	String getLastname();
+	String getDescription();
 	String getPicture();
 	Timestamp getCreatedAt();
+	String getAddressCity();
 }

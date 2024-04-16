@@ -1,4 +1,3 @@
-// place files you want to import through the `$lib` alias in this folder.
 export async function fetchData(url: string): Promise<any> {
     try {
       const response = await fetch(url);

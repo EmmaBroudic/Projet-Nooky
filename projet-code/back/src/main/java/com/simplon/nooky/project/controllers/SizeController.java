@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.views.SizeView;
+import com.simplon.nooky.project.dto.out.SizeView;
 import com.simplon.nooky.project.services.SizeService;
 
 

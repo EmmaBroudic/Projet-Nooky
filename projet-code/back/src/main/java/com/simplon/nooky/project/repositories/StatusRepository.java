@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.simplon.nooky.project.dto.views.StatusView;
+import com.simplon.nooky.project.dto.out.StatusView;
 import com.simplon.nooky.project.entities.Status;
 
 public interface StatusRepository extends JpaRepository<Status, Long> {

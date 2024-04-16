@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.creations.CreateProduct;
-import com.simplon.nooky.project.dto.views.ProductView;
+import com.simplon.nooky.project.dto.in.CreateProduct;
+import com.simplon.nooky.project.dto.out.ProductCardView;
+import com.simplon.nooky.project.dto.out.ProductView;
 import com.simplon.nooky.project.entities.Product;
 import com.simplon.nooky.project.repositories.CategoryRepository;
 import com.simplon.nooky.project.repositories.ProductRepository;
@@ -61,7 +62,11 @@ public class ProductService {
     	return productRepository.findProjectedById(id).get();
     }
 
-    public List<ProductView> getAllProducts(Long id) {
+    public List<ProductCardView> getAllProducts(Long id) {
        return productRepository.findAllProductsFiltered(id);
+    }
+    
+    public List<ProductCardView> getAllProductsFromUser(Long userId) {
+    	return productRepository.findAllProjectedByUserId(userId);
     }
 }

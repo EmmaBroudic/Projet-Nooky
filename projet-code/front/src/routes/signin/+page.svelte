@@ -1,4 +1,4 @@
-<script lang="ts">
+<!--<script lang="ts">
     import { onMount } from 'svelte';
     import '../../assets/css/index.css';
     import { goto } from '$app/navigation';
@@ -48,4 +48,4 @@
     {/if}
     <button class="add" type="submit">Valider</button>
     <p><a href="/">Retour</a></p>
-</form>
+</form>-->

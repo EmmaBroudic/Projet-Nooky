@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.creations.CreateExchange;
-import com.simplon.nooky.project.dto.views.ExchangeView;
+import com.simplon.nooky.project.dto.in.CreateExchange;
+import com.simplon.nooky.project.dto.out.ExchangeView;
 import com.simplon.nooky.project.services.ExchangeService;
 
 import jakarta.validation.Valid;

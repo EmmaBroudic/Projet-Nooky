@@ -35,6 +35,7 @@ CREATE TABLE "users" (
     email VARCHAR(254) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
     username VARCHAR(50) UNIQUE NOT NULL,
+    description VARCHAR(200),
     picture VARCHAR(1000),
     firstname VARCHAR(50),
     lastname VARCHAR(50),

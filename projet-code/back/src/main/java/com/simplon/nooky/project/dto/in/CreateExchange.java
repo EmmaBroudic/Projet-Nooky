@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.dto.creations;
+package com.simplon.nooky.project.dto.in;
 
 public class CreateExchange {
 	

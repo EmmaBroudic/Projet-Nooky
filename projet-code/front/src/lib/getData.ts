@@ -1,4 +1,4 @@
-import { fetchData } from './utils';
+/*import { fetchData } from './utils';
 
 export async function verifyInputsSignIn(email: string, password: string): Promise<boolean> {
     try {
@@ -25,4 +25,4 @@ export async function verifyInputsSignIn(email: string, password: string): Promi
         console.error("Erreur lors de la vérification des données :", error);
         return false;
     }
-}
+}*/

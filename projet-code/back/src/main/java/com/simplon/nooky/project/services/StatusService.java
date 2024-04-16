@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.views.StatusView;
+import com.simplon.nooky.project.dto.out.StatusView;
 import com.simplon.nooky.project.repositories.StatusRepository;
 
 @Service

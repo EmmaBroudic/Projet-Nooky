@@ -21,6 +21,9 @@ public class User extends EntityAbstract {
 	@Column(name = "picture")
 	private String picture;
 	
+	@Column(name = "description")
+	private String description;
+	
 	@Column(name = "firstname")
 	private String firstname;
 	
@@ -54,6 +57,14 @@ public class User extends EntityAbstract {
 
     public void setUsername(String username) {
     	this.username = username;
+    }
+    
+    public String getDescription() {
+    	return this.description;
+    }
+
+    public void setDescription(String description) {
+    	this.description = description;
     }
     
     public String getPicture() {

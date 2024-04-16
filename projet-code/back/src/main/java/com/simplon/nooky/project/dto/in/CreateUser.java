@@ -1,4 +1,4 @@
-package com.simplon.nooky.project.dto.creations;
+package com.simplon.nooky.project.dto.in;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +14,9 @@ public class CreateUser {
 	@NotNull
 	@Size(max= 50)
 	private String username;
+	
+	@Size(max= 200)
+	private String description;
 	
 	@Size(max= 1000)
 	private String picture;
@@ -55,6 +58,14 @@ public class CreateUser {
     
     public void setPicture(String picture) {
     	this.picture = picture;
+    }
+    
+    public String getDescription() {
+    	return this.description;
+    }
+    
+    public void setDescription(String description) {
+    	this.description = description;
     }
     
 	public String getFirstname() {

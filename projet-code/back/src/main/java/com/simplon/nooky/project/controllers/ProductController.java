@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.creations.CreateProduct;
-import com.simplon.nooky.project.dto.views.ProductView;
-import com.simplon.nooky.project.entities.Product;
+import com.simplon.nooky.project.dto.in.CreateProduct;
+import com.simplon.nooky.project.dto.out.ProductCardView;
+import com.simplon.nooky.project.dto.out.ProductView;
 import com.simplon.nooky.project.services.ProductService;
 
 @RestController
@@ -33,12 +33,17 @@ public class ProductController {
 	}
 	
 	@GetMapping("/all")
-	public List<ProductView> getAllProducts(Long id) {
+	public List<ProductCardView> getAllProducts(Long id) {
 		return service.getAllProducts(id);
 	}
 	
 	@GetMapping("/{id}")
 	public ProductView getProductById(@PathVariable @NonNull Long id) {
 		return service.getProductById(id);
+	}
+	
+	@GetMapping("/all/user/{userId}")
+	public List<ProductCardView> getAllProductsFromUser(@PathVariable @NonNull Long userId) {
+		return service.getAllProductsFromUser(userId);
 	}
 }

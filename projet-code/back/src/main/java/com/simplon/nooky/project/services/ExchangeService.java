@@ -5,8 +5,8 @@ package com.simplon.nooky.project.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.creations.CreateExchange;
-import com.simplon.nooky.project.dto.views.ExchangeView;
+import com.simplon.nooky.project.dto.in.CreateExchange;
+import com.simplon.nooky.project.dto.out.ExchangeView;
 import com.simplon.nooky.project.entities.Exchange;
 import com.simplon.nooky.project.repositories.ExchangeRepository;
 import com.simplon.nooky.project.repositories.ProductRepository;

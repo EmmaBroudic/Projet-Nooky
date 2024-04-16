@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.views.TypeView;
+import com.simplon.nooky.project.dto.out.TypeView;
 import com.simplon.nooky.project.repositories.TypeRepository;
 
 @Service

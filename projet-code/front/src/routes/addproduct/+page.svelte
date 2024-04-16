@@ -1,4 +1,4 @@
-<script lang="ts">
+<!--<script lang="ts">
     import '../../assets/css/index.css';
     import { onMount } from 'svelte';
     import { keepInputsProduct } from '../../lib/keepInputs';
@@ -37,4 +37,4 @@
     <input bind:value={inputThreeUser} type="picture" placeholder="Entrez l'url de l'image'">
     <button class="add" type="submit">Valider</button>
     <p><a href="/account">Retour</a></p>
-</form>
+</form>-->

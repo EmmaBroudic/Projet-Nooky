@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.simplon.nooky.project.dto.views.ProductView;
+import com.simplon.nooky.project.dto.out.ProductCardView;
+import com.simplon.nooky.project.dto.out.ProductView;
 import com.simplon.nooky.project.entities.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long>{
@@ -30,5 +31,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 			+ "INNER JOIN exchanges e ON e.product_offered_id = p.id\r\n"
 			+ "	OR e.product_exchanged_id = p.id\r\n"
 			+ "	WHERE e.status_id != 3 AND e.status_id != 4", nativeQuery = true)
-	List<ProductView> findAllProductsFiltered(@Param("p.id") Long id);
+	List<ProductCardView> findAllProductsFiltered(@Param("p.id") Long id);
+	
+	List<ProductCardView> findAllProjectedByUserId(Long userId);
 }

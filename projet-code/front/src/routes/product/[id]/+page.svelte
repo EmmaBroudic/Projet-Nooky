@@ -48,6 +48,6 @@
     buttonText="faire une proposition d'échange"/>
 {/if}
 {#if product}
-    <p id="wishlist">Idéalement, j'aimerais échanger ce produit contre : {product.wishlist}</p>
+    <p id="wishlist">J'aimerais échanger ce produit contre : {product.wishlist}</p>
 {/if}
 <Footer />

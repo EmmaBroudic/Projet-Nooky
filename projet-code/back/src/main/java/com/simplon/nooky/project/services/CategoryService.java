@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.views.CategoryView;
+import com.simplon.nooky.project.dto.out.CategoryView;
 import com.simplon.nooky.project.repositories.CategoryRepository;
 
 @Service

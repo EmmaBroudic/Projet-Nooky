@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.simplon.nooky.project.dto.views.TypeView;
+import com.simplon.nooky.project.dto.out.TypeView;
 import com.simplon.nooky.project.entities.Type;
 
 public interface TypeRepository extends JpaRepository<Type, Long> {

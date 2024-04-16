@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.simplon.nooky.project.dto.views.ExchangeView;
+import com.simplon.nooky.project.dto.out.ExchangeView;
 import com.simplon.nooky.project.entities.Exchange;
 
 

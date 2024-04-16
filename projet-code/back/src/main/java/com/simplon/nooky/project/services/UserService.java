@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.simplon.nooky.project.dto.creations.CreateUser;
-import com.simplon.nooky.project.dto.views.UserView;
+import com.simplon.nooky.project.dto.in.CreateUser;
+import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.User;
 import com.simplon.nooky.project.repositories.AddressRepository;
 import com.simplon.nooky.project.repositories.UserRepository;
@@ -28,6 +28,7 @@ public class UserService {
     	
         user.setEmail(userCreation.getEmail());
     	user.setUsername(userCreation.getUsername());
+    	user.setDescription(userCreation.getDescription());
     	user.setPicture(userCreation.getPicture());
     	user.setFirstname(userCreation.getFirstname());
     	user.setLastname(userCreation.getLastname());

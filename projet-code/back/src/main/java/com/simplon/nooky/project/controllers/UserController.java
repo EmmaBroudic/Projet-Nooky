@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.creations.CreateUser;
-import com.simplon.nooky.project.dto.views.UserView;
+import com.simplon.nooky.project.dto.in.CreateUser;
+import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.services.UserService;
 
 @RestController
