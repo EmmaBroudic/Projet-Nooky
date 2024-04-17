@@ -3,15 +3,16 @@
     import { onMount } from 'svelte';
     import { getAllProductsByUserId } from '$lib/API/getFromAPI/getAllProductsByUserId';
     import type { ProductCard } from '$lib/Objects/productCard';
+    import { getUserId } from '$lib/utils';
 
     let productList: ProductCard[] = [];
+    let userId: string | null = null;
 
     onMount(async () => {
-        try {
-            productList = await getAllProductsByUserId(10);
+        userId = getUserId();
+        if (userId !== null) {
+            productList = await getAllProductsByUserId(userId);
             console.log(productList);
-        } catch (error) {
-            console.error('Error fetching product:', error);
         }
     });
 

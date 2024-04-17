@@ -6,11 +6,14 @@
     import { onMount } from "svelte";
     import { postProduct } from '$lib/API/postToAPI/postProduct';
     import '../../assets/css/index.css';
+    import { getUserId } from "$lib/utils";
+    import { goto } from "$app/navigation";
     //import { getUserId } from "$lib/utils";
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
     let sizeList: Size[] = [];
+    let userId: any;
     let productData: any = {};
     
     let selectedCategory: number;
@@ -20,15 +23,13 @@
     let inputOneUser: string;
     let inputTwoUser: string;
     let inputThreeUser: string;
+    let inputFourUser: string;
 
     onMount(async () => {
-        try {
-            categoryList = await getAllCategories();
-            typeList = await getAllTypes();
-            sizeList = await getAllSizes();
-        } catch (error) {
-            console.error('Error fetching product:', error);
-        }
+        categoryList = await getAllCategories();
+        typeList = await getAllTypes();
+        sizeList = await getAllSizes();
+        userId = getUserId();
     });
 
     function handleSubmit(event: Event) {
@@ -37,13 +38,13 @@
         productData.name = inputOneUser;
         productData.description = inputTwoUser;
         productData.picture = inputThreeUser;
-        productData.userId = 1;
+        productData.wishlist = inputFourUser;
+        productData.userId = userId;
         productData.typeId = selectedType;
         productData.sizeId = selectedSize;
         productData.categoryId = selectedCategory;
-
-        postProduct(productData);
         console.log(productData);
+        postProduct(productData);
     }
 </script>
 
@@ -68,7 +69,8 @@
         <input bind:value={inputOneUser} type="text" placeholder="Entrez le nom du produit">
         <input bind:value={inputTwoUser} type="text" placeholder="Entrez la description du produit">
         <input bind:value={inputThreeUser} type="text" placeholder="Entrez l'url de l'image'">
-        
+        <input bind:value={inputFourUser} type="text" placeholder="Produits souhaités en échange">
+
         <select name="category" bind:value={selectedCategory}>
             {#each categoryList as item (item.id)}
                 <option value={item.id}>{item.label}</option>
@@ -85,5 +87,6 @@
             {/each}
         </select>
         <button class="add" type="submit">Valider</button>
+        <p><a href="/account/{userId}">Retour</a></p>
     </form>
 </div>
