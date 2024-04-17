@@ -12,21 +12,21 @@ export async function fetchData(url: string): Promise<any> {
     }
   }
 
-  export async function postData(url: string, data: any): Promise<any> {
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data),
-            cache: 'default'
-        })
+export async function postData(url: string, data: any): Promise<any> {
+  try {
+    const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+  },
+    body: JSON.stringify(data)
+  });
 
-        return await response.json();
-    } catch (error) {
-        console.error('Error:', error);
-        throw error;
-    }
+  if (!response.ok) {
+    throw new Error('Failed to post');
+  }
+  } catch (error) {
+    console.error('Error posting:', error);
+  }
 }
