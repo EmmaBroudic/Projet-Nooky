@@ -10,18 +10,20 @@
     import { goto } from '$app/navigation';
 
     export let user: User;
+    const userPageAccount = window.location.pathname.split('/').pop();
 
     let userId: string | null = null;
     onMount(async () => {
         userId = getUserId();
-        if (userId !== null) {
+        user = await getUserById(userPageAccount);
+        /*if (userId !== null) {
             user = await getUserById(userId);
             if (!user) {
                 goto("/error");
             }
         } else {
             goto("/error");
-        }
+        }*/
     });
 </script>
 
@@ -29,6 +31,16 @@
     h2 {
         margin-top: 50px;
         margin-left: 70px;
+    }
+
+    .button-bloc {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    button {
+        margin-right: 50px;
     }
 </style>
 
@@ -43,9 +55,13 @@
     infoThree={user.description}
     infoFour={user.createdAt}
     infoFive={user.city}
-    pageDirection= "/signup"
-    buttonText="Modifier"/>
+    infoSix=""/>
 {/if}
-<h2>Mes produits</h2>
+{#if userId === userPageAccount }
+    <div class="button-bloc">
+        <button class="add">Mofifier</button>
+    </div>
+{/if}
+<h2>Mon vestiaire</h2>
 <Wardrobe />
 <Footer />

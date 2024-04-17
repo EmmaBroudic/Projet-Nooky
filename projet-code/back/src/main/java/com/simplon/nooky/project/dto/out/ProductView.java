@@ -12,5 +12,6 @@ public interface ProductView {
 	String getPicture();
 	Timestamp getAddedAt();
 	String getWishlist();
+	String getUserId();
 	String getUserUsername();
 }

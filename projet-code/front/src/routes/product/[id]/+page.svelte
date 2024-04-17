@@ -5,27 +5,35 @@
     import { onMount } from 'svelte';
     import { getProductById } from '$lib/API/getFromAPI/getProductById';
     import type { Product } from '$lib/Objects/product.ts';
+    import { getUserId } from '$lib/utils';
 
     export let product: Product;
+    let userId: string | null = null;
 
     onMount(async () => {
-        try {
-            const productId = window.location.pathname.split('/').pop();
-            console.log(productId);
-            product = await getProductById(productId);
-        } catch (error) {
-            console.error('Error fetching product:', error);
-        }
+        const productId = window.location.pathname.split('/').pop();
+        console.log(productId);
+        product = await getProductById(productId);
+        userId = getUserId();
     });
 </script>
 
 <style>
+    #bloc-product {
+        display: flex;
+        flex-direction: column;
+    }
+
     #wishlist {
-        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 88%;
+        border: solid 3px #f6f6f6;
+        border-radius: 25px;
         margin-left: 30px;
         margin-right: 30px;
         margin-bottom: 30px;
-        background-color: #f6f6f6;
         height: auto;
         border-radius: 30px;
         padding: 30px;
@@ -34,20 +42,31 @@
 </style>
 
 <Header />
-{#if product}
-    <InformationBloc
-    blocTitle={product.name}
-    imgUrl={product.picture}
-    descriptionTitle={product.description}
-    infoOne={"Catégorie : " + product.category}
-    infoTwo= {"Type : " + product.type}
-    infoThree= {"Taille : " + product.size}
-    infoFour= {"Proposé par : " + product.usernameOwner}
-    infoFive= {"Produit ajouté au vestiaire le : " + product.addedAt}
-    pageDirection= "/home"
-    buttonText="faire une proposition d'échange"/>
-{/if}
-{#if product}
-    <p id="wishlist">J'aimerais échanger ce produit contre : {product.wishlist}</p>
-{/if}
+<div id="bloc-product">
+    {#if product}
+        <InformationBloc
+        blocTitle={product.name}
+        imgUrl={product.picture}
+        descriptionTitle={product.description}
+        infoOne={"Catégorie : " + product.category}
+        infoTwo= {"Type : " + product.type}
+        infoThree= {"Taille : " + product.size}
+        infoFour= {"Proposé par : " + product.usernameOwner}
+        infoSix= {"/account/"+ product.ownerId}
+        infoFive= {"Produit ajouté au vestiaire le : " + product.addedAt}/>
+    {/if}
+    {#if userId !== null}
+        {#if product.ownerId !== userId}
+            <div id="wishlist">
+                <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
+                <button class="modify">Faire une proposition d'échange</button>
+            </div>
+        {:else}
+            <div id="wishlist">
+                <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
+                <button class="modify">Modifier la fiche produit</button>
+            </div>
+        {/if}
+    {/if}
+</div>
 <Footer />

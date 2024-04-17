@@ -14,6 +14,7 @@ export async function getProductById(id: any): Promise<Product> {
         picture: data.picture,
         addedAt: data.addedAt,
         wishlist: data.wishlist,
+        ownerId: data.userId,
         usernameOwner: data.userUsername
     }
 
@@ -39,6 +40,10 @@ export async function getProductById(id: any): Promise<Product> {
     if (data.wishlist === null) {
         product.wishlist = "";
     }
+
+    /*if (data.usernameOwner !== null) {
+        product.usernameOwner = `<a href="/account/${data.userId}">${data.usernameOwner}</a>`;
+    }*/
 
     return product;
 }

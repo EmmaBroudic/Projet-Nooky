@@ -6,14 +6,12 @@
     import { getUserId } from '$lib/utils';
 
     let productList: ProductCard[] = [];
+    const userPageAccount = window.location.pathname.split('/').pop();
     let userId: string | null = null;
 
     onMount(async () => {
         userId = getUserId();
-        if (userId !== null) {
-            productList = await getAllProductsByUserId(userId);
-            console.log(productList);
-        }
+        productList = await getAllProductsByUserId(userPageAccount);
     });
 
     function keepId(id: number) {
@@ -33,7 +31,8 @@
 
     .button-bloc {
         display: flex;
-        justify-content: right;
+        justify-content: center;
+        margin-bottom: 30px;
     }
 
     button {
@@ -51,6 +50,8 @@
         </a>
     {/each}
 </div>
-<div class="button-bloc">
-    <button class="add"><a href="/addproduct">ajouter un produit</a></button>
-</div>
+{#if userId === userPageAccount }
+    <div class="button-bloc">
+        <button class="add"><a href="/addproduct">ajouter un produit</a></button>
+    </div>
+{/if}

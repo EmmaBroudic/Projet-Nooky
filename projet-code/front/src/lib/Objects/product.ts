@@ -8,5 +8,6 @@ export interface Product {
 	picture: string;
 	addedAt: any;
 	wishlist: string;
+	ownerId: any;
 	usernameOwner: string;
 }

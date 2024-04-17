@@ -9,8 +9,7 @@
     export let infoThree: string;
     export let infoFour: string;
     export let infoFive: string;
-    export let pageDirection: string;
-    export let buttonText: string;
+    export let infoSix: string;
 </script>
 
 <style>
@@ -52,11 +51,6 @@
         margin-top: 50px;
         margin-left: 70px;
     }
-
-    button {
-        margin-left: auto;
-        margin-right: 30px;
-    }
 </style>
 
 <h2>{blocTitle}</h2>
@@ -68,9 +62,8 @@
             <p>{infoOne}</p>
             <p>{infoTwo}</p>
             <p>{infoThree}</p>
-            <p>{infoFour}</p>
+            <a href={infoSix}><p>{infoFour}</p></a>
             <p>{infoFive}</p>
         </div>
-        <button class="modify"><a href={pageDirection}>{buttonText}</a></button>
     </div>
 </div>
