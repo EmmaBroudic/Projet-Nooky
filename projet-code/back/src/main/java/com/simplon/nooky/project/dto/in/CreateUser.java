@@ -15,7 +15,7 @@ public class CreateUser {
 	@Size(max= 50)
 	private String username;
 	
-	@Size(max= 200)
+	@Size(max= 400)
 	private String description;
 	
 	@Size(max= 1000)

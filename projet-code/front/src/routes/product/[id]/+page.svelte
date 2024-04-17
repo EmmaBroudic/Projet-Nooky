@@ -3,8 +3,8 @@
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
     import Footer from '../../../components/Footer/Footer.svelte';
     import { onMount } from 'svelte';
-    import { getProductById } from '$lib/getProductById';
-    import type { Product } from '$lib/product';
+    import { getProductById } from '$lib/API/getFromAPI/getProductById';
+    import type { Product } from '$lib/Objects/product.ts';
 
     export let product: Product;
 

@@ -1,14 +1,14 @@
 <script lang="ts">
     import ProductCard from '../../components/ProductCard/ProductCard.svelte';
     import { onMount } from 'svelte';
-    import { getAllProductsByUserId } from '$lib/getAllProductsByUserId';
-    import type { Product } from '../../lib/product';
+    import { getAllProductsByUserId } from '$lib/API/getFromAPI/getAllProductsByUserId';
+    import type { Product } from '$lib/Objects/product';
 
     let productList: Product[] = [];
 
     onMount(async () => {
         try {
-            productList = await getAllProductsByUserId(1);
+            productList = await getAllProductsByUserId(10);
             console.log(productList);
         } catch (error) {
             console.error('Error fetching product:', error);

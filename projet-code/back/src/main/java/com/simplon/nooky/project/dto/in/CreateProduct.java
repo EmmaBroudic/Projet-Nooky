@@ -22,12 +22,16 @@ public class CreateProduct {
 	@Size(max= 200)
 	private String wishlist;
 	
+	@NotNull
 	private Long categoryId;
 	
+	@NotNull
 	private Long sizeId;
 	
+	@NotNull
 	private Long typeId;
 	
+	@NotNull
 	private Long userId;
 	
 	public CreateProduct() {

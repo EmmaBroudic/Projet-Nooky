@@ -1,4 +1,4 @@
-/*import { writable } from "svelte/store";
+import { writable } from "svelte/store";
 
 export interface InputsSignUp {
     id: number;
@@ -29,4 +29,4 @@ interface InputsProduct {
     picture: string;
 }
 
-export const keepInputsProduct = writable<InputsProduct[]>([]);*/
+export const keepInputsProduct = writable<InputsProduct[]>([]);

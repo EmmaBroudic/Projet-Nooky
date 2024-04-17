@@ -1,5 +1,5 @@
-import { fetchData } from './utils';
-import type { Product } from './product';
+import { fetchData } from '../../utils';
+import type { Product } from '../../Objects/product';
 
 export async function getProductById(id: any): Promise<Product> {
     const data = await fetchData(`http://localhost:8080/products/${id}`);

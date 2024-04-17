@@ -3,12 +3,10 @@
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
     //import ProductsBloc from '../../../components/ProductsBloc/ProductsBloc.svelte';
     import Footer from '../../../components/Footer/Footer.svelte';
-    import { getUserById } from '$lib/getUserById';
-    import type { User } from '$lib/user';
+    import { getUserById } from '$lib/API/getFromAPI/getUserById';
+    import type { User } from '$lib/Objects/user';
     import { onMount } from 'svelte';
     import Wardrobe from '../../../components/Wardrobe/Wardrobe.svelte';
-
-    getUserById(1);
 
     export let user: User;
 
@@ -16,7 +14,7 @@
         try {
             //const userId = window.location.pathname.split('/').pop();
             //console.log(userId);
-            user = await getUserById(5);
+            user = await getUserById(10);
         } catch (error) {
             console.error('Error fetching product:', error);
         }
@@ -28,10 +26,6 @@
         margin-top: 50px;
         margin-left: 70px;
     }
-    /*button {
-        margin-left: auto;
-        margin-right: 30px;
-    }*/
 </style>
 
 <Header />

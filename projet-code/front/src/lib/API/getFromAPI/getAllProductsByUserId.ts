@@ -1,9 +1,9 @@
-import { fetchData } from './utils';
-import type { Product } from './product';
+import { fetchData } from '../../utils';
+import type { Product } from '../../Objects/product';
 
-export async function getAllProducts(): Promise<Product[]> {
+export async function getAllProductsByUserId(userId: any): Promise<Product[]> {
     const productList: Product[] = [];
-    const url = 'http://localhost:8080/products/all';
+    const url = `http://localhost:8080/products/all/user/${userId}`;
     const dataProducts = await fetchData(url);
 
     dataProducts.forEach((dataProduct: any) => {

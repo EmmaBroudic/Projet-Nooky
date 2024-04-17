@@ -1,25 +1,20 @@
 <script lang="ts">
     import ProductCard from '../../components/ProductCard/ProductCard.svelte';
     import { onMount } from 'svelte';
-    import { getAllProducts } from '$lib/getAllProducts';
-    //import { writable } from 'svelte/store';
-    import type { Product } from '../../lib/product';
-
-    //const selectedProductId = writable<number[]>([]);
+    import { getAllProducts } from '$lib/API/getFromAPI/getAllProducts';
+    import type { Product } from '$lib/Objects/product.ts';
 
     let productList: Product[] = [];
 
     onMount(async () => {
         try {
             productList = await getAllProducts();
-            //selectedProductId.set([]);
         } catch (error) {
             console.error('Error fetching product:', error);
         }
     });
 
     function keepId(id: number) {
-        //selectedProductId.set([id]);
         console.log(id);
     }
 </script>
