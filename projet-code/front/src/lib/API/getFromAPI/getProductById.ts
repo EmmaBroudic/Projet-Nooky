@@ -18,7 +18,7 @@ export async function getProductById(id: any): Promise<Product> {
     }
 
     if (data.description === null) {
-        product.description = "";
+        product.description = "Pas de decription du produit";
     }
 
     if (data.picture === null) {

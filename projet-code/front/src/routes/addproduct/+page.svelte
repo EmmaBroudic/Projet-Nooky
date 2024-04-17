@@ -5,6 +5,8 @@
     import type { Size } from '$lib/Objects/size.ts';
     import { onMount } from "svelte";
     import { postProduct } from '$lib/API/postToAPI/postProduct';
+    import '../../assets/css/index.css';
+    //import { getUserId } from "$lib/utils";
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
@@ -29,24 +31,6 @@
         }
     });
 
-    function handleCategoryChange(event: Event) {
-        selectedCategory = parseInt((event.target as HTMLSelectElement).value);
-        productData.category = selectedCategory;
-        console.log('Selected category:', selectedCategory);
-    }
-
-    function handleSizeChange(event: Event) {
-        selectedSize = parseInt((event.target as HTMLSelectElement).value);
-        productData.size = selectedSize;
-        console.log('Selected size:', selectedSize);
-    }
-
-    function handleTypeChange(event: Event) {
-        selectedType = parseInt((event.target as HTMLSelectElement).value);
-        productData.type = selectedType;
-        console.log('Selected type:', selectedType);
-    }
-
     function handleSubmit(event: Event) {
         event.preventDefault();
 
@@ -58,16 +42,22 @@
         productData.sizeId = selectedSize;
         productData.categoryId = selectedCategory;
 
-        console.log(productData);
         postProduct(productData);
+        console.log(productData);
     }
 </script>
 
 <style>
-    #add-product {
+    form {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 30px;
     }
 </style>
 
@@ -79,17 +69,17 @@
         <input bind:value={inputTwoUser} type="text" placeholder="Entrez la description du produit">
         <input bind:value={inputThreeUser} type="text" placeholder="Entrez l'url de l'image'">
         
-        <select name="category" bind:value={selectedCategory} on:change={handleCategoryChange}>
+        <select name="category" bind:value={selectedCategory}>
             {#each categoryList as item (item.id)}
                 <option value={item.id}>{item.label}</option>
             {/each}
         </select>
-        <select name="size"  bind:value={selectedSize} on:change={handleSizeChange}>
+        <select name="size"  bind:value={selectedSize}>
             {#each sizeList as item (item.id)}
                 <option value={item.id}>{item.label}</option>
             {/each}
         </select>
-        <select name="type" bind:value={selectedType} on:change={handleTypeChange}>
+        <select name="type" bind:value={selectedType}>
             {#each typeList as item (item.id)}
                 <option value={item.id}>{item.label}</option>
             {/each}
@@ -97,44 +87,3 @@
         <button class="add" type="submit">Valider</button>
     </form>
 </div>
-
-<!--<script lang="ts">
-    import '../../assets/css/index.css';
-    import { onMount } from 'svelte';
-    import { keepInputsProduct } from '../../lib/keepInputs';
-    import { goto } from '$app/navigation';
-
-    let inputOneUser: string;
-    let inputTwoUser: string;
-    let inputThreeUser: string;
-
-    function keepUserInputs() {
-        let data = {
-            id: 1,
-            name: inputOneUser,
-            description: inputTwoUser,
-            picture: inputThreeUser
-        };
-        keepInputsProduct.update((prevData) => [...prevData, data]);
-        console.log(data);
-    }
-
-    function handleSubmit(event: any) {
-        event.preventDefault();
-        keepUserInputs();
-        goto('/account');
-    }
-
-    onMount(() => {
-        keepUserInputs();
-    });
-</script>
-
-<form class="connect" on:submit|preventDefault={handleSubmit}>
-    <h2>Ajouter un produit</h2>
-    <input bind:value={inputOneUser} type="name" placeholder="Entrez le nom du produit">
-    <input bind:value={inputTwoUser} type="description" placeholder="Entrez la description du produit">
-    <input bind:value={inputThreeUser} type="picture" placeholder="Entrez l'url de l'image'">
-    <button class="add" type="submit">Valider</button>
-    <p><a href="/account">Retour</a></p>
-</form>-->

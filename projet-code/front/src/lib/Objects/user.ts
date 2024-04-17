@@ -9,3 +9,10 @@ export interface User {
     createdAt: any;
     city: string;
 }
+
+// à modifier lors de la sécurisation de l'appli
+export interface UserLogin {
+    id: number,
+    email: string,
+    password: string
+}

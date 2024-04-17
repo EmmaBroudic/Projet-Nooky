@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.simplon.nooky.project.dto.out.UserLogin;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.User;
 
@@ -13,5 +14,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 		
 		Optional<UserView> findProjectedById(Long id);
 		
-		//Optional<UserView> findProjectedByEmail(String email);
+		Optional<UserLogin> findProjectedByEmail(String email);
 }

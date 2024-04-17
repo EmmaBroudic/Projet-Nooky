@@ -1,22 +1,26 @@
 <script lang="ts">
     import Header from '../../../components/Header/Header.svelte';
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
-    //import ProductsBloc from '../../../components/ProductsBloc/ProductsBloc.svelte';
     import Footer from '../../../components/Footer/Footer.svelte';
     import { getUserById } from '$lib/API/getFromAPI/getUserById';
     import type { User } from '$lib/Objects/user';
     import { onMount } from 'svelte';
     import Wardrobe from '../../../components/Wardrobe/Wardrobe.svelte';
+    import { getUserId } from '$lib/utils';
+    import { goto } from '$app/navigation';
 
     export let user: User;
 
+    let userId: string | null = null;
     onMount(async () => {
-        try {
-            //const userId = window.location.pathname.split('/').pop();
-            //console.log(userId);
-            user = await getUserById(10);
-        } catch (error) {
-            console.error('Error fetching product:', error);
+        userId = getUserId();
+        if (userId !== null) {
+            user = await getUserById(userId);
+            if (!user) {
+                goto("/error");
+            }
+        } else {
+            goto("/error");
         }
     });
 </script>

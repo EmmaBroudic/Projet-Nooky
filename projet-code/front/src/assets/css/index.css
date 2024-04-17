@@ -39,7 +39,7 @@ a {
     cursor: pointer;
 }
 
-p {
+p, option {
     font-family: 'Montserrat';
     font-size: 14px;
 }
@@ -73,7 +73,7 @@ p {
 }
 
 
-input {
+input, select {
     border: 3px pink solid;
     width: 300px;
     height: 60px;

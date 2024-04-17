@@ -1,10 +1,10 @@
 <script lang="ts">
-    import ProductCard from '../../components/ProductCard/ProductCard.svelte';
     import { onMount } from 'svelte';
     import { getAllProducts } from '$lib/API/getFromAPI/getAllProducts';
-    import type { Product } from '$lib/Objects/product.ts';
+    import Card from '../Card/Card.svelte';
+    import type { ProductCard } from '$lib/Objects/productCard';
 
-    let productList: Product[] = [];
+    let productList: ProductCard[] = [];
 
     onMount(async () => {
         try {
@@ -33,7 +33,7 @@
 <div class="products-bloc">
     {#each productList as item (item.id)}
         <a href="/product/{item.id}/" on:click={() => keepId(item.id)}>
-            <ProductCard
+            <Card
                 productImageSrc={item.picture}
                 productImageDescription={item.description}
                 productTitle={item.name}/>

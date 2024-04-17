@@ -7,6 +7,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.simplon.nooky.project.dto.in.CreateUser;
+import com.simplon.nooky.project.dto.out.UserLogin;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.User;
 import com.simplon.nooky.project.repositories.AddressRepository;
@@ -45,7 +46,7 @@ public class UserService {
     	return userRepository.findProjectedById(id).get();
     }
     
-/*    public UserView getUserByEmail(@NonNull String email) {
+    public UserLogin getUserByEmail(@NonNull String email) {
     	return userRepository.findProjectedByEmail(email).get();
-    }*/
+    }
 }

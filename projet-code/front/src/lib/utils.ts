@@ -30,3 +30,11 @@ export async function postData(url: string, data: any): Promise<any> {
     console.error('Error posting:', error);
   }
 }
+
+export function saveUserId(userId: any) {
+  localStorage.setItem('userId', userId);
+}
+
+export function getUserId(): any {
+  return localStorage.getItem('userId');
+}

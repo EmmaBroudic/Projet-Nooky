@@ -25,7 +25,7 @@
 </style>
 
 <div class="product-bloc">
-    <img alt={productImageDescription} src={productImageSrc} />
+    <img alt={"Photographie de " + productImageDescription} src={productImageSrc} />
     <h3>{productTitle}</h3>
 </div>
 

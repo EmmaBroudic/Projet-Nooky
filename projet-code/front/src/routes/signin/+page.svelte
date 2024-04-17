@@ -1,8 +1,8 @@
-<!--<script lang="ts">
-    import { onMount } from 'svelte';
+<script lang="ts">
+    //import { onMount } from 'svelte';
     import '../../assets/css/index.css';
     import { goto } from '$app/navigation';
-    import { verifyInputsSignIn } from '$lib/getData';
+    import { verifyInputsSignIn } from '$lib/API/getFromAPI/getUserByEmail';
 
     let inputOneUser: string;
     let inputTwoUser: string;
@@ -15,10 +15,7 @@
             
         if (result === false) {
             errorMessageVisible = true;
-        } /*else if (!inputOneUser) {
-            console.log("l'identifiant n'est pas bon");
-            errorMessageVisible = true;
-        } */else {
+        } else {
             goto('/home');
         }
     }
@@ -43,9 +40,7 @@
     <input bind:value={inputTwoUser} type="password" placeholder="Entrez votre mot de passe">
     {#if errorMessageVisible === true}
         <p class="error-message">Identifiant et mot de passe erronés</p>
-    {:else}
-        <p>TestS</p>
     {/if}
     <button class="add" type="submit">Valider</button>
     <p><a href="/">Retour</a></p>
-</form>-->
+</form>

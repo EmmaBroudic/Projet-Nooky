@@ -41,8 +41,8 @@
     <div class="bloc-right">
         <div class="filtres">
             <button class="grey-border">Tous</button>
-            <button class="grey-border">Produits proposés</button>
-            <button class="grey-border">Produits souhaités</button>
+            <button class="grey-border">A définir</button>
+            <button class="grey-border">A définir</button>
         </div>
         <ProductsBloc />
     </div>
