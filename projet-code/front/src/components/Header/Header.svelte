@@ -12,11 +12,6 @@
 </script>
 
 <style>
-    @font-face {
-        font-family: 'Montserrat';
-        src: url('../../assets/fonts/Montserrat-Medium.ttf') format('truetype');
-    }
-
     header {
         display: flex;
         flex-direction: row;
@@ -78,38 +73,38 @@
 </style>
 
 {#if userId != null}
-<header>
-    <div class="header-left">
-        <img src={logo} class="header-logo" alt="logo funky" />
-        <div class="title">
-            <h1>Nooky</h1>
-            <p>Échange des vêtements, chaussures et accessoires de seconde main</p>
+    <header>
+        <div class="header-left">
+            <img src={logo} class="header-logo" alt="logo funky" />
+            <div class="title">
+                <h1>Nooky</h1>
+                <p>Échange des vêtements, chaussures et accessoires de seconde main</p>
+            </div>
         </div>
-    </div>
-    <div class="header-right">
-        <nav>
-            <a href="/home" class:menu-left={true}>Home</a>
-            <a href="/account/{userId}/" class:menu-left={true}>Mon compte</a>
-            <a href="/signin" class:menu-right={true}>Log out</a>
-        </nav>
-        <Search />
-    </div>
-</header>
+        <div class="header-right">
+            <nav>
+                <a href="/home" class:menu-left={true}>Home</a>
+                <a href="/account/{userId}/" class:menu-left={true}>Mon compte</a>
+                <a href="/signin" class:menu-right={true}>Log out</a>
+            </nav>
+            <Search />
+        </div>
+    </header>
 {:else}
-<header>
-    <div class="header-left">
-        <img src={logo} class="header-logo" alt="logo funky" />
-        <div class="title">
-            <h1>Nooky</h1>
-            <p>Échange des vêtements, chaussures et accessoires de seconde main</p>
+    <header>
+        <div class="header-left">
+            <img src={logo} class="header-logo" alt="logo funky" />
+            <div class="title">
+                <h1>Nooky</h1>
+                <p>Échange des vêtements, chaussures et accessoires de seconde main</p>
+            </div>
         </div>
-    </div>
-    <div class="header-right">
-        <nav>
-            <a href="/home" class:menu-left={true}>Home</a>
-            <a href="/" class:menu-right={true}>Log in</a>
-        </nav>
-        <Search />
-    </div>
-</header>
+        <div class="header-right">
+            <nav>
+                <a href="/home" class:menu-left={true}>Home</a>
+                <a href="/" class:menu-right={true}>Log in</a>
+            </nav>
+            <Search />
+        </div>
+    </header>
 {/if}

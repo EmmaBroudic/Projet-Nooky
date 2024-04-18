@@ -3,18 +3,26 @@
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
     import Footer from '../../../components/Footer/Footer.svelte';
     import { onMount } from 'svelte';
-    import { getProductById } from '$lib/API/getFromAPI/getProductById';
+    import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
     import type { Product } from '$lib/Objects/product.ts';
     import { getUserId } from '$lib/utils';
+    import '../../../assets/css/index.css';
+    import { goto } from '$app/navigation';
 
     export let product: Product;
     let userId: string | null = null;
 
     onMount(async () => {
         const productId = window.location.pathname.split('/').pop();
-        console.log(productId);
-        product = await getProductById(productId);
-        userId = getUserId();
+        //product = await getProductById(productId);
+        //userId = getUserId();
+
+        if (await getProductByIdBoolean(productId) === false) {
+            goto("/error");
+        } else {
+            product = await getProductById(productId);
+            userId = getUserId();
+        }
     });
 </script>
 

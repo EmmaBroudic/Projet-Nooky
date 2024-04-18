@@ -29,3 +29,21 @@ export async function getUserById(id: any): Promise<User> {
 
     return user;
 }
+
+export async function getUserByIdBoolean(id: any): Promise<boolean> {
+    try {
+        const response = await fetch(`http://localhost:8080/users/id/${id}`);
+        
+        if (!response.ok) {
+            throw new Error('La requête a échoué');
+        }
+
+        const data = await response.json();
+        
+
+        return data !== null;
+    } catch (error) {
+        console.error('Erreur lors de la requête:', error);
+        return false;
+    }
+}

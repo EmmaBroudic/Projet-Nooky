@@ -1,3 +1,7 @@
+<script lang="ts">
+    import '../../assets/css/index.css';
+</script>
+
 <style>
     footer {
         font-family: Arial;

@@ -1,8 +1,7 @@
 <script lang="ts">
-    //import { onMount } from 'svelte';
-    import '../../assets/css/index.css';
     import { goto } from '$app/navigation';
     import { verifyInputsSignIn } from '$lib/API/getFromAPI/getUserByEmail';
+    import '../../assets/css/index.css';
 
     let inputOneUser: string;
     let inputTwoUser: string;
@@ -19,11 +18,6 @@
             goto('/home');
         }
     }
-/*
-    onMount(() => {
-        // Au moment du montage, on cache le message d'erreur
-        errorMessageVisible = false;
-    });*/
 </script>
 
 <style>

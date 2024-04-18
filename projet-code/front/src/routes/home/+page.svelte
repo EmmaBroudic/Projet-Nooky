@@ -2,6 +2,7 @@
     import Header from '../../components/Header/Header.svelte';
     import ProductsBloc from '../../components/ProductsBloc/ProductsBloc.svelte';
     import Footer from '../../components/Footer/Footer.svelte';
+    import '../../assets/css/index.css';
 </script>
 
 <style>

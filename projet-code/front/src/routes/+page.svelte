@@ -12,4 +12,5 @@
     <a href="/signin">
         <button class="grey-border">Sign in</button>
     </a>
+    <p><a href="/home">Retour</a></p>
 </div>

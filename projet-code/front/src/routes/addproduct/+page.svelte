@@ -5,10 +5,8 @@
     import type { Size } from '$lib/Objects/size.ts';
     import { onMount } from "svelte";
     import { postProduct } from '$lib/API/postToAPI/postProduct';
-    import '../../assets/css/index.css';
     import { getUserId } from "$lib/utils";
-    import { goto } from "$app/navigation";
-    //import { getUserId } from "$lib/utils";
+    import '../../assets/css/index.css';
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
@@ -43,7 +41,6 @@
         productData.typeId = selectedType;
         productData.sizeId = selectedSize;
         productData.categoryId = selectedCategory;
-        console.log(productData);
         postProduct(productData);
     }
 </script>
@@ -64,11 +61,10 @@
 
 <div id="add-product">
     <h2>Ajouter un produit</h2>
-    
     <form on:submit={handleSubmit}>
         <input bind:value={inputOneUser} type="text" placeholder="Entrez le nom du produit">
         <input bind:value={inputTwoUser} type="text" placeholder="Entrez la description du produit">
-        <input bind:value={inputThreeUser} type="text" placeholder="Entrez l'url de l'image'">
+        <input bind:value={inputThreeUser} type="text" placeholder="Entrez l'url de l'image">
         <input bind:value={inputFourUser} type="text" placeholder="Produits souhaités en échange">
 
         <select name="category" bind:value={selectedCategory}>

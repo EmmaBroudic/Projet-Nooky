@@ -1,29 +1,31 @@
 <script lang="ts">
     import Header from '../../../components/Header/Header.svelte';
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
+    import Wardrobe from '../../../components/Wardrobe/Wardrobe.svelte';
     import Footer from '../../../components/Footer/Footer.svelte';
-    import { getUserById } from '$lib/API/getFromAPI/getUserById';
     import type { User } from '$lib/Objects/user';
     import { onMount } from 'svelte';
-    import Wardrobe from '../../../components/Wardrobe/Wardrobe.svelte';
+    //import { goto } from '$app/navigation';
     import { getUserId } from '$lib/utils';
+    import { getUserById, getUserByIdBoolean } from '$lib/API/getFromAPI/getUserById';
+    import '../../../assets/css/index.css';
     import { goto } from '$app/navigation';
 
     export let user: User;
-    const userPageAccount = window.location.pathname.split('/').pop();
-
     let userId: string | null = null;
+    let userPageAccount: any;
+
     onMount(async () => {
+        userPageAccount = window.location.pathname.split('/').pop();
         userId = getUserId();
         user = await getUserById(userPageAccount);
-        /*if (userId !== null) {
-            user = await getUserById(userId);
-            if (!user) {
-                goto("/error");
-            }
-        } else {
+
+        if (await getUserByIdBoolean(userPageAccount) === false) {
             goto("/error");
-        }*/
+        } else {
+            userId = getUserId();
+            user = await getUserById(userPageAccount);
+        }
     });
 </script>
 

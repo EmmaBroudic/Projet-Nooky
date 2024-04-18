@@ -1,8 +1,7 @@
 <script lang="ts">
-    import '../../assets/css/index.css';
     import { onMount } from 'svelte';
-    import { keepInputsSignUp } from '../../lib/keepInputs';
     import { goto } from '$app/navigation';
+    import '../../assets/css/index.css';
 
     let inputOneUser: string;
     let inputTwoUser: string;
@@ -12,35 +11,9 @@
     let inputSixUser: string;
     let inputSevenUser: string;
     let inputEightUser: number;
-
-    function keepUserInputs() {
-        let data = {
-            id: 1,
-            username: inputOneUser,
-            email: inputTwoUser,
-            password: inputThreeUser,
-            firstname: inputFourUser,
-            lastname: inputFiveUser,
-            road: inputSixUser,
-            city: inputSevenUser,
-            zipcode: inputEightUser
-        };
-        keepInputsSignUp.update((prevData) => [...prevData, data]);
-        console.log(data);
-    }
-
-    function handleSubmit(event: any) {
-        event.preventDefault();
-        keepUserInputs();
-        goto('/home');
-    }
-
-    onMount(() => {
-        keepUserInputs();
-    });
 </script>
 
-<form class="connect" on:submit|preventDefault={handleSubmit}>
+<form class="connect">
     <h2>Sign up</h2>
     <input bind:value={inputOneUser} type="username" placeholder="Entrez votre nom d'utilisateur">
     <input bind:value={inputTwoUser} type="email" placeholder="Entrez votre email">

@@ -1,9 +1,19 @@
+<script lang="ts">
+    import '../../assets/css/index.css';
+</script>
+
 <style>
-    p {
+    #error {
         text-align: center;
-        margin: 300px;
+        margin-top: 300px;
+        margin-bottom: 50px;
         font-size: 30px;
+    }
+
+    #retour {
+        text-align: center;
     }
 </style>
 
-<p>Error, cette page n'existe pas</p>
+<p id="error">Error, cette page n'existe pas</p>
+<p id="retour"><a href="/home">Retour</a></p>

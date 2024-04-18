@@ -2,6 +2,7 @@
     export let productImageDescription: string;
     export let productImageSrc: string;
     export let productTitle: string;
+    import '../../assets/css/index.css';
 </script>
 
 <style>

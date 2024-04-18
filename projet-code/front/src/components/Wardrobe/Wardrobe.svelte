@@ -4,12 +4,14 @@
     import { getAllProductsByUserId } from '$lib/API/getFromAPI/getAllProductsByUserId';
     import type { ProductCard } from '$lib/Objects/productCard';
     import { getUserId } from '$lib/utils';
+    import '../../assets/css/index.css';
 
     let productList: ProductCard[] = [];
-    const userPageAccount = window.location.pathname.split('/').pop();
+    let userPageAccount: any;
     let userId: string | null = null;
 
     onMount(async () => {
+        userPageAccount = window.location.pathname.split('/').pop();
         userId = getUserId();
         productList = await getAllProductsByUserId(userPageAccount);
     });
@@ -33,10 +35,6 @@
         display: flex;
         justify-content: center;
         margin-bottom: 30px;
-    }
-
-    button {
-        margin-right: 50px;
     }
 </style>
 
