@@ -14,8 +14,6 @@
 
     onMount(async () => {
         const productId = window.location.pathname.split('/').pop();
-        //product = await getProductById(productId);
-        //userId = getUserId();
 
         if (await getProductByIdBoolean(productId) === false) {
             goto("/error");
