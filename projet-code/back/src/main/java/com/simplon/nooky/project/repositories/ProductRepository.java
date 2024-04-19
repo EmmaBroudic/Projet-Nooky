@@ -34,4 +34,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<ProductCardView> findAllProductsFiltered(@Param("p.id") Long id);
 	
 	List<ProductCardView> findAllProjectedByUserId(Long userId);
+	
+	List<ProductCardView> findAllProjectedFilteredByCategoryId(Long categoryId);
 }

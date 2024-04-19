@@ -3,6 +3,7 @@
     import ProductsBloc from '../../components/ProductsBloc/ProductsBloc.svelte';
     import Footer from '../../components/Footer/Footer.svelte';
     import '../../assets/css/index.css';
+    import Filters from '../../components/Filters/Filters.svelte';
 </script>
 
 <style>
@@ -37,13 +38,12 @@
 <Header />
 <div class="bloc-home">
     <div class="bloc-left">
-        <p>colonne de filtres</p>
+        <Filters />
     </div>
     <div class="bloc-right">
         <div class="filtres">
             <button class="grey-border">Tous</button>
-            <button class="grey-border">A définir</button>
-            <button class="grey-border">A définir</button>
+            <button class="grey-border">Tailles</button>
         </div>
         <ProductsBloc />
     </div>

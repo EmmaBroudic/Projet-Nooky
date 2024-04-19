@@ -61,7 +61,7 @@
 {/if}
 {#if userId === userPageAccount }
     <div class="button-bloc">
-        <button class="add">Mofifier</button>
+        <button class="add">Modifier</button>
     </div>
 {/if}
 <h2>Mon vestiaire</h2>

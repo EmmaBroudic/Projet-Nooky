@@ -69,4 +69,8 @@ public class ProductService {
     public List<ProductCardView> getAllProductsFromUser(Long userId) {
     	return productRepository.findAllProjectedByUserId(userId);
     }
+    
+    public List<ProductCardView> getAllProductsByCategory(Long categoryId) {
+    	return productRepository.findAllProjectedFilteredByCategoryId(categoryId);
+    }
 }
