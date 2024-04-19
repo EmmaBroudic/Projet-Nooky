@@ -28,9 +28,9 @@
         userData.password = inputThreeUser;
         userData.firstname = inputFourUser;
         userData.lastname = inputFiveUser;
-        addressData.road = inputSixUser;
-        addressData.city = inputSevenUser;
-        addressData.zipCode = inputEightUser;
+        userData.addressRoad = inputSixUser;
+        userData.addressCity = inputSevenUser;
+        userData.addressZipCode = inputEightUser;
         //addressData.id = 1;
 
         console.log(userData);
