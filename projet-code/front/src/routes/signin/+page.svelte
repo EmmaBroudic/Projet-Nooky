@@ -8,15 +8,25 @@
     let inputTwoUser: string;
     let errorMessageVisible = false;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    let hasErrorEmail: boolean = false;
+
+    const errorEmail = "Email invalide";
+
     async function handleSubmit(event: any) {
         event.preventDefault();
-        
-        const result = await verifyInputsSignIn(inputOneUser, inputTwoUser);
-            
-        if (result === false) {
-            errorMessageVisible = true;
+
+        if (!emailRegex.test(inputOneUser)) {
+            hasErrorEmail = true;
         } else {
-            goto('/home');
+            const result = await verifyInputsSignIn(inputOneUser, inputTwoUser);
+            
+            if (result === false) {
+                errorMessageVisible = true;
+            } else {
+                goto('/home');
+            }
         }
     }
 </script>
@@ -25,6 +35,9 @@
     <h2>Sign in</h2>
     <input bind:value={inputOneUser} type="email" placeholder="Entrez votre email">
     <input bind:value={inputTwoUser} type="password" placeholder="Entrez votre mot de passe">
+    {#if hasErrorEmail === true}
+        <p class="error-message">{errorEmail}</p>
+    {/if}
     {#if errorMessageVisible === true}
         <p class="error-message">Identifiant et mot de passe erronés</p>
     {/if}
