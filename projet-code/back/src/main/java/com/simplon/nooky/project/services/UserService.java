@@ -43,7 +43,7 @@ public class UserService {
        if (address != null) {
     	   user.setAddress(addressRepository.findByRoadAndCityAndZipCode(userCreation.getAddressRoad(), userCreation.getAddressCity(), userCreation.getAddressZipCode()));
        } else {
-    	   	Address addressCreation = new Address();
+    	    Address addressCreation = new Address();
        		addressCreation.setRoad(userCreation.getAddressRoad());
        		addressCreation.setCity(userCreation.getAddressCity());
        		addressCreation.setZipCode(userCreation.getAddressZipCode());

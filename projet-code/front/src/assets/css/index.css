@@ -105,3 +105,9 @@ input, select {
     align-items: center;
     margin: 50px;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: flex;
+}

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
     import { verifyInputsSignIn } from '$lib/API/getFromAPI/getUserByEmail';
+    
     import '../../assets/css/index.css';
 
     let inputOneUser: string;
@@ -19,14 +20,6 @@
         }
     }
 </script>
-
-<style>
-    .error-message {
-        color: red;
-        font-size: 12px;
-        display: flex;
-    }
-</style>
 
 <form class="connect" on:submit|preventDefault={handleSubmit}>
     <h2>Sign in</h2>

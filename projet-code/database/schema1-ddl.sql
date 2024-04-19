@@ -34,13 +34,13 @@ CREATE TABLE "users" (
     id SERIAL PRIMARY KEY,
     email VARCHAR(254) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
-    username VARCHAR(50) UNIQUE NOT NULL,
+    username VARCHAR(50) NOT NULL,
     description VARCHAR(400),
     picture VARCHAR(1000),
-    firstname VARCHAR(50),
-    lastname VARCHAR(50),
+    firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
     created_at TIMESTAMP,
-    address_id INT,
+    address_id INT NOT NULL,
     FOREIGN KEY (address_id) REFERENCES addresses(id)
 );
 
