@@ -31,7 +31,20 @@ public class CreateUser {
 	@Size(max= 100)
 	private String password;
 	
+	@NotNull
 	private Long addressId;
+	
+	@NotNull
+	@Size(max= 150)
+	private String addressRoad;
+	
+	@NotNull
+	@Size(max= 50)
+	private String addressCity;
+	
+	@NotNull
+	@Size(max= 5)
+	private String addressZipCode;
 	
 	public CreateUser() {
 	}
@@ -98,5 +111,29 @@ public class CreateUser {
 	
 	public void setAddressId(Long addressId) {
 		this.addressId = addressId;
+	}
+	
+	public String getAddressRoad() {
+		return this.addressRoad;
+	}
+	
+	public void setAddressRoad(String addressRoad) {
+		this.addressRoad = addressRoad;
+	}
+	
+	public String getAddressCity() {
+		return this.addressCity;
+	}
+	
+	public void setAddressCity(String addressCity) {
+		this.addressCity = addressCity;
+	}
+	
+	public String getAddressZipCode() {
+		return this.addressZipCode;
+	}
+	
+	public void setAddressZipCode(String addressZipCode) {
+		this.addressZipCode = addressZipCode;
 	}
 }

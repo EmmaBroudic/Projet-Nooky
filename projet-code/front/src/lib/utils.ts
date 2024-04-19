@@ -38,3 +38,7 @@ export function saveUserId(userId: any) {
 export function getUserId(): any {
   return localStorage.getItem('userId');
 }
+
+export function clearUserId(): any {
+  return localStorage.removeItem('userId');
+}

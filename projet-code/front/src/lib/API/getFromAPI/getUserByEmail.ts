@@ -1,7 +1,7 @@
 import type { UserLogin } from '$lib/Objects/user';
 import { saveUserId } from '../../utils';
 
-export async function verifyInputsSignIn(email: string, password: string): Promise<boolean>, boolean {
+export async function verifyInputsSignIn(email: string, password: string): Promise<boolean> {
 // transformer la fonction pour récupérer un token
     try {
         const response = await fetch(`http://localhost:8080/users/email/${email}`);

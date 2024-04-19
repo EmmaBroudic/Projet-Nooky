@@ -2,13 +2,17 @@
     import Search from '../Searchbar/Searchbar.svelte';
     import logo from '../../assets/images/husky.jpg';
     import '../../assets/css/index.css';
-    import { getUserId } from '$lib/utils';
+    import { clearUserId, getUserId } from '$lib/utils';
     import { onMount } from 'svelte';
 
     let userId: any;
     onMount(() => {
         userId = getUserId();
     });
+
+    function clearStorage() {
+        clearUserId();
+    }
 </script>
 
 <style>
@@ -85,7 +89,7 @@
             <nav>
                 <a href="/home" class:menu-left={true}>Home</a>
                 <a href="/account/{userId}/" class:menu-left={true}>Mon compte</a>
-                <a href="/signin" class:menu-right={true}>Log out</a>
+                <a href="/signin" class:menu-right={true} on:click={() => clearStorage()}>Log out</a>
             </nav>
             <Search />
         </div>

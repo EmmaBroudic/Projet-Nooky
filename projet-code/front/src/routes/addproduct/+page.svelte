@@ -61,6 +61,7 @@
 
 <div id="add-product">
     <h2>Ajouter un produit</h2>
+
     <form on:submit={handleSubmit}>
         <input bind:value={inputOneUser} type="text" placeholder="Entrez le nom du produit">
         <input bind:value={inputTwoUser} type="text" placeholder="Entrez la description du produit">

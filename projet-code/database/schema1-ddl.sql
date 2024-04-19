@@ -40,7 +40,7 @@ CREATE TABLE "users" (
     firstname VARCHAR(50),
     lastname VARCHAR(50),
     created_at TIMESTAMP,
-    address_id INT NOT NULL,
+    address_id INT,
     FOREIGN KEY (address_id) REFERENCES addresses(id)
 );
 
