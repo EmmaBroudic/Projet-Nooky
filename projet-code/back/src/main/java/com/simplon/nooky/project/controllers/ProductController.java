@@ -47,8 +47,8 @@ public class ProductController {
 		return service.getAllProductsFromUser(userId);
 	}
 	
-	@GetMapping("/all/{categoryId}/{typeId}")
-	public List<ProductCardView> getAllProductsByCategoryAndByType(@PathVariable Long categoryId, Long typeId) {
-		return service.getAllProductsByCategoryAndByType(categoryId, typeId);
+	@GetMapping("/all/filtered/{categoryId}/{typeId}")
+	public List<ProductCardView> getAllProductsByCategoryAndType(@PathVariable Long categoryId, @PathVariable Long typeId) {
+		return service.getAllProductsByCategoryAndType(categoryId, typeId);
 	}
 }
