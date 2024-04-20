@@ -5,15 +5,7 @@
     import type { ProductCard } from '$lib/Objects/productCard';
     import '../../assets/css/index.css';
 
-    let productList: ProductCard[] = [];
-
-    onMount(async () => {
-        try {
-            productList = await getAllProducts();
-        } catch (error) {
-            console.error('Error fetching product:', error);
-        }
-    });
+    export let productList: ProductCard[] = [];
 
     function keepId(id: number) {
         console.log(id);

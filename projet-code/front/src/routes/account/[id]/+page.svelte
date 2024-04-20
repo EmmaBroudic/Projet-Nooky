@@ -1,30 +1,32 @@
 <script lang="ts">
     import Header from '../../../components/Header/Header.svelte';
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
-    import Wardrobe from '../../../components/Wardrobe/Wardrobe.svelte';
+    import ProductsBloc from '../../../components/ProductsBloc/ProductsBloc.svelte';
+    import type { ProductCard } from '$lib/Objects/productCard';
     import Footer from '../../../components/Footer/Footer.svelte';
     import type { User } from '$lib/Objects/user';
     import { onMount } from 'svelte';
-    //import { goto } from '$app/navigation';
     import { getUserId } from '$lib/utils';
     import { getUserById, getUserByIdBoolean } from '$lib/API/getFromAPI/getUserById';
     import '../../../assets/css/index.css';
     import { goto } from '$app/navigation';
+    import { getAllProductsByUserId } from '$lib/API/getFromAPI/getAllProductsByUserId';
 
     export let user: User;
     let userId: string | null = null;
     let userPageAccount: any;
 
+    let productList: ProductCard[] = [];
+
     onMount(async () => {
         userPageAccount = window.location.pathname.split('/').pop();
-        userId = getUserId();
-        user = await getUserById(userPageAccount);
 
         if (await getUserByIdBoolean(userPageAccount) === false) {
             goto("/error");
         } else {
             userId = getUserId();
             user = await getUserById(userPageAccount);
+            productList = await getAllProductsByUserId(userPageAccount);
         }
     });
 </script>
@@ -65,5 +67,10 @@
     </div>
 {/if}
 <h2>Mon vestiaire</h2>
-<Wardrobe />
+<ProductsBloc productList={productList}/>
+{#if userId === userPageAccount }
+    <div class="button-bloc">
+        <button class="add"><a href="/addproduct">ajouter un produit</a></button>
+    </div>
+{/if}
 <Footer />

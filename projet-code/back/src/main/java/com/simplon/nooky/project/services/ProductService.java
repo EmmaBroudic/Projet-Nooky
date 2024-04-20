@@ -70,7 +70,7 @@ public class ProductService {
     	return productRepository.findAllProjectedByUserId(userId);
     }
     
-    public List<ProductCardView> getAllProductsByCategory(Long categoryId) {
-    	return productRepository.findAllProjectedFilteredByCategoryId(categoryId);
+    public List<ProductCardView> getAllProductsByCategoryAndByType(Long categoryId, Long typeId) {
+    	return productRepository.findAllProjectedFilteredByCategoryIdAndByTypeId(categoryId, typeId);
     }
 }
