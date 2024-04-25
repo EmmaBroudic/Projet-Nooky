@@ -3,7 +3,7 @@ package com.simplon.nooky.project.dto.out;
 import java.sql.Timestamp;
 
 public interface ProductView {
-	String getId();
+	Long getId();
 	String getName();
 	String getDescription();
 	String getCategoryLabel();
@@ -12,6 +12,6 @@ public interface ProductView {
 	String getPicture();
 	Timestamp getAddedAt();
 	String getWishlist();
-	String getUserId();
+	Long getUserId();
 	String getUserUsername();
 }

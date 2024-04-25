@@ -23,9 +23,9 @@ export async function postData(url: string, data: any): Promise<any> {
     body: JSON.stringify(data)
   });
 
-  if (!response.ok) {
-    throw new Error('Failed to post');
-  }
+    if (!response.ok) {
+      throw new Error('Failed to post');
+    }
   } catch (error) {
     console.error('Error posting:', error);
   }

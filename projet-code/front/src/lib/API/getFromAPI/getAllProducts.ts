@@ -11,7 +11,10 @@ export async function getAllProducts(): Promise<ProductCard[]> {
             id: dataProduct.id,
             name: dataProduct.name,
             picture: dataProduct.picture,
-            description: dataProduct.description
+            description: dataProduct.description,
+            categoryId: dataProduct.categoryId,
+            sizeId: dataProduct.sizeId,
+            typeId: dataProduct.typeId
         };
 
         if (dataProduct.name === null) {

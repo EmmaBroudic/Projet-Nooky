@@ -10,7 +10,7 @@
     import type { Category } from '$lib/Objects/category.ts';
     import type { Type } from '$lib/Objects/type.ts';
     import type { Size } from '$lib/Objects/size.ts';
-    import { getAllProductsByCategory } from '$lib/API/getFromAPI/getAllProductsByCategory';
+    //import { getAllProductsByCategory } from '$lib/API/getFromAPI/getAllProductsByCategory';
 
     let productList: ProductCard[] = [];
     let productListFiltered: ProductCard[] = [];
@@ -33,13 +33,14 @@
 
     onMount(async () => {
         productList = await getAllProducts();
+        console.log(productList);
     });
 
     async function handleSelect(event: Event) {
         event.preventDefault();
         allProducts = false;
 
-        productListFiltered = await getAllProductsByCategory(categoryChecked);
+        //productListFiltered = await getAllProductsByCategory(categoryChecked);
     }
 </script>
 
@@ -89,12 +90,12 @@
     <div class="bloc-left">
         <!--filtres gauche-->
         <h4>Types de produits</h4>
-            {#each typeList as item (item.id)}
-                <div class="filter">
-                    <input class="filter-check" type="checkbox" value={item.id}>
-                    <p>{item.label}</p>
-                </div>
-            {/each}
+        {#each typeList as item (item.id)}
+            <div class="filter">
+                <input class="filter-check" type="checkbox" value={item.id}>
+                <p>{item.label}</p>
+            </div>
+        {/each}
     </div>
     <div class="bloc-right">
         <!--filtres top-->
