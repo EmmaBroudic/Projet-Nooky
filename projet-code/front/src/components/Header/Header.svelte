@@ -16,63 +16,187 @@
 </script>
 
 <style>
-    header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding-bottom: 45px;
-        border-bottom: 3px solid pink;
-        width: 100%;
-        height: 180px;
+    @media screen and (min-width: 1001px) {
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 45px;
+            border-bottom: 3px solid pink;
+            width: 100%;
+            height: 180px;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            padding-top: 75px;
+            padding-left: 30px;
+        }
+
+        img {
+            padding-top: 50px;
+            padding-left: 50px;
+            width: 100px;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            padding-top: 60px;
+            padding-right: 30px;
+        }
+
+        .menu-left, .menu-right {
+            font-family: Montserrat;
+            font-size: 14px;
+            color: black;
+            text-decoration: none;
+            padding-right: 30px;
+        }
+
+        .menu-left:hover, .menu-right:hover {
+            font-family: Montserrat;
+            font-size: 14px;
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 
-    .header-left {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
+    @media screen and (min-width: 757px) and (max-width: 1000px) {
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 45px;
+            border-bottom: 3px solid pink;
+            width: 100%;
+            height: 180px;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+        }
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            padding-left: 30px;
+            padding-top: 20px;
+            width: 40%;
+        }
+
+        img {
+            padding-top: 50px;
+            padding-left: 50px;
+            width: 100px;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            padding-top: 60px;
+            padding-right: 30px;
+        }
+
+        .menu-left, .menu-right {
+            font-family: Montserrat;
+            font-size: 14px;
+            color: black;
+            text-decoration: none;
+            padding-right: 30px;
+        }
+
+        .menu-left:hover, .menu-right:hover {
+            font-family: Montserrat;
+            font-size: 14px;
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 
-    .header-right {
-        display: flex;
-        flex-direction: column;
-    }
+    @media screen and (max-width: 756px) {
+        header {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 20px;
+            border-bottom: 3px solid pink;
+            width: 100%;
+            height: 420px;
+        }
 
-    .title {
-        display: flex;
-        flex-direction: column;
-        padding-top: 75px;
-        padding-left: 30px;
-    }
+        .header-left {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+        }
 
-    img {
-        padding-top: 50px;
-        padding-left: 50px;
-        width: 100px;
-        height: auto;
-    }
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: right;
-        padding-top: 60px;
-        padding-right: 30px;
-    }
+        .title {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
 
-    .menu-left, .menu-right {
-        font-family: Montserrat;
-        font-size: 14px;
-        color: black;
-        text-decoration: none;
-        padding-right: 30px;
-    }
+        img {
+            width: 100px;
+            height: auto;
+            padding: 30px;
+        }
 
-    .menu-left:hover, .menu-right:hover {
-        font-family: Montserrat;
-        font-size: 14px;
-        color: black;
-        text-decoration: underline;
-        cursor: pointer;
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .menu-left, .menu-right {
+            font-family: Montserrat;
+            font-size: 14px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .menu-left:hover, .menu-right:hover {
+            font-family: Montserrat;
+            font-size: 14px;
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 </style>
 

@@ -7,6 +7,7 @@
     import { postProduct } from '$lib/API/postToAPI/postProduct';
     import { getUserId } from "$lib/utils";
     import '../../assets/css/index.css';
+    import { goto } from "$app/navigation";
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
@@ -42,6 +43,8 @@
         productData.sizeId = selectedSize;
         productData.categoryId = selectedCategory;
         postProduct(productData);
+
+        goto("/account/"+userId);
     }
 </script>
 

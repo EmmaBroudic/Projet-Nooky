@@ -32,19 +32,54 @@
 </script>
 
 <style>
-    h2 {
-        margin-top: 50px;
-        margin-left: 70px;
+    @media screen and (min-width: 1110px) {
+        h2 {
+            margin-top: 50px;
+            margin-left: 70px;
+        }
+
+        .button-bloc {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        button {
+            align-items: center;
+        }
     }
 
-    .button-bloc {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
+    @media screen and (min-width: 800px) and (max-width: 1109px) {
+        h2 {
+            margin-top: 50px;
+            margin-left: 70px;
+        }
 
-    button {
-        margin-right: 50px;
+        .button-bloc {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        button {
+            align-items: center;
+        }
+    }
+    @media screen and (max-width: 799px) {
+        h2 {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .button-bloc {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        button {
+            align-items: center;
+        }
     }
 </style>
 
