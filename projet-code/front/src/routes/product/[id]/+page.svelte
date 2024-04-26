@@ -20,6 +20,8 @@
         } else {
             product = await getProductById(productId);
             userId = getUserId();
+            console.log(userId);
+            console.log(userId + product.ownerId);
         }
     });
 </script>
@@ -62,17 +64,17 @@
         infoFive= {"Produit ajouté au vestiaire le : " + product.addedAt}/>
     {/if}
     {#if userId !== null}
-        {#if product.ownerId !== userId}
-            <div id="wishlist">
-                <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
+        <div id="wishlist">
+            <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
+            {#if product.ownerId !== userId}
                 <button class="modify">Faire une proposition d'échange</button>
-            </div>
-        {:else}
-            <div id="wishlist">
-                <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
+            {/if}
+            {#if product.ownerId === userId}
                 <button class="modify">Modifier la fiche produit</button>
-            </div>
-        {/if}
+            {/if}
+        </div>
+        {console.log("product.ownerId : " + product.ownerId)}
+        {console.log("userId : " + userId)}
     {/if}
 </div>
 <Footer />

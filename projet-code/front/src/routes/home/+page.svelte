@@ -52,6 +52,7 @@
                     // retirer de la liste filteredProductList les éléments sélectopnnés ci-dessous : 
                     //const products = await getAllProductsByCategory(selectedCategoryId);
                     // productListFiltered = products;
+
                     categoryChecked.splice(index, 1);
                     console.log(categoryChecked);
                 }
