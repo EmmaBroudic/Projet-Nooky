@@ -10,37 +10,56 @@
     import type { Category } from '$lib/Objects/category.ts';
     import type { Type } from '$lib/Objects/type.ts';
     import type { Size } from '$lib/Objects/size.ts';
-    //import { getAllProductsByCategory } from '$lib/API/getFromAPI/getAllProductsByCategory';
+    import { getAllProductsByCategory } from '$lib/API/getFromAPI/getAllProductsByCategory';
 
     let productList: ProductCard[] = [];
     let productListFiltered: ProductCard[] = [];
-
-    let categoryChecked: number;
+    let filteredProductsList: ProductCard[] = [];
+    let categoryChecked: number[] = [];
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
     let sizeList: Size[] = [];
 
     let allProducts: boolean = true;
-
     let productsFiltered: boolean = false;
 
     onMount(async () => {
         categoryList = await getAllCategories();
         typeList = await getAllTypes();
         sizeList = await getAllSizes();
-    });
-
-    onMount(async () => {
         productList = await getAllProducts();
-        console.log(productList);
     });
 
     async function handleSelect(event: Event) {
         event.preventDefault();
-        allProducts = false;
 
-        //productListFiltered = await getAllProductsByCategory(categoryChecked);
+        const selectedCategoryId = parseInt((event.target as HTMLInputElement).value);
+        console.log("" + selectedCategoryId);
+        
+        if (selectedCategoryId !== null) {
+            if (!categoryChecked.includes(selectedCategoryId)) {
+                categoryChecked.push(selectedCategoryId);
+                console.log(categoryChecked);
+                allProducts = false;
+                productsFiltered = true;
+                const products = await getAllProductsByCategory(selectedCategoryId);
+                productListFiltered = products;
+                filteredProductsList = [...filteredProductsList, ...products];
+            } else {
+                const index = categoryChecked.indexOf(selectedCategoryId);
+                if (index !== -1) {
+                    // retirer de la liste filteredProductList les éléments sélectopnnés ci-dessous : 
+                    //const products = await getAllProductsByCategory(selectedCategoryId);
+                    // productListFiltered = products;
+                    categoryChecked.splice(index, 1);
+                    console.log(categoryChecked);
+                }
+            }            
+        } else {
+            allProducts = true;
+            productsFiltered = false;
+        }
     }
 </script>
 
@@ -49,7 +68,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 50px;
+        margin: 70px;
     }
 
     .bloc-left {
@@ -76,43 +95,38 @@
         flex-direction: column;
         width: 100%;
     }
-
-    .filtres {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 30px;
-    }
 </style>
 
 <Header />
 <div class="bloc-home">
     <div class="bloc-left">
         <!--filtres gauche-->
-        <h4>Types de produits</h4>
+        <h4>Catégories</h4>
+        <div>
+            {#each categoryList as item (item.id)}
+                <div class="filter">
+                    <input class="filter-check" type="checkbox" value={item.id} on:change={handleSelect}>
+                    <p>{item.label}</p>
+                </div>
+            {/each}
+        </div>
+        <h4>Types</h4>
+        <div>
         {#each typeList as item (item.id)}
             <div class="filter">
                 <input class="filter-check" type="checkbox" value={item.id}>
                 <p>{item.label}</p>
             </div>
         {/each}
+        </div>
     </div>
     <div class="bloc-right">
-        <!--filtres top-->
-        <div class="filtres">
-            <button class="grey-border">Tous</button>
-            <select name="category" bind:value={categoryChecked} on:click={handleSelect} >
-                {#each categoryList as item (item.id)}
-                    <option value={item.id}>{item.label}</option>
-                {/each}
-            </select>
-            <button class="grey-border">Tailles</button>
-        </div>
         <!--products-->
         {#if allProducts === true}
             <ProductsBloc productList={productList}/>
-        {:else}
-        <ProductsBloc productList={productListFiltered}/>
+        {/if}
+        {#if productsFiltered === true}
+            <ProductsBloc productList={filteredProductsList}/>
         {/if}
     </div>
 </div>

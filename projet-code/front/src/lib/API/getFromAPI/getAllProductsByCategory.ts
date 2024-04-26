@@ -3,7 +3,7 @@ import type { ProductCard } from '../../Objects/productCard';
 
 export async function getAllProductsByCategory(categoryId: any): Promise<ProductCard[]> {
     const productList: ProductCard[] = [];
-    const url = `http://localhost:8080/products/all/category/${categoryId}`;
+    const url = `http://localhost:8080/products/filtered/category/${categoryId}`;
     const dataProducts = await fetchData(url);
 
     dataProducts.forEach((dataProduct: any) => {
