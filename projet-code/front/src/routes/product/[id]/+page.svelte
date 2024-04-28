@@ -27,26 +27,72 @@
 </script>
 
 <style>
-    #bloc-product {
-        display: flex;
-        flex-direction: column;
+    @media screen and (min-width: 1110px) {
+        #bloc-product {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #wishlist {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 88%;
+            border: solid 3px #f6f6f6;
+            border-radius: 25px;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            height: auto;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+        }
     }
 
-    #wishlist {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 88%;
-        border: solid 3px #f6f6f6;
-        border-radius: 25px;
-        margin-left: 30px;
-        margin-right: 30px;
-        margin-bottom: 30px;
-        height: auto;
-        border-radius: 30px;
-        padding: 30px;
-        text-align: center;
+    @media screen and (min-width: 800px) and (max-width: 1109px) {
+        #bloc-product {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #wishlist {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 88%;
+            border: solid 3px #f6f6f6;
+            border-radius: 25px;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            height: auto;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+        }
     }
+    @media screen and (max-width: 799px) {
+        #bloc-product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #wishlist {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 70%;
+            border: solid 3px #f6f6f6;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            height: auto;
+            padding: 30px;
+            text-align: center;
+        }
+    }
+    
 </style>
 
 <Header />
@@ -73,8 +119,6 @@
                 <button class="modify">Modifier la fiche produit</button>
             {/if}
         </div>
-        {console.log("product.ownerId : " + product.ownerId)}
-        {console.log("userId : " + userId)}
     {/if}
 </div>
 <Footer />

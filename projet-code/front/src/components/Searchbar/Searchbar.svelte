@@ -2,8 +2,9 @@
     .searchbar {
         border: solid 3px pink;
         border-radius: 15px;
-        margin: 50px;
+        margin: 30px;
         padding: 20px;
+        text-align-last: center;
     }
 </style>
 

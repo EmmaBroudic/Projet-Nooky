@@ -14,6 +14,11 @@
 
 <style>
     @media screen and (min-width: 1110px) {
+        #bloc-info {
+            display: flex;
+            flex-direction: column;
+        }
+
         .bloc {
             display: flex;
             flex-direction: row;
@@ -106,8 +111,6 @@
             height: 370px;
             border-radius: 30px;
             object-fit: cover;
-            margin-left: 30px;
-            margin-right: 30px;
             margin-bottom: 30px;
         }
 
@@ -118,8 +121,6 @@
 
         .description {
             width: 310px;
-            margin-left: 30px;
-            margin-right: 30px;
             margin-bottom: 30px;
             background-color: #f6f6f6;
             height: auto;
@@ -135,17 +136,19 @@
     }
 </style>
 
-<h2>{blocTitle}</h2>
-<div class="bloc">
-    <img src={imgUrl} alt={"photographie de " + descriptionTitle} />
-    <div class="bloc-right">
-        <div class="description">
-            <h3>{descriptionTitle}</h3>
-            <p>{infoOne}</p>
-            <p>{infoTwo}</p>
-            <p>{infoThree}</p>
-            <a href={infoSix}><p>{infoFour}</p></a>
-            <p>{infoFive}</p>
+<div id="bloc-info">
+    <h2>{blocTitle}</h2>
+    <div class="bloc">
+        <img src={imgUrl} alt={"photographie de " + descriptionTitle} />
+        <div class="bloc-right">
+            <div class="description">
+                <h3>{descriptionTitle}</h3>
+                <p>{infoOne}</p>
+                <p>{infoTwo}</p>
+                <p>{infoThree}</p>
+                <a href={infoSix}><p>{infoFour}</p></a>
+                <p>{infoFive}</p>
+            </div>
         </div>
     </div>
 </div>

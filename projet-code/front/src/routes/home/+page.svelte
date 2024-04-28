@@ -65,36 +65,64 @@
 </script>
 
 <style>
-    .bloc-home {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 70px;
-    }
+    @media screen and (min-width: 800px) {
+        .bloc-home {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 70px;
+        }
 
-    .bloc-left {
-        width: 170px;
-        height: auto;
-        background-color: #f6f6f6;
-        border-radius: 30px;
-        padding: 30px;
-    }
+        .bloc-left {
+            width: 170px;
+            height: auto;
+            background-color: #f6f6f6;
+            border-radius: 30px;
+            padding: 30px;
+        }
 
-    .filter {
-      display: flex;
-      flex-direction: row;
-      margin: 0;
-    }
+        #bloc-left-mobile {
+            display: none;
+        }
 
-    .filter-check {
-      width: 20px;
-      height: 20px;
-    }
+        .filter {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+        }
 
-    .bloc-right {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        .filter-check {
+            width: 20px;
+            height: 20px;
+        }
+
+        .bloc-right {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 799px) {
+        .bloc-home {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bloc-left {
+            display: none;
+        }
+
+        #bloc-left-mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bloc-right {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
     }
 </style>
 
@@ -120,6 +148,18 @@
             </div>
         {/each}
         </div>
+    </div>
+    <div id="bloc-left-mobile">
+        <select name="category">
+            {#each categoryList as item (item.id)}
+                <option value={item.id}>{item.label}</option>
+            {/each}
+        </select>
+        <select name="size">
+            {#each sizeList as item (item.id)}
+                <option value={item.id}>{item.label}</option>
+            {/each}
+        </select>
     </div>
     <div class="bloc-right">
         <!--products-->
