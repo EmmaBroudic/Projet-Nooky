@@ -1,4 +1,4 @@
-package com.simplon.nooky.project;
+package com.simplon.nooky.project.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

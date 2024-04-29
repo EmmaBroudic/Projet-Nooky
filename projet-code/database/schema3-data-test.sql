@@ -159,7 +159,7 @@ INSERT INTO products (reference, name, description, picture, added_at, wishlist,
     (SELECT id FROM types WHERE reference = 'TYP038'),
     (SELECT id FROM users WHERE email = 'user10@example.com'));
 
-INSERT INTO exchanges (product_offered_id, product_exchanged_id, owner_id, exchanger_id, status_id) VALUES
-    ((SELECT id FROM products WHERE reference = 'PROD001'), (SELECT id FROM products WHERE reference = 'PROD002'), (SELECT id FROM users WHERE email = 'user1@example.com'), (SELECT id FROM users WHERE email = 'user2@example.com'), (SELECT id FROM status WHERE code = 'COD1')),
-    ((SELECT id FROM products WHERE reference = 'PROD003'), (SELECT id FROM products WHERE reference = 'PROD004'), (SELECT id FROM users WHERE email = 'user1@example.com'), (SELECT id FROM users WHERE email = 'user3@example.com'), (SELECT id FROM status WHERE code = 'COD5')),
-    ((SELECT id FROM products WHERE reference = 'PROD005'), (SELECT id FROM products WHERE reference = 'PROD006'), (SELECT id FROM users WHERE email = 'user2@example.com'), (SELECT id FROM users WHERE email = 'user3@example.com'), (SELECT id FROM status WHERE code = 'COD2'));
+INSERT INTO exchanges (product_offered_id, product_exchanged_id, owner_id, exchanger_id, status_prod_offered_id, status_prod_exchanged_id) VALUES
+    ((SELECT id FROM products WHERE reference = 'PROD001'), (SELECT id FROM products WHERE reference = 'PROD002'), (SELECT id FROM users WHERE email = 'user1@example.com'), (SELECT id FROM users WHERE email = 'user2@example.com'), (SELECT id FROM status WHERE code = 'COD5'), (SELECT id FROM status WHERE code = 'COD6')),
+    ((SELECT id FROM products WHERE reference = 'PROD003'), (SELECT id FROM products WHERE reference = 'PROD004'), (SELECT id FROM users WHERE email = 'user1@example.com'), (SELECT id FROM users WHERE email = 'user3@example.com'), (SELECT id FROM status WHERE code = 'COD5'), (SELECT id FROM status WHERE code = 'COD1')),
+    ((SELECT id FROM products WHERE reference = 'PROD005'), (SELECT id FROM products WHERE reference = 'PROD006'), (SELECT id FROM users WHERE email = 'user2@example.com'), (SELECT id FROM users WHERE email = 'user3@example.com'), (SELECT id FROM status WHERE code = 'COD2'), (SELECT id FROM status WHERE code = 'COD1'));

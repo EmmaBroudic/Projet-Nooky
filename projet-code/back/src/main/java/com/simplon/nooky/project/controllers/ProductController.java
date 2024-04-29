@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -61,4 +63,15 @@ public class ProductController {
 	public List<ProductCardView> getAllProductsByCategoryAndType(@PathVariable Long categoryId, @PathVariable Long typeId) {
 		return service.getAllProductsByCategoryAndType(categoryId, typeId);
 	}*/
+	
+	/*@PatchMapping("/{id}")
+	public void updateProductById(@PathVariable Long id, @RequestBody ProductView product) {
+		service.updateProductById(id, product);
+	}*/
+	
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteProductById(@PathVariable Long id) {
+		service.deleteProductById(id);
+    }
 }

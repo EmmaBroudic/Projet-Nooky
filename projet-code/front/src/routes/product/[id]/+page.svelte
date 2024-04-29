@@ -48,6 +48,12 @@
             padding: 30px;
             text-align: center;
         }
+
+        #supp {
+            border: 0px;
+            background-color: white;
+            color: red;
+        }
     }
 
     @media screen and (min-width: 800px) and (max-width: 1109px) {
@@ -71,6 +77,12 @@
             padding: 30px;
             text-align: center;
         }
+
+        #supp {
+            border: 0px;
+            background-color: white;
+            color: red;
+        }
     }
     @media screen and (max-width: 799px) {
         #bloc-product {
@@ -90,6 +102,12 @@
             height: auto;
             padding: 30px;
             text-align: center;
+        }
+
+        #supp {
+            border: 0px;
+            background-color: white;
+            color: red;
         }
     }
     
@@ -112,11 +130,12 @@
     {#if userId !== null}
         <div id="wishlist">
             <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
-            {#if product.ownerId !== userId}
+            {#if product.ownerId != userId}
                 <button class="modify">Faire une proposition d'échange</button>
             {/if}
-            {#if product.ownerId === userId}
+            {#if product.ownerId == userId}
                 <button class="modify">Modifier la fiche produit</button>
+                <button id="supp">Supprimer le produit</button>
             {/if}
         </div>
     {/if}

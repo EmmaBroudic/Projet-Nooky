@@ -81,4 +81,16 @@ public class ProductService {
     /*public List<ProductCardView> getAllProductsByCategoryAndType(Long categoryId, Long typeId) {
     	return productRepository.findAllProjectedFilteredByCategoryIdAndByTypeId(categoryId, typeId);
     }*/
+    
+   /* public void updateProductById(Long id, ProductView product) {
+    	productRepository.findProjectedById(id).get();
+    	
+    	// ajouter logique de modification
+    	
+    	//productRepository.save(product);
+    }*/
+    
+    public void deleteProductById(Long id) {
+    	productRepository.deleteById(id);    	
+    }
 }

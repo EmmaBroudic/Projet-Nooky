@@ -68,13 +68,15 @@ CREATE TABLE "exchanges" (
     product_exchanged_id INT NOT NULL,
     owner_id INT NOT NULL,
     exchanger_id INT NOT NULL,
-    status_id INT NOT NULL,
+    status_prod_offered_id INT NOT NULL,
+    status_prod_exchanged_id INT NOT NULL,
     CONSTRAINT exchanges_ukey UNIQUE (product_offered_id, product_exchanged_id, owner_id, exchanger_id),
     FOREIGN KEY(product_offered_id) REFERENCES products(id),
     FOREIGN KEY(product_exchanged_id) REFERENCES products(id),
     FOREIGN KEY(owner_id) REFERENCES users(id),
     FOREIGN KEY(exchanger_id) REFERENCES users(id),
-    FOREIGN KEY(status_id) REFERENCES status(id)
+    FOREIGN KEY(status_prod_offered_id) REFERENCES status(id),
+    FOREIGN KEY(status_prod_exchanged_id) REFERENCES status(id)
 );
 
 
