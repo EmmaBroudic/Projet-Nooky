@@ -5,6 +5,4 @@ public interface ProductCardView {
 	String getName();
 	String getDescription();
 	String getPicture();
-	Long getCategoryId();
-	String getCategoryLabel();
 }

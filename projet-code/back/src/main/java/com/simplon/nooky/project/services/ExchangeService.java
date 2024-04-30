@@ -34,7 +34,8 @@ public class ExchangeService {
 		exchange.setExchanger(userRepository.getReferenceById(exchangeCreation.getExchangerId()));
 		exchange.setProductOffered(productRepository.getReferenceById(exchangeCreation.getProductOfferedId()));
 		exchange.setProductExchanged(productRepository.getReferenceById(exchangeCreation.getProductExchangedId()));
-		exchange.setStatus(statusRepository.getReferenceById(exchangeCreation.getStatusId()));
+		exchange.setStatusProdOffered(statusRepository.getReferenceById(exchangeCreation.getStatusId()));
+		exchange.setStatusProdExchanged(statusRepository.getReferenceById(exchangeCreation.getStatusId()));
 		
 		exchangeRepository.save(exchange);
 	}
@@ -43,7 +44,7 @@ public class ExchangeService {
 		return exchangeRepository.findProjectedById(id).get();
 	}
 	
-	public void updateExchange(Long id, CreateExchange exchangePatched) {
+	/*public void updateExchange(Long id, CreateExchange exchangePatched) {
 
 		Exchange exchange = exchangeRepository.findById(id).get();
 		
@@ -53,5 +54,5 @@ public class ExchangeService {
 
 		exchangeRepository.save(exchange);
 		System.out.println(exchange.getStatus());
-	}
+	}*/
 }

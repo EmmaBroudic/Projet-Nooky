@@ -29,7 +29,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 			+ "EXCEPT "
 			+ "SELECT p.id, p.name, p.description, p.picture FROM products p "
 			+ "INNER JOIN exchanges e ON e.product_offered_id = p.id OR e.product_exchanged_id = p.id "
-			+ "WHERE e.status_id != 3 AND e.status_id != 4", nativeQuery = true)
+			+ "WHERE e.status_prod_offered_id != 3 AND e.status_prod_offered_id != 4 AND e.status_prod_exchanged_id != 3 AND e.status_prod_exchanged_id != 4", nativeQuery = true)
 	List<ProductCardView> findAllProductsFiltered(@Param("p.id") Long id);
 	
 	List<ProductCardView> findAllProjectedByUserId(Long userId);

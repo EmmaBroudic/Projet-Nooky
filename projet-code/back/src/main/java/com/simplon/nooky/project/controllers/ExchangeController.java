@@ -39,8 +39,8 @@ public class ExchangeController {
 		return service.getExchangesById(id);
 	}
 	
-	@PatchMapping("/{id}")
+	/*@PatchMapping("/{id}")
 	public void updateExchange(@PathVariable @NonNull Long id, @RequestBody @Valid CreateExchange exchange) {
 		service.updateExchange(id, exchange);
-	}
+	}*/
 }

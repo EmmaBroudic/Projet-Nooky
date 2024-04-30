@@ -5,5 +5,6 @@ public interface ExchangeView {
 	String getExchangerUsername();
 	String getProductOfferedName();
 	String getProductExchangedName();
-	String getStatusDescription();
+	String getStatusProdOfferedDescription();
+	String getStatusProdExchangedDescription();
 }

@@ -26,8 +26,12 @@ public class Exchange extends EntityAbstract {
 	Product productExchanged;
 	
 	@ManyToOne
-	@JoinColumn(name = "status_id")
-	Status status;
+	@JoinColumn(name = "status_prod_offered_id")
+	Status statusProdOffered;
+	
+	@ManyToOne
+	@JoinColumn(name = "status_prod_exchanged_id")
+	Status statusProdExchanged;
 	
 	public Exchange() {
 	}
@@ -64,11 +68,19 @@ public class Exchange extends EntityAbstract {
         this.productExchanged = productExchanged;
     }
     
-    public Status getStatus() {
-    	return status;
+    public Status getStatusProdOffered() {
+    	return statusProdOffered;
     }
     
-    public void setStatus(Status status) {
-    	this.status = status;
+    public void setStatusProdOffered(Status statusProdOffered) {
+    	this.statusProdOffered = statusProdOffered;
+    }
+    
+    public Status getStatusProdExchanged() {
+    	return statusProdExchanged;
+    }
+    
+    public void setStatusProdExchanged(Status statusProdExchanged) {
+    	this.statusProdExchanged = statusProdExchanged;
     }
 }
