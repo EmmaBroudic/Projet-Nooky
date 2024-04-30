@@ -10,7 +10,9 @@ public class CreateExchange {
 	
 	private Long productExchangedId;
 	
-	private Long statusId;
+	private Long statusProdOfferedId;
+	
+	private Long statusProdExchangedId;
 	
 	public CreateExchange() {
 	}
@@ -47,11 +49,19 @@ public class CreateExchange {
 		this.productExchangedId = productExchangedId;
 	}
 	
-	public Long getStatusId() {
-		return this.statusId;
+	public Long getStatusProdOfferedId() {
+		return this.statusProdOfferedId;
 	}
 	
-	public void setStatusId(Long statusId) {
-		this.statusId = statusId;
+	public void setStatusProdOfferedId(Long statusProdOfferedId) {
+		this.statusProdOfferedId = statusProdOfferedId;
+	}
+	
+	public Long getStatusProdExchangedId() {
+		return this.statusProdExchangedId;
+	}
+	
+	public void setStatusProdExchangedId(Long statusProdExchangedId) {
+		this.statusProdExchangedId = statusProdExchangedId;
 	}
 }

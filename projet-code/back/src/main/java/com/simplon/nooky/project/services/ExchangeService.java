@@ -1,7 +1,5 @@
 package com.simplon.nooky.project.services;
 
-//import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,8 +32,8 @@ public class ExchangeService {
 		exchange.setExchanger(userRepository.getReferenceById(exchangeCreation.getExchangerId()));
 		exchange.setProductOffered(productRepository.getReferenceById(exchangeCreation.getProductOfferedId()));
 		exchange.setProductExchanged(productRepository.getReferenceById(exchangeCreation.getProductExchangedId()));
-		exchange.setStatusProdOffered(statusRepository.getReferenceById(exchangeCreation.getStatusId()));
-		exchange.setStatusProdExchanged(statusRepository.getReferenceById(exchangeCreation.getStatusId()));
+		exchange.setStatusProdOffered(statusRepository.getReferenceById(exchangeCreation.getStatusProdOfferedId()));
+		exchange.setStatusProdExchanged(statusRepository.getReferenceById(exchangeCreation.getStatusProdOfferedId()));
 		
 		exchangeRepository.save(exchange);
 	}
@@ -44,15 +42,13 @@ public class ExchangeService {
 		return exchangeRepository.findProjectedById(id).get();
 	}
 	
-	/*public void updateExchange(Long id, CreateExchange exchangePatched) {
+	public void updateExchange(Long id, CreateExchange exchangePatched) {
 
 		Exchange exchange = exchangeRepository.findById(id).get();
+
+		exchange.setStatusProdOffered(statusRepository.getReferenceById(exchangePatched.getStatusProdOfferedId()));
+		exchange.setStatusProdExchanged(statusRepository.getReferenceById(exchangePatched.getStatusProdExchangedId()));
 		
-		System.out.println(exchange.getStatus());
-
-		exchange.setStatus(statusRepository.getReferenceById(exchangePatched.getStatusId()));
-
 		exchangeRepository.save(exchange);
-		System.out.println(exchange.getStatus());
-	}*/
+	}
 }

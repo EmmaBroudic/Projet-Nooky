@@ -4,10 +4,11 @@ import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
-import com.simplon.nooky.project.dto.out.UserLogin;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.Address;
 import com.simplon.nooky.project.entities.User;
@@ -22,6 +23,9 @@ public class UserService {
 	
 	@Autowired
     private AddressRepository addressRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	public void createUser(CreateUser userCreation) {
     	User user = new User();
@@ -34,7 +38,7 @@ public class UserService {
     	user.setPicture(userCreation.getPicture());
     	user.setFirstname(userCreation.getFirstname());
     	user.setLastname(userCreation.getLastname());
-        user.setPassword(userCreation.getPassword());
+        user.setPassword(passwordEncoder.encode(userCreation.getPassword()));
         user.setCreatedAt(timestamp);
         
         Address address = new Address();
@@ -54,12 +58,16 @@ public class UserService {
 
         userRepository.save(user);
     }
+	
+	//public UserView authUser(@NonNull AuthUser user) {
+		// authentification
+	//}
 
     public UserView getUserById(@NonNull Long id) {
     	return userRepository.findProjectedById(id).get();
     }
     
-    public UserLogin getUserByEmail(@NonNull String email) {
+    public AuthUser getUserByEmail(@NonNull String email) {
     	return userRepository.findProjectedByEmail(email).get();
     }
 }

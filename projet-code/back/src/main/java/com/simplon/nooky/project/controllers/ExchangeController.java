@@ -1,7 +1,5 @@
 package com.simplon.nooky.project.controllers;
 
-//import java.util.Optional;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +37,8 @@ public class ExchangeController {
 		return service.getExchangesById(id);
 	}
 	
-	/*@PatchMapping("/{id}")
+	@PatchMapping("/{id}")
 	public void updateExchange(@PathVariable @NonNull Long id, @RequestBody @Valid CreateExchange exchange) {
 		service.updateExchange(id, exchange);
-	}*/
+	}
 }
