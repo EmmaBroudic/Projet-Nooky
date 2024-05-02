@@ -2,9 +2,9 @@ export interface Product {
     id: number;
     name: string;
 	description: string;
-	category: string;
-    type: string;
-	size: string;
+	category: any;
+    type: any;
+	size: any;
 	picture: string;
 	addedAt: any;
 	wishlist: string;

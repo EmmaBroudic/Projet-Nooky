@@ -1,12 +1,14 @@
 package com.simplon.nooky.project.services;
 
 import java.sql.Timestamp;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.Address;
@@ -55,37 +57,28 @@ public class UserService {
 	   		user.setAddress(addressRepository.findByRoadAndCityAndZipCode(userCreation.getAddressRoad(), userCreation.getAddressCity(), userCreation.getAddressZipCode()));
 	   }
 
-    userRepository.save(user);
+	   userRepository.save(user);
     }
 
     public UserView getUserById(@NonNull Long id) {
     	return userRepository.findProjectedById(id).get();
     }
     
-    /*public AuthUser /*String*/// getUserByEmail(@NonNull String email) {
+    public String authenticateUser(@NonNull AuthUser authUser) {
+    	Optional<User> user = userRepository.findUserByEmail(authUser.getEmail());
     	
-    	/*String token = "ok";
-    	
-    	AuthUser user = userRepository.findProjectedByEmail(email).get();
+    	String token = "ok";
     	
     	if (user != null) {
-    		
     		return token;
     	} else {
     		token = "pas d'utilisateur avec cette adresse mail";
     		
     		return token;
-    	}*/
-    	//return userRepository.findProjectedByEmail(email).get();
-    //}
-    
-    public String getUserByEmail(@NonNull String email) {
-    	UserView user = userRepository.findProjectedByEmail(email).get();
-    	
-    	if (user != null) {
-    		return "ok";
-    	} else {
-    		return "pas d'utilisateur avec cette adresse mail";
     	}
     }
-}
+    
+    public UserView getUserByEmail(@NonNull String email) {
+    	return userRepository.findProjectedByEmail(email).get();
+    }
+}    
