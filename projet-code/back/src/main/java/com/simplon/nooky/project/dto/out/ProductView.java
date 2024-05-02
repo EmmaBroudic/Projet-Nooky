@@ -7,7 +7,6 @@ public interface ProductView {
 	String getName();
 	String getDescription();
 	String getCategoryLabel();
-	Long getCategoryId();
 	String getSizeLabel();
 	String getTypeLabel();
 	String getPicture();

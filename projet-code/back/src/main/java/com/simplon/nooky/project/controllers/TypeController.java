@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.simplon.nooky.project.dto.out.TypeView;
 import com.simplon.nooky.project.services.TypeService;
 
-
 @RestController
 @RequestMapping("/types")
 public class TypeController {

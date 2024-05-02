@@ -82,7 +82,7 @@ INSERT INTO types (reference, label) VALUES
 ('TYP020', 'Grenouillère'),
 ('TYP021', 'Gilet'),
 ('TYP022', 'Jean'),
-('TYP023', 'Jupe'),
+('TYP023', 'Jupe et robe'),
 ('TYP024', 'Legging'),
 ('TYP025', 'Lunettes de soleil'),
 ('TYP026', 'Maillot de bain'),

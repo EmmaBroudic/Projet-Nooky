@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.services.UserService;
@@ -40,8 +39,13 @@ public class UserController {
 		return service.getUserById(id);
 	}
 	
-	@GetMapping("/email/{email}")
+	/*@GetMapping("/email/{email}")
 	public AuthUser getUserByEmail(@PathVariable @NonNull String email) {
+		return service.getUserByEmail(email);
+	}*/
+	
+	@GetMapping("/email/{email}")
+	public String getUserByEmail(@PathVariable @NonNull String email) {
 		return service.getUserByEmail(email);
 	}
 }

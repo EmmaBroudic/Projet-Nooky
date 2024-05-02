@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.simplon.nooky.project.dto.in.CreateProduct;
@@ -82,13 +81,18 @@ public class ProductService {
     	return productRepository.findAllProjectedFilteredByCategoryIdAndByTypeId(categoryId, typeId);
     }*/
     
-   /* public void updateProductById(Long id, ProductView product) {
-    	productRepository.findProjectedById(id).get();
+   public void updateProduct(Long id, CreateProduct productPatched) {
+    	Product product = productRepository.findById(id).get();
     	
-    	// ajouter logique de modification
+    	product.setDescription(productPatched.getDescription());
+    	product.setPicture(productPatched.getPicture());
+    	product.setWishlist(productPatched.getWishlist());
+    	product.setCategory(categoryRepository.getReferenceById(productPatched.getCategoryId()));
+        product.setSize(sizeRepository.getReferenceById(productPatched.getSizeId()));
+        product.setType(typeRepository.getReferenceById(productPatched.getTypeId()));
     	
-    	//productRepository.save(product);
-    }*/
+    	productRepository.save(product);
+    }
     
     public void deleteProductById(Long id) {
     	productRepository.deleteById(id);    	
