@@ -105,7 +105,7 @@
             {/if}
         {/if}
 
-        <p><a href="/">Retour</a></p>
+        <p><a href="/connexion">Retour</a></p>
     </form>
 
 {:else}
