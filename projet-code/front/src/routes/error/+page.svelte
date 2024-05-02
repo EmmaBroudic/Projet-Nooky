@@ -16,4 +16,4 @@
 </style>
 
 <p id="error">Error, cette page n'existe pas</p>
-<p id="retour"><a href="/home">Retour</a></p>
+<p id="retour"><a href="/">Retour</a></p>

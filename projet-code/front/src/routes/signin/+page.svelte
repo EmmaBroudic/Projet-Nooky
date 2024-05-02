@@ -42,5 +42,5 @@
         <p class="error-message">Identifiant et mot de passe erronés</p>
     {/if}
     <button class="add" type="submit">Valider</button>
-    <p><a href="/">Retour</a></p>
+    <p><a href="/connexion">Retour</a></p>
 </form>

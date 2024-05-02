@@ -211,7 +211,7 @@
         </div>
         <div class="header-right">
             <nav>
-                <a href="/home" class:menu-left={true}>Home</a>
+                <a href="/" class:menu-left={true}>Home</a>
                 <a href="/account/{userId}/" class:menu-left={true}>Mon compte</a>
                 <a href="/signin" class:menu-right={true} on:click={() => clearStorage()}>Log out</a>
             </nav>
@@ -229,8 +229,8 @@
         </div>
         <div class="header-right">
             <nav>
-                <a href="/home" class:menu-left={true}>Home</a>
-                <a href="/" class:menu-right={true}>Log in</a>
+                <a href="/" class:menu-left={true}>Home</a>
+                <a href="/connexion" class:menu-right={true}>Log in</a>
             </nav>
             <Search />
         </div>
