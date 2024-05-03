@@ -1,4 +1,4 @@
-import { fetchData } from '../../utils';
+/*import { fetchData } from '../../utils';
 import type { ProductCard } from '../../Objects/productCard';
 
 export async function getAllProductsByCategory(categoryId: any): Promise<ProductCard[]> {
@@ -30,4 +30,4 @@ export async function getAllProductsByCategory(categoryId: any): Promise<Product
     });
 
     return productList;
-}
+}*/

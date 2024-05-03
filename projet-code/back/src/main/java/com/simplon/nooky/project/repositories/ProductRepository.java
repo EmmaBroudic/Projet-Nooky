@@ -43,7 +43,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<ProductCardView> findAllProjectedFilteredByCategoryIdAndByTypeId(@Param("p.category_id") Long categoryId,
 																		  @Param("p.type_id") Long typeId);*/
 	
-	@Query(value = "SELECT p.id, p.name, p.picture FROM products p\r\n"
+	/*@Query(value = "SELECT p.id, p.name, p.picture FROM products p\r\n"
 			+ "WHERE p.category_id = :p.category_id \r\n"
 			+ "EXCEPT\r\n"
 			+ "SELECT p.id, p.name, p.picture FROM products p\r\n"
@@ -60,5 +60,5 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 			+ "INNER JOIN exchanges e ON e.product_offered_id = p.id\r\n"
 			+ "	OR e.product_exchanged_id = p.id\r\n"
 			+ "	WHERE e.status_id != 3 AND e.status_id != 4", nativeQuery = true)
-	List<ProductCardView> findAllProjectedFilteredByTypeId(@Param("p.type_id") Long typeId);
+	List<ProductCardView> findAllProjectedFilteredByTypeId(@Param("p.type_id") Long typeId);*/
 }

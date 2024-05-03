@@ -10,7 +10,6 @@
     import type { Category } from '$lib/Objects/category.ts';
     import type { Type } from '$lib/Objects/type.ts';
     import type { Size } from '$lib/Objects/size.ts';
-    import { getAllProductsByCategory } from '$lib/API/getFromAPI/getAllProductsByCategory';
 
     let productList: ProductCard[] = [];
     let productListFiltered: ProductCard[] = [];

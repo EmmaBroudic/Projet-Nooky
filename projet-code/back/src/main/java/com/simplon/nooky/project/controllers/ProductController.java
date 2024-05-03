@@ -49,6 +49,7 @@ public class ProductController {
 		return service.getAllProductsFromUser(userId);
 	}
 	
+	/*
 	@GetMapping("/filtered/category/{categoryId}")
 	public List<ProductCardView> getAllProductsByCategory(@PathVariable Long categoryId) {
 		return service.getAllProductsByCategory(categoryId);
@@ -59,7 +60,7 @@ public class ProductController {
 		return service.getAllProductsByType(typeId);
 	}
 	
-	/*@GetMapping("/all/filtered/{categoryId}/{typeId}")
+	@GetMapping("/all/filtered/{categoryId}/{typeId}")
 	public List<ProductCardView> getAllProductsByCategoryAndType(@PathVariable Long categoryId, @PathVariable Long typeId) {
 		return service.getAllProductsByCategoryAndType(categoryId, typeId);
 	}*/
