@@ -4,7 +4,7 @@
     import type { Type } from '$lib/Objects/type.ts';
     import type { Size } from '$lib/Objects/size.ts';
     import { onMount } from "svelte";
-    import { patchProductById } from '$lib/API/patchToAPI/patchProductById.ts';
+    import { patchProductById } from '$lib/API/patchToAPI/patchProductById';
     import type { Product } from '$lib/Objects/product.ts';
     import { getUserId } from "$lib/utils";
     import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';

@@ -19,19 +19,15 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	Optional<ProductView> findProjectedById(Long id);
 	
 	List<ProductCardView> findAllProjectedBy();
-
-	/*@Query("""
-			select id.p as id from products p
-			""")
-	@Query(ids = "select id from products", nativeQuery = true)
-	List<ProductView> findAllProductsFiltered(List<Long> ids);*/
 	
-	@Query(value = "SELECT p.id, p.name, p.description, p.picture FROM products p "
-			+ "EXCEPT "
-			+ "SELECT p.id, p.name, p.description, p.picture FROM products p "
-			+ "INNER JOIN exchanges e ON e.product_offered_id = p.id OR e.product_exchanged_id = p.id "
-			+ "WHERE e.status_prod_offered_id != 3 AND e.status_prod_offered_id != 4 AND e.status_prod_exchanged_id != 3 AND e.status_prod_exchanged_id != 4", nativeQuery = true)
-	List<ProductCardView> findAllProductsFiltered(@Param("p.id") Long id);
+	@Query("SELECT p.id AS id, p.name AS name, p.description AS description, p.picture AS picture, p.category.id AS categoryId, p.type.id AS typeId, p.size.id AS sizeId " +
+			   "FROM Product p " +
+		       "WHERE p.id NOT IN (" +
+		       "    SELECT p.id FROM Product p " +
+		       "    INNER JOIN Exchange e ON e.productOffered.id = p.id OR e.productExchanged.id = p.id " +
+		       "    WHERE e.statusProdOffered.id NOT IN (3, 4) AND e.statusProdExchanged.id NOT IN (3, 4)" +
+		       ")")
+	List<ProductCardView> findAllProductsFiltered(@Param("productId") Long productId);
 	
 	List<ProductCardView> findAllProjectedByUserId(Long userId);
 	
