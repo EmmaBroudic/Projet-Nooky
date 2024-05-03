@@ -1,14 +1,14 @@
 package com.simplon.nooky.project.services;
 
 import java.sql.Timestamp;
-//import java.util.Optional;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-//import com.simplon.nooky.project.dto.in.AuthUser;
+import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.Address;
@@ -25,8 +25,8 @@ public class UserService {
 	@Autowired
     private AddressRepository addressRepository;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	//@Autowired
+	//private PasswordEncoder passwordEncoder;
 
 	public void createUser(CreateUser userCreation) {
 		User user = new User();
@@ -39,7 +39,7 @@ public class UserService {
 		user.setPicture(userCreation.getPicture());
 		user.setFirstname(userCreation.getFirstname());
 		user.setLastname(userCreation.getLastname());
-	    user.setPassword(passwordEncoder.encode(userCreation.getPassword()));
+	    user.setPassword(/*passwordEncoder.encode(*/userCreation.getPassword()/*)*/);
 	    user.setCreatedAt(timestamp);
 	    
 	    Address address = new Address();
@@ -64,7 +64,7 @@ public class UserService {
     	return userRepository.findProjectedById(id).get();
     }
     
-    /*public String authenticateUser(@NonNull AuthUser authUser) {
+    public String authenticateUser(@NonNull AuthUser authUser) {
     	Optional<User> user = userRepository.findUserByEmail(authUser.getEmail());
     	
     	String token = "ok";
@@ -76,7 +76,7 @@ public class UserService {
     		
     		return token;
     	}
-    }*/
+    }
     
     public UserView getUserByEmail(@NonNull String email) {
     	return userRepository.findProjectedByEmail(email).get();
