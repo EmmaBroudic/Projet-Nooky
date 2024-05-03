@@ -21,11 +21,12 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<ProductCardView> findAllProjectedBy();
 	
 	@Query("SELECT p.id AS id, p.name AS name, p.description AS description, p.picture AS picture, p.category.id AS categoryId, p.type.id AS typeId, p.size.id AS sizeId " +
-			   "FROM Product p " +
+		       "FROM Product p " +
 		       "WHERE p.id NOT IN (" +
 		       "    SELECT p.id FROM Product p " +
 		       "    INNER JOIN Exchange e ON e.productOffered.id = p.id OR e.productExchanged.id = p.id " +
-		       "    WHERE e.statusProdOffered.id NOT IN (3, 4) AND e.statusProdExchanged.id NOT IN (3, 4)" +
+		       "    INNER JOIN e.statusProdOffered s " +
+		       "    WHERE s.description NOT IN ('Proposition échange refusée', 'Echange annulé') " +
 		       ")")
 	List<ProductCardView> findAllProductsFiltered(@Param("productId") Long productId);
 	
