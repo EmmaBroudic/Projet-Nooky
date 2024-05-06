@@ -7,15 +7,15 @@
 
 <style>
     .product-bloc {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
         border-radius: 30px;
         margin-bottom: 80px;
     }
 
     img {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
         border-radius: 30px;
         object-fit: cover;
     }

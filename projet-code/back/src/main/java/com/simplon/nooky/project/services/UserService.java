@@ -1,13 +1,12 @@
 package com.simplon.nooky.project.services;
 
 import java.sql.Timestamp;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.simplon.nooky.project.config.SecurityHelper;
 import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
 import com.simplon.nooky.project.dto.out.UserView;
@@ -25,8 +24,8 @@ public class UserService {
 	@Autowired
     private AddressRepository addressRepository;
 	
-	//@Autowired
-	//private PasswordEncoder passwordEncoder;
+	@Autowired
+	private SecurityHelper securityHelper;
 
 	public void createUser(CreateUser userCreation) {
 		User user = new User();
@@ -39,7 +38,7 @@ public class UserService {
 		user.setPicture(userCreation.getPicture());
 		user.setFirstname(userCreation.getFirstname());
 		user.setLastname(userCreation.getLastname());
-	    user.setPassword(/*passwordEncoder.encode(*/userCreation.getPassword()/*)*/);
+	    user.setPassword(securityHelper.encode(userCreation.getPassword()));
 	    user.setCreatedAt(timestamp);
 	    
 	    Address address = new Address();
@@ -65,16 +64,17 @@ public class UserService {
     }
     
     public String authenticateUser(@NonNull AuthUser authUser) {
-    	Optional<User> user = userRepository.findUserByEmail(authUser.getEmail());
+    	String rawPassword = authUser.getPassword();
+
+    	User user = new User();
+    	user = userRepository.findUserByEmail(authUser.getEmail());
     	
-    	String token = "ok";
+    	String encodedPassword = user.getPassword();
     	
-    	if (user != null) {
-    		return token;
+    	if (securityHelper.matches(rawPassword, encodedPassword)) {
+    		return securityHelper.createToken(authUser.getEmail());
     	} else {
-    		token = "pas d'utilisateur avec cette adresse mail";
-    		
-    		return token;
+    		return "Mauvais mot de passe";
     	}
     }
     

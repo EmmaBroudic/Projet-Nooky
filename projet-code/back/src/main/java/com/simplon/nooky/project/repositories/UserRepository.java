@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 		
 		Optional<UserView> findProjectedById(Long id);
 		
-		Optional<User> findUserByEmail(String email);
+		User findUserByEmail(String email);
 		
 		Optional<UserView> findProjectedByEmail(String email);
 }

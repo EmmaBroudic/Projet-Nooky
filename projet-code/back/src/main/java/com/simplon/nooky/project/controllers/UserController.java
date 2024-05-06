@@ -32,8 +32,8 @@ public class UserController {
 	
 	@PostMapping("/auth")
 	@ResponseStatus(HttpStatus.OK)
-	public void authenticateUser(@RequestBody AuthUser user) {
-		service.authenticateUser(user);
+	public String authenticateUser(@RequestBody AuthUser user) {
+		return service.authenticateUser(user);
 	}
 	
 	@GetMapping("/id/{id}")

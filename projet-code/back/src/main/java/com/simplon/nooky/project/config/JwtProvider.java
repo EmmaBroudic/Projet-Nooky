@@ -3,7 +3,7 @@ package com.simplon.nooky.project.config;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.List;
+//import java.util.List;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator.Builder;
@@ -26,7 +26,7 @@ public final class JwtProvider {
     	this.algorithm = algorithm;
     }
 
-    String create(String subject, List<String> roles) {
+    String create(String subject/*, List<String> roles*/) {
     	LocalDateTime now = LocalDateTime.now();
     	Instant issuedAt = now.atZone(zoneId).toInstant();
     	Builder builder = JWT.create().withIssuer(issuer)
@@ -38,7 +38,7 @@ public final class JwtProvider {
     		builder.withExpiresAt(expiresAt);
     	}
     	
-    	builder.withSubject(subject).withClaim("roles", roles);
+    	builder.withSubject(subject);
     	return builder.sign(algorithm);
     }
 }

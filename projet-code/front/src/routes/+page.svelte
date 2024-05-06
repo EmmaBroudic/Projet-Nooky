@@ -42,7 +42,7 @@
                 console.log(categoryChecked);
                 allProducts = false;
                 productsFiltered = true;
-                const products = await getAllProductsByCategory(selectedCategoryId);
+                const products = await getAllProducts();
                 productListFiltered = products;
                 filteredProductsList = [...filteredProductsList, ...products];
             } else {

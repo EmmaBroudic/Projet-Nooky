@@ -1,7 +1,5 @@
 package com.simplon.nooky.project.config;
 
-import java.util.List;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class SecurityHelper {
@@ -14,8 +12,8 @@ public class SecurityHelper {
     	this.encoder = encoder;
     }
 
-    public String createToken(String subject, List<String> roles) {
-    	return jwt.create(subject, roles);
+    public String createToken(String subject) {
+    	return jwt.create(subject);
     }
 
     public String encode(String rawPassword) {

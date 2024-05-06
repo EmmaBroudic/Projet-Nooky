@@ -104,7 +104,7 @@ public class SpringSecurityConfig {
     @Bean
     JwtAuthenticationConverter jwtAuthenticationConverter() {
 		JwtGrantedAuthoritiesConverter authoritiesConverter = new JwtGrantedAuthoritiesConverter();
-		authoritiesConverter.setAuthoritiesClaimName("roles");
+		//authoritiesConverter.setAuthoritiesClaimName("roles");
 		authoritiesConverter.setAuthorityPrefix("");
 		JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
 		authenticationConverter
