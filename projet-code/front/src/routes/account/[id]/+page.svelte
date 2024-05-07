@@ -98,14 +98,14 @@
 {/if}
 {#if userId === userPageAccount }
     <div class="button-bloc">
-        <button class="add">Modifier</button>
+        <button class="add"><a href="/modifyaccount">Modifier</a></button>
     </div>
 {/if}
 <h2>Mon vestiaire</h2>
 <ProductsBloc productList={productList}/>
 {#if userId === userPageAccount }
     <div class="button-bloc">
-        <button class="add"><a href="/addproduct">ajouter un produit</a></button>
+        <button class="add"><a href="/addproduct">Ajouter un produit</a></button>
     </div>
 {/if}
 <Footer />

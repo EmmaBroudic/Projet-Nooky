@@ -44,10 +44,10 @@
             } else {
                 product = await getProductById(productId);
                 userId = getUserId();
-                //inputOneUser = product.name;
-                //inputTwoUser = product.description;
-                //inputThreeUser = product.picture;
-                //inputFourUser = product.wishlist;
+                inputOneUser = product.name;
+                inputTwoUser = product.description;
+                inputThreeUser = product.picture;
+                inputFourUser = product.wishlist;
                 //selectedCategory = product.category;
                 //selectedType = product.type;
                 //selectedSize = product.size;

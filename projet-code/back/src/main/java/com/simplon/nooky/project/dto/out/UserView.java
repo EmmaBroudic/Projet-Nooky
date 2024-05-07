@@ -10,5 +10,7 @@ public interface UserView {
 	String getDescription();
 	String getPicture();
 	Timestamp getCreatedAt();
+	String getAddressRoad();
+	String getAddressZipCode();
 	String getAddressCity();
 }

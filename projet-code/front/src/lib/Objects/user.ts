@@ -7,6 +7,8 @@ export interface User {
     firstname: string;
     lastname: string;
     createdAt: any;
+    road: string;
+    zipCode: string;
     city: string;
 }
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.simplon.nooky.project.config.SecurityHelper;
 import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
+import com.simplon.nooky.project.dto.in.ModifyUser;
 import com.simplon.nooky.project.dto.out.UserEmailView;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.Address;
@@ -35,15 +36,13 @@ public class UserService {
 		
 	    user.setEmail(userCreation.getEmail());
 		user.setUsername(userCreation.getUsername());
-		user.setDescription(userCreation.getDescription());
-		user.setPicture(userCreation.getPicture());
 		user.setFirstname(userCreation.getFirstname());
 		user.setLastname(userCreation.getLastname());
 	    user.setPassword(securityHelper.encode(userCreation.getPassword()));
 	    user.setCreatedAt(timestamp);
 	    
-	    Address address = new Address();
-	    address = addressRepository.findByRoadAndCityAndZipCode(userCreation.getAddressRoad(), userCreation.getAddressCity(), userCreation.getAddressZipCode());
+	    //Address address = new Address();
+	    Address address = addressRepository.findByRoadAndCityAndZipCode(userCreation.getAddressRoad(), userCreation.getAddressCity(), userCreation.getAddressZipCode());
 	    
 	   if (address != null) {
 		   user.setAddress(addressRepository.findByRoadAndCityAndZipCode(userCreation.getAddressRoad(), userCreation.getAddressCity(), userCreation.getAddressZipCode()));
@@ -83,5 +82,34 @@ public class UserService {
     
     public UserEmailView getUserByEmail(@NonNull String email) {
     	return userRepository.findProjectedByEmail(email).get();
+    }
+    
+    public void updateUser(Long id, ModifyUser userPatched) {
+    	User user = userRepository.findById(id).get();
+    	
+    	System.out.println(id);
+    	
+    	user.setUsername(userPatched.getUsername());
+    	user.setEmail(userPatched.getEmail());
+    	user.setFirstname(userPatched.getFirstname());
+    	user.setLastname(userPatched.getLastname());
+    	user.setDescription(userPatched.getDescription());
+    	user.setPicture(userPatched.getPicture());
+
+    	Address address = addressRepository.findByRoadAndCityAndZipCode(userPatched.getAddressRoad(), userPatched.getAddressCity(), userPatched.getAddressZipCode());
+	    
+ 	    if (address != null) {
+ 		   user.setAddress(addressRepository.findByRoadAndCityAndZipCode(userPatched.getAddressRoad(), userPatched.getAddressCity(), userPatched.getAddressZipCode()));
+ 	    } else {
+ 		    Address addressCreation = new Address();
+ 	   		addressCreation.setRoad(userPatched.getAddressRoad());
+ 	   		addressCreation.setCity(userPatched.getAddressCity());
+ 	   		addressCreation.setZipCode(userPatched.getAddressZipCode());
+ 	   	
+ 	   		addressRepository.save(addressCreation);
+ 	   		user.setAddress(addressRepository.findByRoadAndCityAndZipCode(userPatched.getAddressRoad(), userPatched.getAddressCity(), userPatched.getAddressZipCode()));
+ 	    }
+    	
+    	userRepository.save(user);
     }
 }    

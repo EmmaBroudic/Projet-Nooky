@@ -38,6 +38,32 @@ export async function postData(url: string, data: any): Promise<any> {
   
 }
 
+export async function patchData(url: string, data: any) {
+  let token: any;
+  token = localStorage.getItem('token');
+
+  console.log(token);
+  if (token != null) {
+      try {
+          const response = await fetch(url, {
+              method: 'PATCH',
+              headers: {
+                  Accept: 'application/json',
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data)
+          });
+
+          console.log('Data patched:');
+      } catch(error) {
+          console.error('Error patching:', error);
+      }
+  } else {
+      console.log('vous n\'êtes pas authorisé à effectuer cette requête');
+  }
+}
+
 /*export function deleteData(url: string) {
   fetch(url, {
     method: 'DELETE',

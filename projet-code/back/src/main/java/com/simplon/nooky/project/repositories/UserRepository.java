@@ -12,6 +12,8 @@ import com.simplon.nooky.project.entities.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 		List<User> findByEmailContaining(String email);
 		
+		Optional<User> findById(Long id);
+		
 		Optional<UserView> findProjectedById(Long id);
 		
 		User findUserByEmail(String email);

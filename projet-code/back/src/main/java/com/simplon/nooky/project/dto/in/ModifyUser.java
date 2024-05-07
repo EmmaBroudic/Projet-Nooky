@@ -4,8 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class CreateUser {
-	
+public class ModifyUser {
 	@NotNull
 	@Email
 	@Size(max= 254)
@@ -15,15 +14,17 @@ public class CreateUser {
 	@Size(max= 50)
 	private String username;
 	
+	@Size(max= 400)
+	private String description;
+	
+	@Size(max= 1000)
+	private String picture;
+	
 	@Size(max= 50)
 	private String firstname;
 	
 	@Size(max= 50)
 	private String lastname;
-	
-	@NotNull
-	@Size(max= 100)
-	private String password;
 	
 	@NotNull
 	private Long addressId;
@@ -40,7 +41,7 @@ public class CreateUser {
 	@Size(max= 5)
 	private String addressZipCode;
 	
-	public CreateUser() {
+	public ModifyUser() {
 	}
 	
 	public String getEmail() {
@@ -59,6 +60,22 @@ public class CreateUser {
     	this.username = username;
     }
     
+    public String getPicture() {
+    	return this.picture;
+    }
+    
+    public void setPicture(String picture) {
+    	this.picture = picture;
+    }
+    
+    public String getDescription() {
+    	return this.description;
+    }
+    
+    public void setDescription(String description) {
+    	this.description = description;
+    }
+    
 	public String getFirstname() {
 		return this.firstname;
 	}
@@ -73,14 +90,6 @@ public class CreateUser {
 	
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}
-	
-	public String getPassword() {
-		return this.password;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	
 	public Long getAddressId() {
