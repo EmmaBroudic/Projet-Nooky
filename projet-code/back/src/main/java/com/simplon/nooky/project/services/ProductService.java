@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.simplon.nooky.project.dto.in.CreateProduct;
+import com.simplon.nooky.project.dto.in.ModifyProduct;
 import com.simplon.nooky.project.dto.out.ProductCardView;
 import com.simplon.nooky.project.dto.out.ProductView;
 import com.simplon.nooky.project.entities.Product;
@@ -81,9 +82,10 @@ public class ProductService {
     	return productRepository.findAllProjectedFilteredByCategoryIdAndByTypeId(categoryId, typeId);
     }*/
     
-   public void updateProduct(Long id, CreateProduct productPatched) {
+   public void updateProduct(Long id, ModifyProduct productPatched) {
     	Product product = productRepository.findById(id).get();
     	
+    	product.setName(productPatched.getName());
     	product.setDescription(productPatched.getDescription());
     	product.setPicture(productPatched.getPicture());
     	product.setWishlist(productPatched.getWishlist());

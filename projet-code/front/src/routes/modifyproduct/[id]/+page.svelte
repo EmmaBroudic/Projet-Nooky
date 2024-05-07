@@ -15,7 +15,7 @@
     let typeList: Type[] = [];
     let sizeList: Size[] = [];
     let userId: any;
-    let productData: any = {};
+    userId = getUserId();
 
     export let product: Product;
 
@@ -23,31 +23,37 @@
     export let inputTwoUser: string;
     export let inputThreeUser: string;
     export let inputFourUser: string;
-    export let selectedCategory: string;
-    export let selectedSize: string;
-    export let selectedType: string;
+    export let selectedCategory: number;
+    export let selectedSize: number;
+    export let selectedType: number;
+
+    let productData: any = {};
+    const productId = window.location.pathname.split('/').pop();    
 
     onMount(async () => {
+        // faire en sorte que si l'utilisateur n'est pas le propriétaire du produit,
+        // il soit rebasculé sur une page error
+        if (userId != null) {
+            categoryList = await getAllCategories();
+            typeList = await getAllTypes();
+            sizeList = await getAllSizes();
 
-        categoryList = await getAllCategories();
-        typeList = await getAllTypes();
-        sizeList = await getAllSizes();
-
-        const productId = window.location.pathname.split('/').pop();
-
-        userId = getUserId();
-        if (await getProductByIdBoolean(productId) === false) {
-            goto("/error");
-        } else {
-            product = await getProductById(productId);
             userId = getUserId();
-            inputOneUser = product.name;
-            inputTwoUser = product.description;
-            inputThreeUser = product.picture;
-            inputFourUser = product.wishlist;
-            selectedCategory = product.category;
-            selectedType = product.type;
-            selectedSize = product.size;
+            if (await getProductByIdBoolean(productId) === false) {
+                goto("/error");
+            } else {
+                product = await getProductById(productId);
+                userId = getUserId();
+                //inputOneUser = product.name;
+                //inputTwoUser = product.description;
+                //inputThreeUser = product.picture;
+                //inputFourUser = product.wishlist;
+                //selectedCategory = product.category;
+                //selectedType = product.type;
+                //selectedSize = product.size;
+            }
+        } else {
+            goto("/error");
         }
     });
 
@@ -58,11 +64,11 @@
         productData.description = inputTwoUser;
         productData.picture = inputThreeUser;
         productData.wishlist = inputFourUser;
-        productData.userId = userId;
         productData.typeId = selectedType;
         productData.sizeId = selectedSize;
         productData.categoryId = selectedCategory;
-        patchProductById(productData);
+        console.log(productData);
+        patchProductById(productId, productData);
 
         goto("/account/"+userId);
     }
@@ -93,17 +99,17 @@
 
         <select name="category" bind:value={selectedCategory}>
             {#each categoryList as item (item.id)}
-                <option value={item.label}>{item.label}</option>
+                <option value={item.id}>{item.label}</option>
             {/each}
         </select>
         <select name="size"  bind:value={selectedSize}>
             {#each sizeList as item (item.id)}
-                <option value={item.label}>{item.label}</option>
+                <option value={item.id}>{item.label}</option>
             {/each}
         </select>
         <select name="type" bind:value={selectedType}>
             {#each typeList as item (item.id)}
-                <option value={item.label}>{item.label}</option>
+                <option value={item.id}>{item.label}</option>
             {/each}
         </select>
         <button class="add" type="submit">Valider</button>

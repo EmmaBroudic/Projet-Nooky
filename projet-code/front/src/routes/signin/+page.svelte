@@ -20,8 +20,6 @@
 
         userData.email = inputOneUser;
         userData.password = inputTwoUser;
-        /*console.log(userData);
-        postSignIn(userData);*/
 
         if (!emailRegex.test(inputOneUser)) {
             hasErrorEmail = true;

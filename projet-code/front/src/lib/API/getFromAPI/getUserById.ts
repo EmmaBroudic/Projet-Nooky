@@ -21,7 +21,6 @@ export async function getUserById(id: any): Promise<User> {
         const month = data.createdAt.toString().substr(5, 2);
         const year = data.createdAt.toString().substr(0, 4);
         const date = data.createdAt.toString().substr(0, 10);
-        console.log(date);
         user.createdAt = day + " " + month + " " + year;
     } else {
         user.createdAt = "";

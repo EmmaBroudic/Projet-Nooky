@@ -1,12 +1,25 @@
-export async function patchProductById(id: any) {
-    try {
-        fetch(`http://localhost:8080/products/${id}`,
-        {   method: "PATCH",
-            headers: {    "Content-type": "application/json"  },
-            body: JSON.stringify({    title: "Corrected post"  })})
-            .then(response => {    console.log(response.status);     return response.json();  })
-            .then(data => console.log(data));
-    } catch(error) {
-        console.error('Error posting:', error);
+export async function patchProductById(id: any, data: any) {
+    let token: any;
+    token = localStorage.getItem('token');
+  
+    console.log(token);
+    if (token != null) {
+        try {
+            const response = await fetch(`http://localhost:8080/products/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    Accept: 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            console.log('Data patched:');
+        } catch(error) {
+            console.error('Error patching:', error);
+        }
+    } else {
+        console.log('vous n\'êtes pas authorisé à effectuer cette requête');
     }
 }

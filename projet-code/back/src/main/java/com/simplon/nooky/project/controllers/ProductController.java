@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.dto.in.CreateProduct;
+import com.simplon.nooky.project.dto.in.ModifyProduct;
 import com.simplon.nooky.project.dto.out.ProductCardView;
 import com.simplon.nooky.project.dto.out.ProductView;
 import com.simplon.nooky.project.services.ProductService;
@@ -66,7 +67,8 @@ public class ProductController {
 	}*/
 	
 	@PatchMapping("/{id}")
-	public void updateProduct(@PathVariable Long id, @RequestBody CreateProduct product) {
+	@ResponseStatus(HttpStatus.OK)
+	public void updateProduct(@PathVariable @NonNull Long id, @RequestBody ModifyProduct product) {
 		service.updateProduct(id, product);
 	}
 	

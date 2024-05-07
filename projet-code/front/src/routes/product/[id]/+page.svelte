@@ -11,10 +11,9 @@
 
     export let product: Product;
     let userId: string | null = null;
+    const productId = window.location.pathname.split('/').pop();
 
     onMount(async () => {
-        const productId = window.location.pathname.split('/').pop();
-
         if (await getProductByIdBoolean(productId) === false) {
             goto("/error");
         } else {
@@ -134,7 +133,7 @@
                 <button class="modify">Faire une proposition d'échange</button>
             {/if}
             {#if product.ownerId == userId}
-                <button class="modify">Modifier la fiche produit</button>
+                <button class="modify"><a href="/modifyproduct/{productId}">Modifier la fiche produit</a></button>
                 <button id="supp">Supprimer le produit</button>
             {/if}
         </div>

@@ -13,6 +13,7 @@
     let typeList: Type[] = [];
     let sizeList: Size[] = [];
     let userId: any;
+    userId = getUserId();
     let productData: any = {};
     
     let selectedCategory: number;
@@ -23,12 +24,17 @@
     let inputTwoUser: string;
     let inputThreeUser: string;
     let inputFourUser: string;
-
+    
     onMount(async () => {
-        categoryList = await getAllCategories();
-        typeList = await getAllTypes();
-        sizeList = await getAllSizes();
-        userId = getUserId();
+
+
+        if (userId != null) {
+            categoryList = await getAllCategories();
+            typeList = await getAllTypes();
+            sizeList = await getAllSizes();
+        } else {
+            goto("/error");
+        }
     });
 
     function handleSubmit(event: Event) {
