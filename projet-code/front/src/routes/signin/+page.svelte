@@ -1,11 +1,12 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
-    import { verifyInputsSignIn } from '$lib/API/getFromAPI/getUserByEmail';
-    
+    import { postSignIn } from '$lib/API/postToAPI/postSignIn';
+
     import '../../assets/css/index.css';
 
     let inputOneUser: string;
     let inputTwoUser: string;
+    let userData: any = {};
     let errorMessageVisible = false;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,15 +18,20 @@
     async function handleSubmit(event: any) {
         event.preventDefault();
 
+        userData.email = inputOneUser;
+        userData.password = inputTwoUser;
+        /*console.log(userData);
+        postSignIn(userData);*/
+
         if (!emailRegex.test(inputOneUser)) {
             hasErrorEmail = true;
         } else {
-            const result = await verifyInputsSignIn(inputOneUser, inputTwoUser);
+            const result = await postSignIn(userData);
             
             if (result === false) {
                 errorMessageVisible = true;
             } else {
-                goto('/home');
+                goto('/');
             }
         }
     }

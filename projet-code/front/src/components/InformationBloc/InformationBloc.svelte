@@ -44,6 +44,7 @@
 
         .description {
             width: 80%;
+            min-width: 500px;
             margin-right: 50px;
             margin-bottom: 30px;
             background-color: #f6f6f6;
@@ -57,7 +58,7 @@
             margin-left: 70px;
         }
     }
-    @media screen and (min-width: 800px) and (max-width: 1109px) {
+    @media screen and (min-width: 820px) and (max-width: 1109px) {
         .bloc {
             display: flex;
             flex-direction: row;
@@ -83,6 +84,7 @@
 
         .description {
             width: 80%;
+            min-width: 260px;
             margin-left: 20px;
             margin-right: 20px;
             margin-bottom: 30px;
@@ -97,7 +99,7 @@
             margin-left: 70px;
         }
     }
-    @media screen and (max-width: 799px) {
+    @media screen and (max-width: 819px) {
         .bloc {
             display: flex;
             flex-direction: column;

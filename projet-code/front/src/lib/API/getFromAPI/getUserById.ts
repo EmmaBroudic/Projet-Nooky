@@ -31,6 +31,10 @@ export async function getUserById(id: any): Promise<User> {
         user.picture = "https://www.apyart.com/1263-large_default/peinture-pour-artiste-gris-clair.jpg";
     }
 
+    if (data.description === null) {
+        user.description = "";
+    }
+
     return user;
 }
 

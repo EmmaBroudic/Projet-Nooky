@@ -12,8 +12,8 @@ public class SecurityHelper {
     	this.encoder = encoder;
     }
 
-    public String createToken(String subject) {
-    	return jwt.create(subject);
+    public String createToken(String subject, Long id) {
+    	return jwt.create(subject, id);
     }
 
     public String encode(String rawPassword) {

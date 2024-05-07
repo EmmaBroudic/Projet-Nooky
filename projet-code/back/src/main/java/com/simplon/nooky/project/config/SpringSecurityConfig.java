@@ -55,6 +55,12 @@ public class SpringSecurityConfig {
 				.requestMatchers(HttpMethod.GET, "/products/{id}")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
+				.requestMatchers(HttpMethod.GET, "/products/all/user/{id}")
+				.permitAll())
+			.authorizeHttpRequests(req -> req
+				.requestMatchers(HttpMethod.GET, "/users/id/{id}")
+				.permitAll())
+			.authorizeHttpRequests(req -> req
 				.requestMatchers(HttpMethod.GET, "/categories/all")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
@@ -77,6 +83,9 @@ public class SpringSecurityConfig {
 				.anonymous())
 			.authorizeHttpRequests(req -> req
 				.requestMatchers(HttpMethod.POST, "/users/auth")
+				.anonymous())
+			.authorizeHttpRequests(req -> req
+				.requestMatchers(HttpMethod.GET, "/users/email/{email}")
 				.anonymous())
 			.authorizeHttpRequests(
 				reqs -> reqs.anyRequest().fullyAuthenticated())

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.simplon.nooky.project.config.SecurityHelper;
 import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
+import com.simplon.nooky.project.dto.out.UserEmailView;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.entities.Address;
 import com.simplon.nooky.project.entities.User;
@@ -72,13 +73,15 @@ public class UserService {
     	String encodedPassword = user.getPassword();
     	
     	if (securityHelper.matches(rawPassword, encodedPassword)) {
-    		return securityHelper.createToken(authUser.getEmail());
+    		String token = securityHelper.createToken(authUser.getEmail(), user.getId());
+    		System.out.println(token);
+    		return token;
     	} else {
     		return "Mauvais mot de passe";
     	}
     }
     
-    public UserView getUserByEmail(@NonNull String email) {
+    public UserEmailView getUserByEmail(@NonNull String email) {
     	return userRepository.findProjectedByEmail(email).get();
     }
 }    

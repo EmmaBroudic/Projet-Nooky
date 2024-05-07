@@ -9,7 +9,6 @@ public class CreateProduct {
 	@Size(max= 50)
 	private String name;
 	
-	@NotNull
 	@Size(max= 20)
 	private String reference;
 	

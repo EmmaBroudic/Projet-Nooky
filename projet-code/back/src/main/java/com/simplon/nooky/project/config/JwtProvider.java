@@ -26,7 +26,7 @@ public final class JwtProvider {
     	this.algorithm = algorithm;
     }
 
-    String create(String subject/*, List<String> roles*/) {
+    String create(String subject, Long id) {
     	LocalDateTime now = LocalDateTime.now();
     	Instant issuedAt = now.atZone(zoneId).toInstant();
     	Builder builder = JWT.create().withIssuer(issuer)
@@ -38,7 +38,7 @@ public final class JwtProvider {
     		builder.withExpiresAt(expiresAt);
     	}
     	
-    	builder.withSubject(subject);
+    	builder.withSubject(subject).withClaim("id", id);
     	return builder.sign(algorithm);
     }
 }

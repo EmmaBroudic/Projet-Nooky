@@ -56,7 +56,7 @@
         }
     }
 
-    @media screen and (min-width: 800px) and (max-width: 1109px) {
+    @media screen and (min-width: 820px) and (max-width: 1109px) {
         #bloc-product {
             display: flex;
             flex-direction: column;
@@ -84,7 +84,7 @@
             color: red;
         }
     }
-    @media screen and (max-width: 799px) {
+    @media screen and (max-width: 819px) {
         #bloc-product {
             display: flex;
             flex-direction: column;

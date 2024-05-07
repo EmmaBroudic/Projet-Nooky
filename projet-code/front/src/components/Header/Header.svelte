@@ -8,6 +8,7 @@
     let userId: any;
     onMount(() => {
         userId = getUserId();
+        console.log(userId);
     });
 
     function clearStorage() {
@@ -77,7 +78,7 @@
         }
     }
 
-    @media screen and (min-width: 757px) and (max-width: 1000px) {
+    @media screen and (min-width: 820px) and (max-width: 1000px) {
         header {
             display: flex;
             flex-direction: row;
@@ -140,7 +141,7 @@
         }
     }
 
-    @media screen and (max-width: 756px) {
+    @media screen and (max-width: 819px) {
         header {
             display: flex;
             flex-direction: column;

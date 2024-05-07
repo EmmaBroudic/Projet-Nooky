@@ -3,4 +3,7 @@ export interface ProductCard {
     name: string;
 	picture: string;
     description: string;
+    categoryId: any;
+    sizeId: any;
+    typeId: any;
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.nooky.project.dto.in.AuthUser;
 import com.simplon.nooky.project.dto.in.CreateUser;
+import com.simplon.nooky.project.dto.out.UserEmailView;
 import com.simplon.nooky.project.dto.out.UserView;
 import com.simplon.nooky.project.services.UserService;
 
@@ -42,7 +43,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/email/{email}")
-	public UserView getUserByEmail(@PathVariable @NonNull String email) {
+	public UserEmailView getUserByEmail(@PathVariable @NonNull String email) {
 		return service.getUserByEmail(email);
 	}
 }

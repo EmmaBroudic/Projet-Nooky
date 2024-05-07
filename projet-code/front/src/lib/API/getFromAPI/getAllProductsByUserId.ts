@@ -10,8 +10,11 @@ export async function getAllProductsByUserId(userId: any): Promise<ProductCard[]
         const product: ProductCard = {
             id: dataProduct.id,
             name: dataProduct.name,
-            description: dataProduct.description,
             picture: dataProduct.picture,
+            description: dataProduct.description,
+            categoryId: dataProduct.categoryId,
+            sizeId: dataProduct.sizeId,
+            typeId: dataProduct.typeId
         };
 
         if (dataProduct.name === null) {
