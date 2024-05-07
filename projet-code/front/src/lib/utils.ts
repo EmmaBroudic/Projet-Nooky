@@ -13,19 +13,29 @@ export async function fetchData(url: string): Promise<any> {
   }
 
 export async function postData(url: string, data: any): Promise<any> {
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    });
-      console.log('Data sent');
-    } catch (error) {
-      console.error('Error posting:', error);
+  
+  let token: any;
+  token = localStorage.getItem('token');
+
+  if (token != null) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+        console.log('Data sent');
+      } catch (error) {
+        console.error('Error posting:', error);
+    }
+  } else {
+    console.log('vous n\'êtes pas authorisé à effectuer cette requête');
   }
+  
 }
 
 /*export function deleteData(url: string) {
