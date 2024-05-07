@@ -17,8 +17,6 @@
 
     export let user: User;
 
-    // ajouter une récupération de l'id url afin de comparer les url
-
     let inputOneUser: string;
     let inputTwoUser: string;
     let inputThreeUser: string;
@@ -30,6 +28,18 @@
     let inputNineUser: string;
 
     let userData: any = {};
+
+    let hasError: boolean = false;
+    let hasErrorEmail: boolean = false;
+    let hasErrorZipCode: boolean = false;
+
+    const errorMessageVisible = "La modification n'a pas fonctionnée, le compte n'a pas été créé";
+    const errorUserExist = "Une compte utilisateur avec cette adresse email existe déjà, veuillez ajouter une autre adresse mail"
+    const errorEmail = "Email invalide";
+    const errorZipCode = "Code postal invalide";
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const zipCodeRegex = /^[0-9]{5}$/;
 
     onMount(async () => {
         // vérifier que l'email ajouté n'exite pas déjà
@@ -65,9 +75,20 @@
         userData.addressZipCode = inputEightUser;
         userData.picture = inputNineUser;
 
-        patchUserById(userId, userData);
-
-        goto("/account/"+userId);
+        const userExist = await getUserByEmail(inputTwoUser);
+        if (userExist !== null) {
+            hasError = true;
+            console.log("La requête n'a pas fonctionné");
+        } else {
+            if (!emailRegex.test(inputTwoUser)) {
+                hasErrorEmail = true;
+            } else if (!zipCodeRegex.test(inputEightUser)) {
+                hasErrorZipCode = true;
+            } else {
+                patchUserById(userId, userData);
+                goto("/account/"+userId);
+            }
+        }
     }
 </script>
 
@@ -82,7 +103,7 @@
 
 <form class="connect" on:submit={handleSubmit}>
         
-    <h2>Sign up</h2>
+    <h2>Modify account</h2>
     
     <input bind:value={inputOneUser} type="username" placeholder="Entrez votre nom d'utilisateur" required>
     <input bind:value={inputTwoUser} type="email" placeholder="Entrez votre email" required>
@@ -95,4 +116,16 @@
     <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville" required>
 
     <button class="modify" type="submit">Valider</button>
+
+    {#if hasErrorEmail === true}
+        <p class="error-message">{errorEmail}</p>
+    {/if}
+
+    {#if hasErrorZipCode === true}
+        <p class="error-message">{errorZipCode}</p>
+    {/if}
+
+    {#if hasError === true}
+        <p class="error-message">{errorMessageVisible}</p>
+    {/if}
 </form>
