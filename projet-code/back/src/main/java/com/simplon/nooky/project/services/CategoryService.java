@@ -20,6 +20,10 @@ public class CategoryService {
 		return categoryRepository.findProjectedById(id).get();
     }
     
+    public CategoryView getCategoryByLabel(String label) {
+		return categoryRepository.findProjectedByLabel(label).get();
+    }
+    
     public List<CategoryView> getAllCategories() {
         return categoryRepository.findAllProjectedBy();
     }

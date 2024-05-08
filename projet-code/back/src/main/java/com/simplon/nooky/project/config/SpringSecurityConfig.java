@@ -64,19 +64,28 @@ public class SpringSecurityConfig {
 				.requestMatchers(HttpMethod.GET, "/categories/all")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
-				.requestMatchers(HttpMethod.GET, "/categories/{id}")
+				.requestMatchers(HttpMethod.GET, "/categories/id/{id}")
+				.permitAll())
+			.authorizeHttpRequests(req -> req
+				.requestMatchers(HttpMethod.GET, "/categories/label/{label}")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
 				.requestMatchers(HttpMethod.GET, "/types/all")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
-				.requestMatchers(HttpMethod.GET, "/types/{id}")
+				.requestMatchers(HttpMethod.GET, "/types/id/{id}")
+				.permitAll())
+			.authorizeHttpRequests(req -> req
+				.requestMatchers(HttpMethod.GET, "/types/label/{label}")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
 				.requestMatchers(HttpMethod.GET, "/sizes/all")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
-				.requestMatchers(HttpMethod.GET, "/sizes/{id}")
+				.requestMatchers(HttpMethod.GET, "/sizes/id/{id}")
+				.permitAll())
+			.authorizeHttpRequests(req -> req
+				.requestMatchers(HttpMethod.GET, "/sizes/label/{label}")
 				.permitAll())
 			.authorizeHttpRequests(req -> req
 				.requestMatchers(HttpMethod.POST, "/users")

@@ -18,6 +18,10 @@ public class TypeService {
     public TypeView getTypeById(@NonNull Long id) {
     	return typeRepository.findProjectedById(id).get();
     }
+    
+    public TypeView getTypeByLabel(@NonNull String label) {
+    	return typeRepository.findProjectedByLabel(label).get();
+    }
 
 	public List<TypeView> getAllTypes() {
         return typeRepository.findAllProjectedBy();

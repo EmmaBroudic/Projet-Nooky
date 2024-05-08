@@ -18,6 +18,10 @@ public class SizeService {
     public SizeView getSizeById(@NonNull Long id) {
     	return sizeRepository.findProjectedById(id).get();
     }
+    
+    public SizeView getSizeByLabel(@NonNull String label) {
+    	return sizeRepository.findProjectedByLabel(label).get();
+    }
 
 	public List<SizeView> getAllSizes() {
         return sizeRepository.findAllProjectedBy();

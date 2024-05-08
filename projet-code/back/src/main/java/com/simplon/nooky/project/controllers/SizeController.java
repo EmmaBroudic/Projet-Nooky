@@ -27,8 +27,13 @@ public class SizeController {
 		return service.getAllSizes();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/id/{id}")
 	public SizeView getSizeById(@PathVariable @NonNull Long id) {
 		return service.getSizeById(id);
+	}
+	
+	@GetMapping("label/{label}")
+	public SizeView getSizeByLabel(@PathVariable String label) {
+		return service.getSizeByLabel(label);
 	}
 }

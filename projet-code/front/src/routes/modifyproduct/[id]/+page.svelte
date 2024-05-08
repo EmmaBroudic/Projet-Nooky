@@ -10,6 +10,7 @@
     import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
     import { goto } from "$app/navigation";
     import '../../../assets/css/index.css';
+    import { getCategoryByLabel, getSizeByLabel, getTypeByLabel } from "$lib/API/getFromAPI/getProductsElementsByLabel";
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
@@ -23,9 +24,9 @@
     export let inputTwoUser: string;
     export let inputThreeUser: string;
     export let inputFourUser: string;
-    export let selectedCategory: number;
-    export let selectedSize: number;
-    export let selectedType: number;
+    export let selectedCategory: any;
+    export let selectedSize: any;
+    export let selectedType: any;
 
     let productData: any = {};
     const productId = window.location.pathname.split('/').pop();    
@@ -48,25 +49,33 @@
                 inputTwoUser = product.description;
                 inputThreeUser = product.picture;
                 inputFourUser = product.wishlist;
-                //selectedCategory = product.category;
-                //selectedType = product.type;
-                //selectedSize = product.size;
+                selectedCategory = product.category;
+                selectedType = product.type;
+                selectedSize = product.size;
             }
         } else {
             goto("/error");
         }
     });
 
-    function handleSubmit(event: Event) {
+    async function handleSubmit(event: Event) {
         event.preventDefault();
+
+        let type: Type;
+        let size: Size;
+        let category: Category;
+
+        type = await getTypeByLabel(selectedType);
+        size = await getSizeByLabel(selectedSize);
+        category = await getCategoryByLabel(selectedCategory);
 
         productData.name = inputOneUser;
         productData.description = inputTwoUser;
         productData.picture = inputThreeUser;
         productData.wishlist = inputFourUser;
-        productData.typeId = selectedType;
-        productData.sizeId = selectedSize;
-        productData.categoryId = selectedCategory;
+        productData.typeId = type.id;
+        productData.sizeId = size.id;
+        productData.categoryId = category.id;
         console.log(productData);
         patchProductById(productId, productData);
 
@@ -99,17 +108,17 @@
 
         <select name="category" bind:value={selectedCategory}>
             {#each categoryList as item (item.id)}
-                <option value={item.id}>{item.label}</option>
+                <option value={item.label}>{item.label}</option>
             {/each}
         </select>
         <select name="size"  bind:value={selectedSize}>
             {#each sizeList as item (item.id)}
-                <option value={item.id}>{item.label}</option>
+                <option value={item.label}>{item.label}</option>
             {/each}
         </select>
         <select name="type" bind:value={selectedType}>
             {#each typeList as item (item.id)}
-                <option value={item.id}>{item.label}</option>
+                <option value={item.label}>{item.label}</option>
             {/each}
         </select>
         <button class="add" type="submit">Valider</button>

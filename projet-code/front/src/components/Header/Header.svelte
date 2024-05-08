@@ -8,7 +8,6 @@
     let userId: any;
     onMount(() => {
         userId = getUserId();
-        console.log(userId);
     });
 
     function clearStorage() {

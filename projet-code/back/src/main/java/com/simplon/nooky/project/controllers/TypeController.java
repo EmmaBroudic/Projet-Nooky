@@ -26,8 +26,13 @@ public class TypeController {
 		return service.getAllTypes();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("id/{id}")
 	public TypeView getTypeById(@PathVariable @NonNull Long id) {
 		return service.getTypeById(id);
+	}
+	
+	@GetMapping("label/{label}")
+	public TypeView getTypeByLabel(@PathVariable String label) {
+		return service.getTypeByLabel(label);
 	}
 }

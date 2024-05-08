@@ -2,13 +2,10 @@
     import { getUserByEmail } from '$lib/API/getFromAPI/getUserByEmail';
     import { getUserById } from '$lib/API/getFromAPI/getUserById';
     import { getUserId } from "$lib/utils";
-    import { onMount } from 'svelte';
-
-    import type { User } from '$lib/Objects/user';
-
-
-    import { goto } from '$app/navigation';
     import { patchUserById } from '$lib/API/patchToAPI/patchUserById';
+    import type { User } from '$lib/Objects/user';
+    import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
 
     import '../../assets/css/index.css';
 
@@ -32,6 +29,9 @@
     let hasError: boolean = false;
     let hasErrorEmail: boolean = false;
     let hasErrorZipCode: boolean = false;
+    let hasErrorUserExist: boolean = false;
+
+    let submitted: boolean = false;
 
     const errorMessageVisible = "La modification n'a pas fonctionnée, le compte n'a pas été créé";
     const errorUserExist = "Une compte utilisateur avec cette adresse email existe déjà, veuillez ajouter une autre adresse mail"
@@ -42,7 +42,6 @@
     const zipCodeRegex = /^[0-9]{5}$/;
 
     onMount(async () => {
-        // vérifier que l'email ajouté n'exite pas déjà
         if (userId != null) {
             console.log("test");
             user = await getUserById(userId);
@@ -75,31 +74,25 @@
         userData.addressZipCode = inputEightUser;
         userData.picture = inputNineUser;
 
-        const userExist = await getUserByEmail(inputTwoUser);
-        if (userExist !== null) {
-            hasError = true;
-            console.log("La requête n'a pas fonctionné");
+        if (!emailRegex.test(inputTwoUser)) {
+            hasErrorEmail = true;
+        } else if (!zipCodeRegex.test(inputEightUser)) {
+            hasErrorZipCode = true;
         } else {
-            if (!emailRegex.test(inputTwoUser)) {
-                hasErrorEmail = true;
-            } else if (!zipCodeRegex.test(inputEightUser)) {
-                hasErrorZipCode = true;
-            } else {
-                patchUserById(userId, userData);
+            submitted = await patchUserById(userId, userData);
+
+            if (submitted === true) {
                 goto("/account/"+userId);
+            } else {
+                hasError = true;
+                const userExist = await getUserByEmail(inputTwoUser);
+                if (userExist !== null) {
+                    hasErrorUserExist = true;
+                }
             }
         }
     }
 </script>
-
-<style>
-    /*#redir-signin {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin: 100px;
-    }*/
-</style>
 
 <form class="connect" on:submit={handleSubmit}>
         
@@ -127,5 +120,8 @@
 
     {#if hasError === true}
         <p class="error-message">{errorMessageVisible}</p>
+        {#if hasErrorUserExist === true}
+            <p class="error-message">{errorUserExist}</p>
+        {/if}
     {/if}
 </form>

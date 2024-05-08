@@ -13,5 +13,7 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 		
 		Optional<CategoryView> findProjectedById(Long id);
 		
+		Optional<CategoryView> findProjectedByLabel(String label);
+		
 	    List<CategoryView> findAllProjectedBy();
 }

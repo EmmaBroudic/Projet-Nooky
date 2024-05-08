@@ -13,9 +13,9 @@ export async function postUser(user: User): Promise<boolean> {
 
             if (!response.ok) {
                 throw new Error("Error fetching data from http://localhost:8080/users");
+            } else {
+                return true;
             }
-
-            return true;
         } catch (error) {
             console.error('Error posting:', error);
             return false;

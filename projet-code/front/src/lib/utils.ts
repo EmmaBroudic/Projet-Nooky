@@ -38,7 +38,7 @@ export async function postData(url: string, data: any): Promise<any> {
   
 }
 
-export async function patchData(url: string, data: any) {
+export async function patchData(url: string, data: any): Promise<any> {
   let token: any;
   token = localStorage.getItem('token');
 
@@ -56,8 +56,10 @@ export async function patchData(url: string, data: any) {
           });
 
           console.log('Data patched:');
+          return true;
       } catch(error) {
           console.error('Error patching:', error);
+          return false;
       }
   } else {
       console.log('vous n\'êtes pas authorisé à effectuer cette requête');

@@ -26,8 +26,13 @@ public class CategoryController {
 		return service.getAllCategories();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("id/{id}")
 	public CategoryView getCategoryById(@PathVariable Long id) {
 		return service.getCategoryById(id);
+	}
+	
+	@GetMapping("label/{label}")
+	public CategoryView getCategoryByLabel(@PathVariable String label) {
+		return service.getCategoryByLabel(label);
 	}
 }
