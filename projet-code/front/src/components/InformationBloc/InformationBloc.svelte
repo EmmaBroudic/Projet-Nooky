@@ -13,16 +13,18 @@
 </script>
 
 <style>
+
     @media screen and (min-width: 1110px) {
         #bloc-info {
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
         .bloc {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             margin: 20px;
         }
 
@@ -43,8 +45,8 @@
         }
 
         .description {
-            width: 80%;
-            min-width: 500px;
+            width: 90%;
+            min-width: 600px;
             margin-right: 50px;
             margin-bottom: 30px;
             background-color: #f6f6f6;
@@ -62,7 +64,7 @@
         .bloc {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             margin: 20px;
         }
 
