@@ -99,6 +99,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
+            margin: 10px;
         }
     }
     @media screen and (max-width: 799px) {

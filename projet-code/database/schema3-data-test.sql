@@ -11,7 +11,7 @@ INSERT INTO addresses (road, zip_code, city) VALUES
 ('45 Rue de la Chaussure', '33001', 'Bordeaux');
 
 INSERT INTO users (email, password, username, firstname, lastname, description, picture, created_at, address_id) VALUES
-('user1@example.com', 'p123', 'JeanTrendy', 'Jean', 'Dupont', 'Passionné de mode, apprécie particulièrement les pièces vintage des années 60 et 70', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuJ_pIKPGu7EUrrRmeKvAKlBDBjF6oUDSoYDHAS0DRGQ&s', CURRENT_TIMESTAMP,
+('user1@example.com', '$2a$10$Tw4VlorUJiM/9GBoXPP80.hUwyZHEAirQkps9AyX2l6idV3pofR1e', 'JeanTrendy', 'Jean', 'Dupont', 'Passionné de mode, apprécie particulièrement les pièces vintage des années 60 et 70', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuJ_pIKPGu7EUrrRmeKvAKlBDBjF6oUDSoYDHAS0DRGQ&s', CURRENT_TIMESTAMP,
     (SELECT id FROM addresses WHERE road = '10 Rue de la Chaussure' AND zip_code = '33000' AND city = 'Bordeaux')),
 ('user2@example.com', '$2a$12$NdcmRBu3OrWwGSHo8n.BUu2SmGn0cM2VlQYWWHQ6fide3lmmNzH.6', 'MarieFashion', 'Marie', 'Dubois', 'Je déniche régulièrement des pépites dans les fripperies de la ville de Lyon et recherche accessoires originaux', 'https://st2.depositphotos.com/38340270/49057/i/450/depositphotos_490576070-stock-photo-young-woman-beautiful-siberian-husky.jpg', CURRENT_TIMESTAMP,
     (SELECT id FROM addresses WHERE road = '5 Avenue du Style' AND zip_code = '69001' AND city = 'Lyon')),

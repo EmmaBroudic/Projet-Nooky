@@ -17,7 +17,8 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: space-around;
         margin-left: 50px;
         margin-right: 50px;
     }

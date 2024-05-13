@@ -42,7 +42,6 @@ export async function patchData(url: string, data: any): Promise<any> {
   let token: any;
   token = localStorage.getItem('token');
 
-  console.log(token);
   if (token != null) {
       try {
           const response = await fetch(url, {
@@ -65,18 +64,6 @@ export async function patchData(url: string, data: any): Promise<any> {
       console.log('vous n\'êtes pas authorisé à effectuer cette requête');
   }
 }
-
-/*export function deleteData(url: string) {
-  fetch(url, {
-    method: 'DELETE',
-    body: JSON.stringify({ id: id }),
-    headers: { 'Accept': 'application/json',
-      'authorization': `Bearer ${user}`,
-      'Content-Type': 'application/json' }
-      }).then(() => {
-  
-  });
-}*/
 
 export function saveUserId(userId: any) {
   localStorage.setItem('userId', userId);

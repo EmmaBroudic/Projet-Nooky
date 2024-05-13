@@ -109,6 +109,7 @@
     <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville" required>
 
     <button class="modify" type="submit">Valider</button>
+    <p><a href="/account/{userId}">Retour</a></p>
 
     {#if hasErrorEmail === true}
         <p class="error-message">{errorEmail}</p>

@@ -4,6 +4,7 @@
     import Footer from '../../../components/Footer/Footer.svelte';
     import { onMount } from 'svelte';
     import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
+    import { deleteProductById } from '$lib/API/deleteToAPI/deleteProductById';
     import type { Product } from '$lib/Objects/product.ts';
     import { getUserId } from '$lib/utils';
     import '../../../assets/css/index.css';
@@ -23,6 +24,11 @@
             console.log(userId + product.ownerId);
         }
     });
+
+    function deleteProduct() {
+        deleteProductById(productId);
+        goto("/account/"+userId);
+    }
 </script>
 
 <style>
@@ -104,9 +110,10 @@
         }
 
         #supp {
-            border: 0px;
             background-color: white;
             color: red;
+            width: 200px;
+            height: 30px;
         }
     }
     
@@ -134,7 +141,7 @@
             {/if}
             {#if product.ownerId == userId}
                 <button class="modify"><a href="/modifyproduct/{productId}">Modifier la fiche produit</a></button>
-                <button id="supp">Supprimer le produit</button>
+                <button on:click={deleteProduct} id="supp">Supprimer le produit</button>
             {/if}
         </div>
     {/if}

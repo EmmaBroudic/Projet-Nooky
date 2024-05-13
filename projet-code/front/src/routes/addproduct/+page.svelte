@@ -26,8 +26,6 @@
     let inputFourUser: string;
     
     onMount(async () => {
-
-
         if (userId != null) {
             categoryList = await getAllCategories();
             typeList = await getAllTypes();

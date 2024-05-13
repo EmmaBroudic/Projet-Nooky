@@ -32,12 +32,14 @@
 </script>
 
 <style>
+    #bloc-account {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     @media screen and (min-width: 1110px) {
-        #bloc-account {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+
 
         h2 {
             margin-top: 50px;
@@ -126,7 +128,7 @@
             width: 70%;
             border: solid 3px #f6f6f6;
             border-radius: 25px;
-            margin-bottom: 30px;
+            margin: 20px;
             height: auto;
             padding: 30px;
             text-align: center;
