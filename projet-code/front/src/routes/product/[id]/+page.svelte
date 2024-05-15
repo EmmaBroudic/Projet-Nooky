@@ -55,6 +55,7 @@
         }
 
         #supp {
+            cursor: pointer;
             border: 0px;
             background-color: white;
             color: red;
@@ -84,6 +85,7 @@
         }
 
         #supp {
+            cursor: pointer;
             border: 0px;
             background-color: white;
             color: red;
@@ -110,10 +112,10 @@
         }
 
         #supp {
-            background-color: white;
+            cursor: pointer;
             color: red;
-            width: 200px;
-            height: 30px;
+            background-color: white;
+            border: 0px;
         }
     }
     

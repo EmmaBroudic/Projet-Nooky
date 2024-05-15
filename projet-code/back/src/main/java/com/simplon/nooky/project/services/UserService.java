@@ -41,7 +41,6 @@ public class UserService {
 	    user.setPassword(securityHelper.encode(userCreation.getPassword()));
 	    user.setCreatedAt(timestamp);
 	    
-	    //Address address = new Address();
 	    Address address = addressRepository.findByRoadAndCityAndZipCode(userCreation.getAddressRoad(), userCreation.getAddressCity(), userCreation.getAddressZipCode());
 	    
 	   if (address != null) {
