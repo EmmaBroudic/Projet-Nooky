@@ -72,7 +72,6 @@ public class UserService {
     	
     	if (securityHelper.matches(rawPassword, encodedPassword)) {
     		String token = securityHelper.createToken(authUser.getEmail(), user.getId());
-    		System.out.println(token);
     		return token;
     	} else {
     		return "Mauvais mot de passe";
@@ -85,8 +84,6 @@ public class UserService {
     
     public void updateUser(Long id, ModifyUser userPatched) {
     	User user = userRepository.findById(id).get();
-    	
-    	System.out.println(id);
     	
     	user.setUsername(userPatched.getUsername());
     	user.setEmail(userPatched.getEmail());

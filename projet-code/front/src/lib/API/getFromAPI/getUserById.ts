@@ -22,7 +22,6 @@ export async function getUserById(id: any): Promise<User> {
         const day = data.createdAt.toString().substr(8, 2);
         const month = data.createdAt.toString().substr(5, 2);
         const year = data.createdAt.toString().substr(0, 4);
-        //const date = data.createdAt.toString().substr(0, 10);
         user.createdAt = day + " " + month + " " + year;
     } else {
         user.createdAt = "";
@@ -48,11 +47,9 @@ export async function getUserByIdBoolean(id: any): Promise<boolean> {
         }
 
         const data = await response.json();
-        
 
         return data !== null;
     } catch (error) {
-        console.error('Erreur lors de la requête:', error);
         return false;
     }
 }

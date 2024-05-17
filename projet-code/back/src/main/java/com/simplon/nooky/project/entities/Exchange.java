@@ -11,27 +11,27 @@ public class Exchange extends EntityAbstract {
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
-	User owner;
+	private User owner;
 	
 	@ManyToOne
 	@JoinColumn(name = "exchanger_id")
-	User exchanger;
+	private User exchanger;
 	
 	@ManyToOne
 	@JoinColumn(name = "product_offered_id")
-	Product productOffered;
+	private Product productOffered;
 	
 	@ManyToOne
 	@JoinColumn(name = "product_exchanged_id")
-	Product productExchanged;
+	private Product productExchanged;
 	
 	@ManyToOne
 	@JoinColumn(name = "status_prod_offered_id")
-	Status statusProdOffered;
+	private Status statusProdOffered;
 	
 	@ManyToOne
 	@JoinColumn(name = "status_prod_exchanged_id")
-	Status statusProdExchanged;
+	private Status statusProdExchanged;
 	
 	public Exchange() {
 	}

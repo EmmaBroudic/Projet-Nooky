@@ -70,18 +70,6 @@ public class ProductService {
     	return productRepository.findAllProjectedByUserId(userId);
     }
     
-    /*public List<ProductCardView> getAllProductsByCategory(Long categoryId) {
-    	return productRepository.findAllProjectedFilteredByCategoryId(categoryId);
-    }
-    
-    public List<ProductCardView> getAllProductsByType(Long typeId) {
-    	return productRepository.findAllProjectedFilteredByTypeId(typeId);
-    }
-    */
-    /*public List<ProductCardView> getAllProductsByCategoryAndType(Long categoryId, Long typeId) {
-    	return productRepository.findAllProjectedFilteredByCategoryIdAndByTypeId(categoryId, typeId);
-    }*/
-    
    public void updateProduct(Long id, ModifyProduct productPatched) {
     	Product product = productRepository.findById(id).get();
     	

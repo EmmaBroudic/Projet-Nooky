@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { goto } from '$app/navigation';
     import { postSignIn } from '$lib/API/postToAPI/postSignIn';
+
+    import { goto } from '$app/navigation';
 
     import '../../assets/css/index.css';
 

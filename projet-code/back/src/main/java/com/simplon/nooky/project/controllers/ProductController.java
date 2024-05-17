@@ -50,22 +50,6 @@ public class ProductController {
 		return service.getAllProductsFromUser(userId);
 	}
 	
-	/*
-	@GetMapping("/filtered/category/{categoryId}")
-	public List<ProductCardView> getAllProductsByCategory(@PathVariable Long categoryId) {
-		return service.getAllProductsByCategory(categoryId);
-	}
-	
-	@GetMapping("/filtered/type/{typeId}")
-	public List<ProductCardView> getAllProductsByType(@PathVariable Long typeId) {
-		return service.getAllProductsByType(typeId);
-	}
-	
-	@GetMapping("/all/filtered/{categoryId}/{typeId}")
-	public List<ProductCardView> getAllProductsByCategoryAndType(@PathVariable Long categoryId, @PathVariable Long typeId) {
-		return service.getAllProductsByCategoryAndType(categoryId, typeId);
-	}*/
-	
 	@PatchMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void updateProduct(@PathVariable @NonNull Long id, @RequestBody ModifyProduct product) {

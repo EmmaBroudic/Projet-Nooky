@@ -17,7 +17,6 @@ export async function postUser(user: User): Promise<boolean> {
                 return true;
             }
         } catch (error) {
-            console.error('Error posting:', error);
             return false;
         }
 }

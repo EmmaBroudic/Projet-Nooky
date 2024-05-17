@@ -1,13 +1,16 @@
 <script lang="ts">
-    import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
     import type { Category } from '$lib/Objects/category.ts';
     import type { Type } from '$lib/Objects/type.ts';
     import type { Size } from '$lib/Objects/size.ts';
-    import { onMount } from "svelte";
+    import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
     import { postProduct } from '$lib/API/postToAPI/postProduct';
     import { getUserId } from "$lib/utils";
-    import '../../assets/css/index.css';
+    
+    import { onMount } from "svelte";
     import { goto } from "$app/navigation";
+
+    import '../../assets/css/index.css';
+
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];

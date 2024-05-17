@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { getAllProducts } from '$lib/API/getFromAPI/getAllProducts';
     import Card from '../Card/Card.svelte';
     import type { ProductCard } from '$lib/Objects/productCard';
     import '../../assets/css/index.css';

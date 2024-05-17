@@ -2,13 +2,16 @@
     import Header from '../../../components/Header/Header.svelte';
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
     import Footer from '../../../components/Footer/Footer.svelte';
-    import { onMount } from 'svelte';
+
+    import type { Product } from '$lib/Objects/product.ts';
     import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
     import { deleteProductById } from '$lib/API/deleteToAPI/deleteProductById';
-    import type { Product } from '$lib/Objects/product.ts';
     import { getUserId } from '$lib/utils';
-    import '../../../assets/css/index.css';
+
+    import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+
+    import '../../../assets/css/index.css';
 
     export let product: Product;
     let userId: string | null = null;
@@ -20,8 +23,6 @@
         } else {
             product = await getProductById(productId);
             userId = getUserId();
-            console.log(userId);
-            console.log(userId + product.ownerId);
         }
     });
 

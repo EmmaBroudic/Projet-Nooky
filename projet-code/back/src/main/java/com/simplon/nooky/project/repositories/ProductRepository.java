@@ -31,34 +31,4 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<ProductCardView> findAllProductsFiltered(@Param("productId") Long productId);
 	
 	List<ProductCardView> findAllProjectedByUserId(Long userId);
-	
-	/*@Query(value = "SELECT p.id, p.name, p.picture FROM products p\r\n"
-			+ "WHERE p.category_id = :p.category_id \r\n"
-			+ "AND p.type_id = :p.type_id \r\n"
-			+ "EXCEPT\r\n"
-			+ "SELECT p.id, p.name, p.picture FROM products p\r\n"
-			+ "INNER JOIN exchanges e ON e.product_offered_id = p.id\r\n"
-			+ "	OR e.product_exchanged_id = p.id\r\n"
-			+ "	WHERE e.status_id != 3 AND e.status_id != 4", nativeQuery = true)
-	List<ProductCardView> findAllProjectedFilteredByCategoryIdAndByTypeId(@Param("p.category_id") Long categoryId,
-																		  @Param("p.type_id") Long typeId);*/
-	
-	/*@Query(value = "SELECT p.id, p.name, p.picture FROM products p\r\n"
-			+ "WHERE p.category_id = :p.category_id \r\n"
-			+ "EXCEPT\r\n"
-			+ "SELECT p.id, p.name, p.picture FROM products p\r\n"
-			+ "INNER JOIN exchanges e ON e.product_offered_id = p.id\r\n"
-			+ "	OR e.product_exchanged_id = p.id\r\n"
-			+ "	WHERE e.status_id != 3 AND e.status_id != 4", nativeQuery = true)
-	List<ProductCardView> findAllProjectedFilteredByCategoryId(@Param("p.category_id") Long categoryId);
-	
-	
-	@Query(value = "SELECT p.id, p.name, p.description, p.picture FROM products p\r\n"
-			+ "WHERE p.type_id = :p.type_id \r\n"
-			+ "EXCEPT\r\n"
-			+ "SELECT p.id, p.name, p.description, p.picture FROM products p\r\n"
-			+ "INNER JOIN exchanges e ON e.product_offered_id = p.id\r\n"
-			+ "	OR e.product_exchanged_id = p.id\r\n"
-			+ "	WHERE e.status_id != 3 AND e.status_id != 4", nativeQuery = true)
-	List<ProductCardView> findAllProjectedFilteredByTypeId(@Param("p.type_id") Long typeId);*/
 }

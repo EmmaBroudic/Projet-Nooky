@@ -15,17 +15,15 @@ export async function postSignIn(user: UserLogin): Promise<boolean> {
         if (!response.ok) {
             throw new Error("Error fetching data from http://localhost:8080/users/auth");
         } else {
-            console.log('Data sent');
             const token = await response.text();
             const payloadBase64 = token.split('.')[1]; // La charge utile est la deuxième partie du token, séparée par des points
             const payload = JSON.parse(atob(payloadBase64)); // Décoder la base64 et analyser la charge utile JSON
-            const userId = payload.id; // Supposons que l'ID de l'utilisateur est stocké sous la clé "userId" dans la charge utile
+            const userId = payload.id;
             saveUserId(userId);
             localStorage.setItem('token', token); // Stocker le token dans le localStorage
             return true;
         }
     } catch (error) {
-        console.error('Error posting:', error);
         return false;
     }
 }

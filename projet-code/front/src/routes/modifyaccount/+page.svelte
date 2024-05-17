@@ -1,9 +1,10 @@
 <script lang="ts">
+    import type { User } from '$lib/Objects/user';
     import { getUserByEmail } from '$lib/API/getFromAPI/getUserByEmail';
     import { getUserById } from '$lib/API/getFromAPI/getUserById';
     import { getUserId } from "$lib/utils";
     import { patchUserById } from '$lib/API/patchToAPI/patchUserById';
-    import type { User } from '$lib/Objects/user';
+
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
 
@@ -43,7 +44,6 @@
 
     onMount(async () => {
         if (userId != null) {
-            console.log("test");
             user = await getUserById(userId);
 
             inputOneUser = user.username;

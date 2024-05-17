@@ -47,17 +47,14 @@ export async function getProductById(id: any): Promise<Product> {
 export async function getProductByIdBoolean(id: any): Promise<boolean> {
     try {
         const response = await fetch(`http://localhost:8080/products/${id}`);
-        
         if (!response.ok) {
             throw new Error('La requête a échoué');
         }
-
         const data = await response.json();
         
 
         return data !== null;
     } catch (error) {
-        console.error('Erreur lors de la requête:', error);
         return false;
     }
 }

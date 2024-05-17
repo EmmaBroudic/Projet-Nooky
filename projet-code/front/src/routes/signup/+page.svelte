@@ -58,7 +58,6 @@
                 if (userExist !== null) {
                     hasErrorUserExist = true;
                 }
-                console.log("La requête n'a pas fonctionné");
             }
         }
     }

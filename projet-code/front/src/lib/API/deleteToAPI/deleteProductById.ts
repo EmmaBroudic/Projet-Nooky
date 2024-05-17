@@ -12,14 +12,11 @@ export async function deleteProductById(id: any): Promise<any> {
                     'Content-Type': 'application/json',
                 },
             });
-  
-            console.log('Data deleted:');
             return true;
         } catch(error) {
-            console.error('Error patching:', error);
             return false;
         }
     } else {
-        console.log('vous n\'êtes pas authorisé à effectuer cette requête');
+        return false;
     }
   }

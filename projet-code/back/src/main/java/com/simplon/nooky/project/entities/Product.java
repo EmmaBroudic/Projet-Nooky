@@ -32,19 +32,19 @@ public class Product extends EntityAbstract {
 	
 	@ManyToOne
 	@JoinColumn(name = "category_id")
-	Category category;
+	private Category category;
 	
 	@ManyToOne
 	@JoinColumn(name = "size_id")
-	Size size;
+	private Size size;
 	
 	@ManyToOne
 	@JoinColumn(name = "type_id")
-	Type type;
+	private Type type;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	User user;
+	private User user;
 	
 	public Product() {
 	}

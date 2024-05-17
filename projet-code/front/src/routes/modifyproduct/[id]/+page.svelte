@@ -1,16 +1,19 @@
 <script lang="ts">
-    import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
+    import type { Product } from '$lib/Objects/product.ts';
     import type { Category } from '$lib/Objects/category.ts';
     import type { Type } from '$lib/Objects/type.ts';
     import type { Size } from '$lib/Objects/size.ts';
-    import { onMount } from "svelte";
-    import { patchProductById } from '$lib/API/patchToAPI/patchProductById';
-    import type { Product } from '$lib/Objects/product.ts';
-    import { getUserId } from "$lib/utils";
-    import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
-    import { goto } from "$app/navigation";
-    import '../../../assets/css/index.css';
+    import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
     import { getCategoryByLabel, getSizeByLabel, getTypeByLabel } from "$lib/API/getFromAPI/getProductsElementsByLabel";
+    import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
+    import { getUserId } from "$lib/utils";
+    import { patchProductById } from '$lib/API/patchToAPI/patchProductById';
+
+    import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
+    
+    import '../../../assets/css/index.css';
+    
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
@@ -32,8 +35,6 @@
     const productId = window.location.pathname.split('/').pop();    
 
     onMount(async () => {
-        // faire en sorte que si l'utilisateur n'est pas le propriétaire du produit,
-        // il soit rebasculé sur une page error
         if (userId != null) {
             categoryList = await getAllCategories();
             typeList = await getAllTypes();

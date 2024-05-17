@@ -17,14 +17,12 @@ export async function patchUserById(id: number, data: any): Promise<any> {
             if (!response.ok) {
                 throw new Error(`Error patching http://localhost:8080/users/id/${id}`);
             } else {
-                console.log('Data patched:');
                 return true;
             }
         } catch(error) {
-            console.error('Error patching:', error);
             return false;
         }
     } else {
-        console.log('vous n\'êtes pas authorisé à effectuer cette requête');
+        return false;
     }
   }

@@ -2,14 +2,18 @@
     import Header from '../components/Header/Header.svelte';
     import ProductsBloc from '../components/ProductsBloc/ProductsBloc.svelte';
     import Footer from '../components/Footer/Footer.svelte';
-    import '../assets/css/index.css';
-    import { onMount } from 'svelte';
+
     import type { ProductCard } from '$lib/Objects/productCard';
-    import { getAllProducts } from '$lib/API/getFromAPI/getAllProducts';
-    import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
     import type { Category } from '$lib/Objects/category.ts';
     import type { Type } from '$lib/Objects/type.ts';
     import type { Size } from '$lib/Objects/size.ts';
+
+    import { getAllProducts } from '$lib/API/getFromAPI/getAllProducts';
+    import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
+
+    import { onMount } from 'svelte';
+
+    import '../assets/css/index.css';
 
     let productList: ProductCard[] = [];
     let productListFiltered: ProductCard[] = [];
@@ -34,12 +38,11 @@
         event.preventDefault();
 
         const selectedCategoryId = parseInt((event.target as HTMLInputElement).value);
-        console.log("" + selectedCategoryId);
         
         if (selectedCategoryId !== null) {
             if (!categoryChecked.includes(selectedCategoryId)) {
                 categoryChecked.push(selectedCategoryId);
-                console.log(categoryChecked);
+
                 allProducts = false;
                 productsFiltered = true;
                 const products = await getAllProducts();
@@ -53,7 +56,6 @@
                     // productListFiltered = products;
 
                     categoryChecked.splice(index, 1);
-                    console.log(categoryChecked);
                 }
             }            
         } else {

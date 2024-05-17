@@ -2,15 +2,18 @@
     import Header from '../../../components/Header/Header.svelte';
     import InformationBloc from '../../../components/InformationBloc/InformationBloc.svelte';
     import ProductsBloc from '../../../components/ProductsBloc/ProductsBloc.svelte';
-    import type { ProductCard } from '$lib/Objects/productCard';
     import Footer from '../../../components/Footer/Footer.svelte';
+    
+    import type { ProductCard } from '$lib/Objects/productCard';
     import type { User } from '$lib/Objects/user';
-    import { onMount } from 'svelte';
     import { getUserId } from '$lib/utils';
     import { getUserById, getUserByIdBoolean } from '$lib/API/getFromAPI/getUserById';
-    import '../../../assets/css/index.css';
-    import { goto } from '$app/navigation';
     import { getAllProductsByUserId } from '$lib/API/getFromAPI/getAllProductsByUserId';
+
+    import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
+
+    import '../../../assets/css/index.css';
 
     export let user: User;
     let userId: string | null = null;
@@ -105,6 +108,7 @@
             text-align: center;
         }
     }
+    
     @media screen and (max-width: 799px) {
         h2 {
             margin-top: 50px;

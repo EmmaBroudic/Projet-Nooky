@@ -122,7 +122,6 @@ public class SpringSecurityConfig {
     @Bean
     JwtAuthenticationConverter jwtAuthenticationConverter() {
 		JwtGrantedAuthoritiesConverter authoritiesConverter = new JwtGrantedAuthoritiesConverter();
-		//authoritiesConverter.setAuthoritiesClaimName("roles");
 		authoritiesConverter.setAuthorityPrefix("");
 		JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
 		authenticationConverter
@@ -138,8 +137,4 @@ public class SpringSecurityConfig {
 		return new SecurityHelper(provider, new BCryptPasswordEncoder());
     }
 
-    /*@Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(12);
-    }*/
 }

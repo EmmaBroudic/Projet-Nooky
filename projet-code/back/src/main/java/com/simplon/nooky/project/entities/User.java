@@ -38,7 +38,7 @@ public class User extends EntityAbstract {
 	
 	@ManyToOne
 	@JoinColumn(name = "address_id")
-	Address address;
+	private Address address;
 	
 	public User() {
 	}
