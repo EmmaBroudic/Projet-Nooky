@@ -1,3 +1,5 @@
+import { goto } from "$app/navigation";
+
 export async function fetchData(url: string): Promise<any> {
     try {
       const response = await fetch(url);
@@ -69,11 +71,21 @@ export function saveUserId(userId: any) {
   localStorage.setItem('userId', userId);
 }
 
-export function getUserId() {
+export function getUserId(): any {
   return localStorage.getItem('userId');
 }
 
 export function clearUserId() {
   localStorage.removeItem('userId');
   localStorage.removeItem('token');
+}
+
+export function tokenBoolean(): boolean {
+  const token = localStorage.getItem("token");
+  
+  if (token === null) {
+    return false;
+  } else {
+    return true;
+  }
 }

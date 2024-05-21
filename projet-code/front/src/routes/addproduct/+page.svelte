@@ -4,7 +4,7 @@
     import type { Size } from '$lib/Objects/size.ts';
     import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
     import { postProduct } from '$lib/API/postToAPI/postProduct';
-    import { getUserId } from "$lib/utils";
+    import { getUserId, tokenBoolean } from "$lib/utils";
     
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
@@ -29,13 +29,26 @@
     let inputFourUser: string;
     
     onMount(async () => {
-        if (userId != null) {
+        
+        let token: boolean;
+        token = tokenBoolean();
+        console.log(token);
+
+        if (token === false) {
+            goto("/error");
+        } else {
+            categoryList = await getAllCategories();
+            typeList = await getAllTypes();
+            sizeList = await getAllSizes();
+        }
+
+        /*if (userId != null) {
             categoryList = await getAllCategories();
             typeList = await getAllTypes();
             sizeList = await getAllSizes();
         } else {
             goto("/error");
-        }
+        }*/
     });
 
     function handleSubmit(event: Event) {

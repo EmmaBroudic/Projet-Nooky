@@ -15,9 +15,11 @@
 
     export let product: Product;
     let userId: string | null = null;
-    const productId = window.location.pathname.split('/').pop();
+    export let productId: string | undefined;
 
     onMount(async () => {
+        productId = window.location.pathname.split('/').pop() || undefined;
+
         if (await getProductByIdBoolean(productId) === false) {
             goto("/error");
         } else {
@@ -27,6 +29,8 @@
     });
 
     function deleteProduct() {
+        productId = window.location.pathname.split('/').pop() || undefined;
+
         deleteProductById(productId);
         goto("/account/"+userId);
     }

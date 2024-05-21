@@ -6,20 +6,21 @@
     import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
     import { getCategoryByLabel, getSizeByLabel, getTypeByLabel } from "$lib/API/getFromAPI/getProductsElementsByLabel";
     import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
-    import { getUserId } from "$lib/utils";
+    import { getUserId, tokenBoolean } from "$lib/utils";
     import { patchProductById } from '$lib/API/patchToAPI/patchProductById';
 
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
     
     import '../../../assets/css/index.css';
-    
+
+    let userId: string | null = getUserId();
 
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
     let sizeList: Size[] = [];
-    let userId: any;
-    userId = getUserId();
+    //let userId: any;
+    //userId = getUserId();
 
     export let product: Product;
 
@@ -32,20 +33,37 @@
     export let selectedType: any;
 
     let productData: any = {};
-    const productId = window.location.pathname.split('/').pop();    
+    const productId = window.location.pathname.split('/').pop();
+    
+    
 
     onMount(async () => {
-        if (userId != null) {
+        //userId = getUserId();
+        //console.log(userId);
+        /*if (userId === null) {
+            goto("/error");
+            return;
+        }*/
+
+        let token: boolean;
+        token = tokenBoolean();
+        console.log(token);
+
+        if (token === false) {
+            goto("/error");
+        }
+
+
+        //if (userId != null) {
             categoryList = await getAllCategories();
             typeList = await getAllTypes();
             sizeList = await getAllSizes();
 
-            userId = getUserId();
             if (await getProductByIdBoolean(productId) === false) {
                 goto("/error");
             } else {
                 product = await getProductById(productId);
-                userId = getUserId();
+                //userId = getUserId();
                 inputOneUser = product.name;
                 inputTwoUser = product.description;
                 inputThreeUser = product.picture;
@@ -54,9 +72,9 @@
                 selectedType = product.type;
                 selectedSize = product.size;
             }
-        } else {
+        /*} else {
             goto("/error");
-        }
+        }*/
     });
 
     async function handleSubmit(event: Event) {
