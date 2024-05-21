@@ -34,14 +34,19 @@ public class ProductService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	private static int productCounter = 0; 
 
 	public void createProduct(CreateProduct productCreation) {
-		
 		Product product = new Product();
 		
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		
-		String productRef = "PROD" + String.valueOf(timestamp);
+		synchronized (ProductService.class) {
+            productCounter++;
+        }
+		
+		String productRef = "PROD_" + productCounter;
 		
 		product.setName(productCreation.getName());
 		product.setReference(productRef);

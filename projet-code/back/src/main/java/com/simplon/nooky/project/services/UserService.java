@@ -66,6 +66,7 @@ public class UserService {
     	String rawPassword = authUser.getPassword();
 
     	// passer User en Optional<>
+    
     	User user = userRepository.findUserByEmail(authUser.getEmail());
     	
     	String encodedPassword = user.getPassword();
