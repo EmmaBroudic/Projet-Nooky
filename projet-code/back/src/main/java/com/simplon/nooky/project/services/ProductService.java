@@ -35,7 +35,7 @@ public class ProductService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	private static int productCounter = 0; 
+	private static int productCounter = 0;
 
 	public void createProduct(CreateProduct productCreation) {
 		Product product = new Product();
