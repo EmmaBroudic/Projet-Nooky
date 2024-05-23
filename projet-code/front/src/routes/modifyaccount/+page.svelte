@@ -94,35 +94,37 @@
     }
 </script>
 
-<form class="connect" on:submit={handleSubmit}>
+{#if userId}
+    <form class="connect" on:submit={handleSubmit}>
+            
+        <h2>Modify account</h2>
         
-    <h2>Modify account</h2>
-    
-    <input bind:value={inputOneUser} type="username" placeholder="Entrez votre nom d'utilisateur" required>
-    <input bind:value={inputTwoUser} type="email" placeholder="Entrez votre email" required>
-    <input bind:value={inputThreeUser} type="firstname" placeholder="Entrez votre prénom" required>
-    <input bind:value={inputFourUser} type="lastname" placeholder="Entrez votre nom de famille" required>
-    <input bind:value={inputNineUser} type="picture" placeholder="Ajoutez l'url d'une image" required>
-    <input bind:value={inputFiveUser} type="description" placeholder="Entrez une description" required>
-    <input bind:value={inputSixUser} type="road" placeholder="Entrez votre numéro et rue" required>
-    <input bind:value={inputEightUser} type="text" placeholder="Entrez votre code postal" required>
-    <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville" required>
+        <input bind:value={inputOneUser} type="username" placeholder="Entrez votre nom d'utilisateur" required>
+        <input bind:value={inputTwoUser} type="email" placeholder="Entrez votre email" required>
+        <input bind:value={inputThreeUser} type="firstname" placeholder="Entrez votre prénom" required>
+        <input bind:value={inputFourUser} type="lastname" placeholder="Entrez votre nom de famille" required>
+        <input bind:value={inputNineUser} type="picture" placeholder="Ajoutez l'url d'une image" required>
+        <input bind:value={inputFiveUser} type="description" placeholder="Entrez une description" required>
+        <input bind:value={inputSixUser} type="road" placeholder="Entrez votre numéro et rue" required>
+        <input bind:value={inputEightUser} type="text" placeholder="Entrez votre code postal" required>
+        <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville" required>
 
-    <button class="modify" type="submit">Valider</button>
-    <p><a href="/account/{userId}">Retour</a></p>
+        <button class="modify" type="submit">Valider</button>
+        <p><a href="/account/{userId}">Retour</a></p>
 
-    {#if hasErrorEmail === true}
-        <p class="error-message">{errorEmail}</p>
-    {/if}
-
-    {#if hasErrorZipCode === true}
-        <p class="error-message">{errorZipCode}</p>
-    {/if}
-
-    {#if hasError === true}
-        <p class="error-message">{errorMessageVisible}</p>
-        {#if hasErrorUserExist === true}
-            <p class="error-message">{errorUserExist}</p>
+        {#if hasErrorEmail === true}
+            <p class="error-message">{errorEmail}</p>
         {/if}
-    {/if}
-</form>
+
+        {#if hasErrorZipCode === true}
+            <p class="error-message">{errorZipCode}</p>
+        {/if}
+
+        {#if hasError === true}
+            <p class="error-message">{errorMessageVisible}</p>
+            {#if hasErrorUserExist === true}
+                <p class="error-message">{errorUserExist}</p>
+            {/if}
+        {/if}
+    </form>
+{/if}

@@ -104,6 +104,7 @@
     }
 </style>
 
+{#if userId}
 <div id="add-product">
     <h2>Modifier un produit</h2>
 
@@ -132,3 +133,4 @@
         <p><a href="/account/{userId}">Retour</a></p>
     </form>
 </div>
+{/if}

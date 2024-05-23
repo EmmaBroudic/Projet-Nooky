@@ -4,6 +4,7 @@
     import '../../assets/css/index.css';
     import { clearUserId, getUserId } from '$lib/utils';
     import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
 
     let userId: any;
     onMount(() => {
@@ -212,7 +213,7 @@
         <div class="header-right">
             <nav>
                 <a href="/" class:menu-left={true}>Home</a>
-                <a href="/account/{userId}/" class:menu-left={true}>Mon compte</a>
+                <a href="/myaccount/{userId}/" class:menu-left={true}>Mon compte</a>
                 <a href="/signin" class:menu-right={true} on:click={() => clearStorage()}>Log out</a>
             </nav>
             <Search />

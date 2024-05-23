@@ -126,9 +126,9 @@
     
 </style>
 
-<Header />
-<div id="bloc-product">
-    {#if product}
+{#if product}
+    <Header />
+    <div id="bloc-product">
         <InformationBloc
         blocTitle={product.name}
         imgUrl={product.picture}
@@ -139,18 +139,19 @@
         infoFour= {"Proposé par : " + product.usernameOwner}
         infoSix= {"/account/"+ product.ownerId}
         infoFive= {"Produit ajouté au vestiaire le : " + product.addedAt}/>
-    {/if}
-    {#if userId !== null}
-        <div id="wishlist">
-            <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
-            {#if product.ownerId != userId}
-                <button class="modify">Faire une proposition d'échange</button>
-            {/if}
-            {#if product.ownerId == userId}
-                <button class="modify"><a href="/modifyproduct/{productId}">Modifier la fiche produit</a></button>
-                <button on:click={deleteProduct} id="supp">Supprimer le produit</button>
-            {/if}
-        </div>
-    {/if}
-</div>
-<Footer />
+        
+        {#if userId !== null}
+            <div id="wishlist">
+                <p>J'aimerais échanger ce produit contre : {product.wishlist}</p>
+                {#if product.ownerId != userId}
+                    <button class="modify">Faire une proposition d'échange</button>
+                {/if}
+                {#if product.ownerId == userId}
+                    <button class="modify"><a href="/modifyproduct/{productId}">Modifier la fiche produit</a></button>
+                    <button on:click={deleteProduct} id="supp">Supprimer le produit</button>
+                {/if}
+            </div>
+        {/if}
+    </div>
+    <Footer />
+{/if}

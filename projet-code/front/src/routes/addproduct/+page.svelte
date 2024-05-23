@@ -72,31 +72,33 @@
     }
 </style>
 
-<div id="add-product">
-    <h2>Ajouter un produit</h2>
+{#if userId}
+    <div id="add-product">
+        <h2>Ajouter un produit</h2>
 
-    <form on:submit={handleSubmit}>
-        <input bind:value={inputOneUser} type="text" placeholder="Entrez le nom du produit">
-        <input bind:value={inputTwoUser} type="text" placeholder="Entrez la description du produit">
-        <input bind:value={inputThreeUser} type="text" placeholder="Entrez l'url de l'image">
-        <input bind:value={inputFourUser} type="text" placeholder="Produits souhaités en échange">
+        <form on:submit={handleSubmit}>
+            <input bind:value={inputOneUser} type="text" placeholder="Entrez le nom du produit">
+            <input bind:value={inputTwoUser} type="text" placeholder="Entrez la description du produit">
+            <input bind:value={inputThreeUser} type="text" placeholder="Entrez l'url de l'image">
+            <input bind:value={inputFourUser} type="text" placeholder="Produits souhaités en échange">
 
-        <select name="category" bind:value={selectedCategory}>
-            {#each categoryList as item (item.id)}
-                <option value={item.id}>{item.label}</option>
-            {/each}
-        </select>
-        <select name="size"  bind:value={selectedSize}>
-            {#each sizeList as item (item.id)}
-                <option value={item.id}>{item.label}</option>
-            {/each}
-        </select>
-        <select name="type" bind:value={selectedType}>
-            {#each typeList as item (item.id)}
-                <option value={item.id}>{item.label}</option>
-            {/each}
-        </select>
-        <button class="add" type="submit">Valider</button>
-        <p><a href="/account/{userId}">Retour</a></p>
-    </form>
-</div>
+            <select name="category" bind:value={selectedCategory}>
+                {#each categoryList as item (item.id)}
+                    <option value={item.id}>{item.label}</option>
+                {/each}
+            </select>
+            <select name="size"  bind:value={selectedSize}>
+                {#each sizeList as item (item.id)}
+                    <option value={item.id}>{item.label}</option>
+                {/each}
+            </select>
+            <select name="type" bind:value={selectedType}>
+                {#each typeList as item (item.id)}
+                    <option value={item.id}>{item.label}</option>
+                {/each}
+            </select>
+            <button class="add" type="submit">Valider</button>
+            <p><a href="/account/{userId}">Retour</a></p>
+        </form>
+    </div>
+{/if}
