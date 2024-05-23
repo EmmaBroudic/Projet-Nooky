@@ -6,7 +6,7 @@
     import { getAllCategories, getAllSizes, getAllTypes } from "$lib/API/getFromAPI/getAllReferantialData";
     import { getCategoryByLabel, getSizeByLabel, getTypeByLabel } from "$lib/API/getFromAPI/getProductsElementsByLabel";
     import { getProductById, getProductByIdBoolean } from '$lib/API/getFromAPI/getProductById';
-    import { getUserId, tokenBoolean } from "$lib/utils";
+    import { getUserId } from "$lib/utils";
     import { patchProductById } from '$lib/API/patchToAPI/patchProductById';
 
     import { onMount } from "svelte";
@@ -14,13 +14,11 @@
     
     import '../../../assets/css/index.css';
 
-    let userId: string | null = getUserId();
-
     let categoryList: Category[] = [];
     let typeList: Type[] = [];
     let sizeList: Size[] = [];
-    //let userId: any;
-    //userId = getUserId();
+    
+    let userId: any;
 
     export let product: Product;
 
@@ -33,28 +31,16 @@
     export let selectedType: any;
 
     let productData: any = {};
-    const productId = window.location.pathname.split('/').pop();
-    
-    
+
+    export let productId: string | undefined;
 
     onMount(async () => {
-        //userId = getUserId();
-        //console.log(userId);
-        /*if (userId === null) {
+        userId = getUserId();
+        productId = window.location.pathname.split('/').pop() || undefined;
+
+        if (userId === null) {
             goto("/error");
-            return;
-        }*/
-
-        let token: boolean;
-        token = tokenBoolean();
-        console.log(token);
-
-        if (token === false) {
-            goto("/error");
-        }
-
-
-        //if (userId != null) {
+        } else {
             categoryList = await getAllCategories();
             typeList = await getAllTypes();
             sizeList = await getAllSizes();
@@ -63,18 +49,20 @@
                 goto("/error");
             } else {
                 product = await getProductById(productId);
-                //userId = getUserId();
-                inputOneUser = product.name;
-                inputTwoUser = product.description;
-                inputThreeUser = product.picture;
-                inputFourUser = product.wishlist;
-                selectedCategory = product.category;
-                selectedType = product.type;
-                selectedSize = product.size;
+
+                if (product.ownerId !== Number(userId)) {
+                    goto("/error");
+                } else {
+                    inputOneUser = product.name;
+                    inputTwoUser = product.description;
+                    inputThreeUser = product.picture;
+                    inputFourUser = product.wishlist;
+                    selectedCategory = product.category;
+                    selectedType = product.type;
+                    selectedSize = product.size;
+                }
             }
-        /*} else {
-            goto("/error");
-        }*/
+        }
     });
 
     async function handleSubmit(event: Event) {

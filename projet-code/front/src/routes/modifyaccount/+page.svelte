@@ -10,7 +10,7 @@
 
     import '../../assets/css/index.css';
 
-    export let userId: any | null = getUserId();
+    export let userId: any;
 
     export let user: User;
 
@@ -42,7 +42,9 @@
     const zipCodeRegex = /^[0-9]{5}$/;
 
     onMount(async () => {
-        if (userId === undefined) {
+        userId = getUserId();
+
+        if (userId === null) {
             goto("/error");
         } else {
             user = await getUserById(userId);

@@ -79,13 +79,3 @@ export function clearUserId() {
   localStorage.removeItem('userId');
   localStorage.removeItem('token');
 }
-
-export function tokenBoolean(): boolean {
-  const token = localStorage.getItem("token");
-  
-  if (token === null) {
-    return false;
-  } else {
-    return true;
-  }
-}
