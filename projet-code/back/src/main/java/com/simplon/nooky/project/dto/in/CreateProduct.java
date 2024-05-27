@@ -1,6 +1,7 @@
 package com.simplon.nooky.project.dto.in;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public class CreateProduct {
@@ -22,9 +23,11 @@ public class CreateProduct {
 	private String wishlist;
 	
 	@NotNull
+	@Positive
 	private Long categoryId;
 	
 	@NotNull
+	@Positive
 	private Long sizeId;
 	
 	@NotNull

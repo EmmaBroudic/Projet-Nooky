@@ -2,6 +2,7 @@ package com.simplon.nooky.project.dto.in;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public class ModifyUser {
@@ -27,6 +28,7 @@ public class ModifyUser {
 	private String lastname;
 	
 	@NotNull
+	@Positive
 	private Long addressId;
 	
 	@NotNull

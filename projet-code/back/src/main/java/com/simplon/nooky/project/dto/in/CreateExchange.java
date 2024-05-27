@@ -1,17 +1,32 @@
 package com.simplon.nooky.project.dto.in;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 public class CreateExchange {
 	
+	@NotNull
+	@Positive
 	private Long ownerId;
 	
+	@NotNull
+	@Positive
 	private Long exchangerId;
 	
+	@NotNull
+	@Positive
 	private Long productOfferedId;
 	
+	@NotNull
+	@Positive
 	private Long productExchangedId;
 	
+	@NotNull
+	@Positive
 	private Long statusProdOfferedId;
 	
+	@NotNull
+	@Positive
 	private Long statusProdExchangedId;
 	
 	public CreateExchange() {

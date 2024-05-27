@@ -32,7 +32,7 @@
         productId = window.location.pathname.split('/').pop() || undefined;
 
         deleteProductById(productId);
-        goto("/account/"+userId);
+        goto("/myaccount/"+userId);
     }
 </script>
 

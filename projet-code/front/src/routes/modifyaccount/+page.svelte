@@ -82,7 +82,7 @@
             submitted = await patchUserById(userId, userData);
 
             if (submitted === true) {
-                goto("/account/"+userId);
+                goto("/myaccount/"+userId);
             } else {
                 hasError = true;
                 const userExist = await getUserByEmail(inputTwoUser);
@@ -110,7 +110,7 @@
         <input bind:value={inputSevenUser} type="city" placeholder="Entrez votre ville" required>
 
         <button class="modify" type="submit">Valider</button>
-        <p><a href="/account/{userId}">Retour</a></p>
+        <p><a href="/myaccount/{userId}">Retour</a></p>
 
         {#if hasErrorEmail === true}
             <p class="error-message">{errorEmail}</p>

@@ -86,7 +86,7 @@
         console.log(productData);
         patchProductById(productId, productData);
 
-        goto("/account/"+userId);
+        goto("/myaccount/"+userId);
     }
 </script>
 
@@ -130,7 +130,7 @@
             {/each}
         </select>
         <button class="add" type="submit">Valider</button>
-        <p><a href="/account/{userId}">Retour</a></p>
+        <p><a href="/myaccount/{userId}">Retour</a></p>
     </form>
 </div>
 {/if}
