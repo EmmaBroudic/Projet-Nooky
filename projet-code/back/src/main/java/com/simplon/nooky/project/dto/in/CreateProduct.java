@@ -31,9 +31,11 @@ public class CreateProduct {
 	private Long sizeId;
 	
 	@NotNull
+	@Positive
 	private Long typeId;
 	
 	@NotNull
+	@Positive
 	private Long userId;
 	
 	public CreateProduct() {
