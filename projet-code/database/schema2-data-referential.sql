@@ -106,4 +106,5 @@ INSERT INTO status (code, description) VALUES
 ('COD4', 'Echange annulé'),
 ('COD5', 'Le produit est à envoyer'),
 ('COD6', 'Le produit est en cours de livraison'),
-('COD7', 'Le produit a bien été réceptionné');
+('COD7', 'Le produit a bien été réceptionné'),
+('COD8', 'Produit non-reçu');;
